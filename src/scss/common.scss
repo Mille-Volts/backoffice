@@ -1,0 +1,19 @@
+/* theme color */
+$--color-primary: #288ff7;
+$--color-secondary: #0a3556;
+$--color-background: #f1f4f6;
+$--color-menu: $--color-secondary;
+
+$--background-color-base: $--color-background;
+$--border-color-base: #dcdfe6;
+
+$--card-border-radius: 2px;
+$--card-border-color: $--border-color-base;
+$--card-padding: 30px;
+
+$--font-stack-default: "Titillium Web", Helvetica, Arial, sans-serif;
+
+/* icon font path, required */
+$--font-path: "~element-ui/lib/theme-chalk/fonts";
+
+@import "~element-ui/packages/theme-chalk/src/common/var";

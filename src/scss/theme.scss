@@ -1,0 +1,20 @@
+@import "./common.scss";
+
+@import "~element-ui/packages/theme-chalk/src/reset";
+@import "~element-ui/packages/theme-chalk/src/index";
+
+body {
+  background: $--color-background;
+  display: flex;
+  font-family: $--font-stack-default;
+  font-weight: normal;
+  min-height: 100vh;
+}
+
+hr {
+  border: 0;
+  border-bottom: 1px solid $--card-border-color;
+  margin: 30px 0;
+}
+
+@import "./typography.scss";
