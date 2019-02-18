@@ -14,7 +14,7 @@
           <div v-if="$slots.actions" class="actions">
             <slot name="actions"></slot>
           </div>
-          <div v-if="$slots.tabs || tabs" class="tabs">
+          <div v-if="$slots.tabs || tabs" class="tabs">
             <slot name="tabs">
               <el-tabs class="content-tabs" :value="tabActive" @tab-click="onTabChange">
                 <el-tab-pane
@@ -66,20 +66,24 @@ export default {
 }
 .el-header {
   background: $--color-white;
+  .content {
+    padding: 30px 0;
+    overflow: hidden;
+  }
   .breadcrumb {
-    margin: 15px 0;
+    margin: -15px 0 15px 0;
   }
   .title {
     float: left;
-    margin: 30px 0;
+    margin: 15px 0;
   }
   .actions {
     float: right;
-    margin: 30px 0;
+    margin: 15px 0;
   }
   .tabs {
     clear: both;
-    margin-top: 15px;
+    margin: 15px 0 -30px 0;
   }
 }
 .content {

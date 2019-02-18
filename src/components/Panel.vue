@@ -1,11 +1,11 @@
 <template>
   <el-container>
-    <el-header height="auto">
+    <el-header v-if="$slots.header || $slots.actions || title" height="auto">
       <slot name="header">
-        <span class="title">
-          <h3 v-if="title" v-text="title"></h3>
+        <span v-if="title" class="title">
+          <h3 v-text="title"></h3>
         </span>
-        <span class="actions">
+        <span v-if="$slots.actions" class="actions">
           <slot name="actions"></slot>
         </span>
       </slot>
