@@ -13,7 +13,7 @@
         v-if="!noHeader"
         height="auto"
         v-sticky
-        :sticky-z-index="9000"
+        :sticky-z-index="2000"
         :sticky-offset="{top: application.layout === 'horizontal'? 44: 0}"
       >
         <div class="content">

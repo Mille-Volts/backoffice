@@ -17,7 +17,7 @@
         </div>
         <div class="user"></div>
       </div>
-      <div class="menu" v-sticky :sticky-z-index="9001" :sticky-offset="0">
+      <div class="menu" v-sticky :sticky-z-index="2001" :sticky-offset="0">
         <slot name="menu"></slot>
       </div>
     </el-header>
