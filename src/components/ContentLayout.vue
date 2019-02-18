@@ -2,12 +2,13 @@
   <component
     :is="form? 'mv-form': 'div'"
     class="parent-container"
+    :class="`parent-container--${application.layout}`"
     :model="form"
     v-bind="$attrs"
     v-on="$listeners"
   >
     <el-container>
-      <el-header v-if="!noHeader" height="auto">
+      <el-header ref="header" v-if="!noHeader" height="auto" v-sticky :sticky-z-index="9000">
         <div class="content">
           <slot name="header">
             <div v-if="breadcrumb.length" class="breadcrumb">
@@ -30,14 +31,14 @@
             <div v-if="$slots.actions" class="actions">
               <slot name="actions"></slot>
             </div>
-            <div v-if="$slots.tabs || tabs" class="tabs">
+            <div v-if="$slots.tabs || (groups && groups.length > 1)" class="tabs">
               <slot name="tabs">
-                <el-tabs class="content-tabs" :value="tabActive" @tab-click="onTabChange">
+                <el-tabs class="content-tabs" v-model="tabActive">
                   <el-tab-pane
-                    v-for="(label, name) in tabs"
+                    v-for="{label, name} in tabs"
                     :key="name"
-                    :label="label.label || label"
-                    :name="label.name || name"
+                    :label="label"
+                    :name="name"
                   ></el-tab-pane>
                 </el-tabs>
               </slot>
@@ -45,7 +46,7 @@
           </slot>
         </div>
       </el-header>
-      <el-main>
+      <el-main ref="main">
         <div class="content">
           <slot></slot>
         </div>
@@ -62,20 +63,27 @@
 </template>
 
 <script>
+import VueScrollTo from "vue-scrollto";
+
 export default {
   name: "ContentLayout",
   inject: ["application"],
+  provide() {
+    return {
+      content: this
+    };
+  },
   props: {
     title: String,
-    tabs: [Array, Object] /* { label: String, value: String } */,
-    tabActive: String,
     noHeader: Boolean,
+    tabScroll: Boolean,
     form: Object
   },
-  methods: {
-    onTabChange(tab) {
-      this.$emit("tab-change", tab);
-    }
+  data() {
+    return {
+      groups: [],
+      tabActive: "0"
+    };
   },
   computed: {
     breadcrumb() {
@@ -83,6 +91,67 @@ export default {
     },
     pageTitle() {
       return this.title || (this.$route.label || this.$route.name);
+    },
+    tabs() {
+      return this.groups.map(({ title: label }, index) => ({
+        label,
+        name: "" + index
+      }));
+    }
+  },
+  watch: {
+    tabActive(newTabStr, oldTabStr) {
+      const newTab = parseInt(newTabStr, 10);
+      const oldTab = parseInt(oldTabStr, 10);
+      if (this.tabScroll) {
+        VueScrollTo.scrollTo(this.groups[newTab].$el, 350, {
+          offset: (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30
+        });
+      } else {
+        this.groups[oldTab].$emit("hide");
+        this.groups[newTab].$emit("show");
+        VueScrollTo.scrollTo(this.$refs.header.$el, 150);
+      }
+      this.$emit("set-group", this.groups[newTab]);
+    },
+    tabScroll(newValue, oldValue) {
+      if (newValue === oldValue) return;
+      if (newValue) {
+        this.groups.forEach(group => group.$emit("show"));
+        window.setTimeout(() => {
+          VueScrollTo.scrollTo(
+            this.groups[parseInt(this.tabActive, 10)].$el,
+            350,
+            {
+              offset:
+                (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30
+            }
+          );
+        }, 50);
+      } else {
+        this.groups.forEach((group, index) =>
+          group.$emit(index === parseInt(this.tabActive) ? "show" : "hide")
+        );
+        VueScrollTo.scrollTo(this.$refs.header.$el, 150);
+      }
+    }
+  },
+  created() {
+    this.$on("add-group", this.addGroup);
+    this.$on("remove-group", this.removeGroup);
+  },
+  methods: {
+    addGroup(group) {
+      if (
+        !this.tabScroll &&
+        this.groups.length !== parseInt(this.tabActive, 10)
+      ) {
+        group.$emit("hide");
+      }
+      this.groups.push(group);
+    },
+    removeGroup(group) {
+      this.groups.splice(this.groups.indexOf(group), 1);
     }
   }
 };
@@ -129,6 +198,12 @@ export default {
   padding: 0 30px;
   .actions {
     text-align: right;
+  }
+}
+.parent-container--vertical {
+  .el-header {
+  }
+  .el-main {
   }
 }
 </style>

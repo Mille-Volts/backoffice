@@ -1,5 +1,6 @@
 //https://medium.com/justfrontendthings/how-to-create-and-publish-your-own-vuejs-component-library-on-npm-using-vue-cli-28e60943eed3
 //import Vue from "vue";
+import Sticky from "vue-sticky-directive";
 import Element, { Row, Col } from "element-ui";
 
 import Application from "./Application.vue";
@@ -16,6 +17,8 @@ import Panel from "./Panel.vue";
 export default {
   install: function(Vue) {
     Vue.use(Element);
+    Vue.use(Sticky);
+
     Vue.component("row", Row);
     Vue.component("column", Col);
 

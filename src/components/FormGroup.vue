@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container v-if="!hide" class="form-group">
     <el-aside width="240px">
       <slot name="header">
         <h2 v-if="title" v-text="title"></h2>
@@ -16,14 +16,36 @@
 export default {
   name: "FormGroup",
   props: ["title"],
-  computed: {}
+  inject: ["content"],
+  data() {
+    return { hide: false };
+  },
+  created() {
+    this.$on("hide", function() {
+      this.hide = true;
+    });
+    this.$on("show", function() {
+      this.hide = false;
+    });
+  },
+  mounted() {
+    if (this.content) {
+      this.content.$emit("add-group", this);
+    }
+  },
+  beforeDestroy() {
+    if (this.content) {
+      this.content.$emit("remove-group", this);
+    }
+  }
 };
 </script>
 
 <style scoped lang="scss">
 @import "@/scss/common.scss";
 
-.el-container {
+.form-group + .form-group {
+  margin-top: 30px;
 }
 .el-aside {
   padding: 15px 0;

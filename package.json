@@ -24,6 +24,8 @@
     "element-ui": "^2.5.4",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
+    "vue-scrollto": "^2.13.0",
+    "vue-sticky-directive": "0.0.8",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
