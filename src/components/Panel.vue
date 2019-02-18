@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header v-if="$slots.header || $slots.actions || title" height="auto">
+    <el-header v-if="$slots.header || $slots.actions || title" height="auto">
       <slot name="header">
         <span v-if="title" class="title">
           <h3 v-text="title"></h3>

@@ -1,14 +1,12 @@
 import Vue from "vue";
-import Element, { Row, Col } from "element-ui";
 import "./scss/theme.scss";
 
+import Components from "./components/index";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-Vue.use(Element);
-Vue.component("row", Row);
-Vue.component("column", Col);
+Vue.use(Components);
 
 Vue.config.productionTip = false;
 

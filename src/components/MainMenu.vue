@@ -28,7 +28,7 @@
 
 <script>
 export default {
-  name: "Menu",
+  name: "MainMenu",
   inject: ["application"],
   props: {
     routes: Array

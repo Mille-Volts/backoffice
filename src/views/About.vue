@@ -8,8 +8,8 @@
       </el-breadcrumb>
     </template>
     <template v-slot:actions>
-      <btn ghost>Annuler</btn>
-      <btn success>Enregistrer</btn>
+      <mv-button ghost>Annuler</mv-button>
+      <mv-button success>Enregistrer</mv-button>
     </template>
     <mv-form ref="form" :model="form">
       <form-group title="Mon groupe de champs">
@@ -45,8 +45,8 @@
             </row>
           </el-form-item>
           <el-button @click="form.radio = 2">Set 2</el-button>
-          <btn primary>Primaire</btn>
-          <btn secondary>Secondaire</btn>
+          <mv-button primary>Primaire</mv-button>
+          <mv-button secondary>Secondaire</mv-button>
         </panel>
       </form-group>
     </mv-form>
@@ -54,24 +54,7 @@
 </template>
 
 <script>
-import Panel from "@/components/Panel.vue";
-import ContentLayout from "@/components/ContentLayout.vue";
-import Btn from "@/components/Button.vue";
-import MvForm from "@/components/Form.vue";
-import FormGroup from "@/components/FormGroup.vue";
-import FormRow from "@/components/FormRow.vue";
-import FormColumn from "@/components/FormColumn.vue";
-
 export default {
-  components: {
-    Panel,
-    ContentLayout,
-    MvForm,
-    FormGroup,
-    FormRow,
-    FormColumn,
-    Btn
-  },
   data() {
     return {
       tabs: { tab1: "Onglet 1", tab2: "Onglet 2", tab3: "Onglet 3" },

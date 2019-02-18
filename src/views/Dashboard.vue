@@ -25,15 +25,8 @@
 </template>
 
 <script>
-import Panel from "@/components/Panel.vue";
-import ContentLayout from "@/components/ContentLayout.vue";
-
 export default {
   name: "dashboard",
-  inject: ["application"],
-  components: {
-    Panel,
-    ContentLayout
-  }
+  inject: ["application"]
 };
 </script>

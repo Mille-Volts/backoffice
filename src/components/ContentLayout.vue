@@ -6,7 +6,7 @@
           <div v-if="$slots.breadcrumb" class="breadcrumb">
             <slot name="breadcrumb"></slot>
           </div>
-          <div v-if="$slots.title || title" class="title">
+          <div v-if="$slots.title || title" class="title">
             <slot name="title">
               <h1 v-text="title"></h1>
             </slot>
