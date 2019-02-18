@@ -11,10 +11,29 @@ body {
   min-height: 100vh;
 }
 
+form,
+button,
+input,
+textarea,
+select,
+table {
+  font-family: $--font-stack-default;
+}
+
 hr {
   border: 0;
   border-bottom: 1px solid $--card-border-color;
   margin: 15px 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.el-radio {
+  line-height: 20px;
+  padding: 10px 0;
 }
 
 @import "./typography.scss";

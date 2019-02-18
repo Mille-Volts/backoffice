@@ -1,5 +1,11 @@
 <template>
-  <el-button :plain="plain" :type="type" v-bind="$attrs" v-on="$listeners">
+  <el-button
+    :plain="plain"
+    :type="computedType"
+    :native-type="type"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
     <slot></slot>
   </el-button>
 </template>
@@ -7,21 +13,22 @@
 <script>
 export default {
   name: "Button",
-  props: [
-    "primary",
-    "secondary",
-    "ghost",
-    "text",
-    "success",
-    "warning",
-    "danger"
-  ],
+  props: {
+    primary: Boolean,
+    secondary: Boolean,
+    ghost: Boolean,
+    text: Boolean,
+    success: Boolean,
+    warning: Boolean,
+    danger: Boolean,
+    type: String
+  },
   computed: {
     plain() {
-      return this.secondary === "" || this.ghost === "";
+      return this.secondary || this.ghost;
     },
-    type() {
-      switch ("") {
+    computedType() {
+      switch (true) {
         case this.primary:
           return "primary";
         case this.secondary:
@@ -43,3 +50,12 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+@import "@/scss/common.scss";
+
+.el-button {
+  font-family: $--font-stack-default;
+  font-weight: 600;
+}
+</style>

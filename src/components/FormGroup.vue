@@ -26,9 +26,9 @@ export default {
 .el-container {
 }
 .el-aside {
-  padding: 40px 0;
+  padding: 15px 0;
 }
 .el-main {
-  padding-right: 0;
+  padding: 0 0 0 30px;
 }
 </style>

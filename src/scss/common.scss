@@ -1,8 +1,11 @@
 /* theme color */
 $--color-primary: #288ff7;
 $--color-secondary: #0a3556;
+$--color-secondary-dark: darken($--color-secondary, 5%);
+$--color-secondary-darker: darken($--color-secondary, 10%);
 $--color-background: #f1f4f6;
 $--color-menu: $--color-secondary;
+$--color-success: #72ad19;
 
 $--background-color-base: $--color-background;
 $--border-color-base: #dcdfe6;
@@ -10,6 +13,10 @@ $--border-color-base: #dcdfe6;
 $--card-border-radius: 2px;
 $--card-border-color: $--border-color-base;
 $--card-padding: 30px;
+
+$--menu-item-color: #d0d5de;
+$--menu-item-fill: $--color-secondary-dark;
+$--menu-item-hover-fill: $--color-secondary-darker;
 
 $--font-stack-default: "Titillium Web", Helvetica, Arial, sans-serif;
 
