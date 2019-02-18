@@ -2,7 +2,7 @@
   "name": "@millevolts/backoffice",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/millevolts-backoffice.common.js",
+  "main": "dist/millevolts-backoffice.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
