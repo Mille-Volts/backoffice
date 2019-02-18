@@ -7,8 +7,15 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <el-container>
-      <el-header ref="header" v-if="!noHeader" height="auto" v-sticky :sticky-z-index="9000">
+    <el-container sticky-container>
+      <el-header
+        ref="header"
+        v-if="!noHeader"
+        height="auto"
+        v-sticky
+        :sticky-z-index="9000"
+        :sticky-offset="{top: application.layout === 'horizontal'? 44: 0}"
+      >
         <div class="content">
           <slot name="header">
             <div v-if="breadcrumb.length" class="breadcrumb">
@@ -104,12 +111,17 @@ export default {
       const newTab = parseInt(newTabStr, 10);
       const oldTab = parseInt(oldTabStr, 10);
       if (this.tabScroll) {
-        VueScrollTo.scrollTo(this.groups[newTab].$el, 350, {
-          offset: (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30
-        });
+        VueScrollTo.scrollTo(
+          (this.groups[newTab] || this.$refs.header).$el,
+          350,
+          {
+            offset:
+              (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30
+          }
+        );
       } else {
-        this.groups[oldTab].$emit("hide");
-        this.groups[newTab].$emit("show");
+        if (this.groups[oldTab]) this.groups[oldTab].$emit("hide");
+        if (this.groups[newTab]) this.groups[newTab].$emit("show");
         VueScrollTo.scrollTo(this.$refs.header.$el, 150);
       }
       this.$emit("set-group", this.groups[newTab]);

@@ -1,5 +1,9 @@
 <template>
-  <el-container :direction="application.layout === 'horizontal'? 'vertical': 'horizontal'">
+  <el-container
+    :direction="application.layout === 'horizontal'? 'vertical': 'horizontal'"
+    :class="`page-container--${application.layout}`"
+    sticky-container
+  >
     <el-header height="120px" v-if="application.layout === 'horizontal'">
       <div class="top">
         <div class="logo"></div>
@@ -13,11 +17,11 @@
         </div>
         <div class="user"></div>
       </div>
-      <div class="menu">
+      <div class="menu" v-sticky :sticky-z-index="9001" :sticky-offset="0">
         <slot name="menu"></slot>
       </div>
     </el-header>
-    <el-aside width="320px" v-else>
+    <el-aside v-else width="320px">
       <div class="logo"></div>
       <div class="title">
         <slot name="title">
@@ -72,10 +76,14 @@ export default {
 }
 
 .el-aside {
+  @include image-retina("../assets/background-v@2x.png", 320px, 1024px);
   background: $--color-menu url("../assets/background-v.png") no-repeat top
     center;
+  bottom: 0;
   color: $--color-white;
-  @include image-retina("../assets/background-v@2x.png", 320px, 1024px);
+  position: fixed;
+  overflow: auto;
+  top: 0;
 
   .logo {
     margin: 22px auto;
@@ -113,5 +121,10 @@ export default {
 }
 .el-main {
   padding: 0;
+}
+.page-container--vertical {
+  .el-main {
+    margin-left: 320px;
+  }
 }
 </style>

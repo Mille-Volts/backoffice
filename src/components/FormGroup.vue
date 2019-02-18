@@ -15,7 +15,7 @@
 <script>
 export default {
   name: "FormGroup",
-  props: ["title"],
+  props: { title: { type: String, required: true } },
   inject: ["content"],
   data() {
     return { hide: false };

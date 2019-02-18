@@ -5,13 +5,16 @@
       <mv-button ghost @click="$router.back()">Annuler</mv-button>
       <mv-button success type="submit">Enregistrer</mv-button>
     </template>
-    <form-group title="Mon groupe de champs">
+    <form-group :title="groupName">
       <template v-slot:description>
         <p>Ma description</p>
         <hr>
         <el-switch v-model="form.published" active-text="Publié"/>
       </template>
       <panel>
+        <el-form-item label="Nom du groupe" required>
+          <el-input v-model="groupName"/>
+        </el-form-item>
         <form-row>
           <form-column>
             <el-form-item label="Slider" required>
@@ -141,7 +144,7 @@
       </panel>
     </form-group>
 
-    <form-group title="Mon groupe de champs 3">
+    <form-group v-if="form.radio < 2" title="Mon groupe de champs 3">
       <template v-slot:description>
         <p>Ma description</p>
         <hr>
@@ -216,6 +219,7 @@ export default {
   data() {
     return {
       tabScroll: true,
+      groupName: "Mon groupe",
       form: {
         published: false,
         radio: 0
