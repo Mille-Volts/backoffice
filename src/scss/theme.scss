@@ -32,8 +32,25 @@ img {
 }
 
 .el-radio {
+  // Makes the radio buttons as high as the other fields
   line-height: 20px;
   padding: 10px 0;
+}
+
+// Sets the style and margins of the labels
+.el-form-item__label {
+  line-height: 120%;
+  .el-form-item.is-required & {
+    font-weight: 600;
+  }
+}
+.el-form--label-top .el-form-item__label {
+  padding-bottom: 5px;
+}
+
+.el-slider {
+  // Adds a tiny space so that the handle is in the box
+  margin: 0 10px;
 }
 
 @import "./typography.scss";

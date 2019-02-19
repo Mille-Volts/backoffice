@@ -5,8 +5,9 @@
         :key="`${item.path}-${i}`"
         v-if="item.children && item.children.length"
         :index="item.path"
+        :show-timeout="0"
       >
-        <template v-slot:title>{{getName(item)}}</template>
+        <template v-slot:title>{{ getName(item) }}</template>
         <el-menu-item
           v-for="(subItem, si) in item.children"
           :key="`${subItem.path}-${si}`"

@@ -1,6 +1,6 @@
 <template>
   <component
-    :is="form? 'mv-form': 'div'"
+    :is="form ? 'mv-form' : 'div'"
     class="parent-container"
     :class="`parent-container--${application.layout}`"
     :model="form"
@@ -14,19 +14,24 @@
         height="auto"
         v-sticky
         :sticky-z-index="2000"
-        :sticky-offset="{top: application.layout === 'horizontal'? 44: 0}"
+        :sticky-offset="{ top: application.layout === 'horizontal' ? 44 : 0 }"
       >
         <div class="content">
           <slot name="header">
             <div v-if="breadcrumb.length" class="breadcrumb">
               <slot name="breadcrumb">
                 <el-breadcrumb separator="/">
-                  <el-breadcrumb-item :to="{ path: '/' }">Accueil</el-breadcrumb-item>
+                  <el-breadcrumb-item :to="{ path: '/' }"
+                    >Accueil</el-breadcrumb-item
+                  >
                   <el-breadcrumb-item
                     v-for="match in breadcrumb"
                     :key="match.path"
                     :to="match"
-                  >{{match.label || match.name || match.path}}</el-breadcrumb-item>
+                    >{{
+                      match.label || match.name || match.path
+                    }}</el-breadcrumb-item
+                  >
                 </el-breadcrumb>
               </slot>
             </div>
@@ -35,14 +40,18 @@
                 <h1 v-text="pageTitle"></h1>
               </slot>
             </div>
-            <div v-if="$slots.actions" class="actions">
+            <div v-if="$slots.actions || $slots.topActions" class="actions">
+              <slot name="topActions"></slot>
               <slot name="actions"></slot>
             </div>
-            <div v-if="$slots.tabs || (groups && groups.length > 1)" class="tabs">
+            <div
+              v-if="$slots.tabs || (groups && groups.length > 1)"
+              class="tabs"
+            >
               <slot name="tabs">
                 <el-tabs class="content-tabs" v-model="tabActive">
                   <el-tab-pane
-                    v-for="{label, name} in tabs"
+                    v-for="{ label, name } in tabs"
                     :key="name"
                     :label="label"
                     :name="name"
@@ -60,8 +69,9 @@
       </el-main>
       <el-footer v-if="form">
         <div class="content">
-          <div class="actions" v-if="$slots.actions">
+          <div class="actions" v-if="$slots.actions || $slots.bottomActions">
             <slot name="actions"></slot>
+            <slot name="bottomActions"></slot>
           </div>
         </div>
       </el-footer>

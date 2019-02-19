@@ -1,6 +1,6 @@
 <template>
   <el-container
-    :direction="application.layout === 'horizontal'? 'vertical': 'horizontal'"
+    :direction="application.layout === 'horizontal' ? 'vertical' : 'horizontal'"
     :class="`page-container--${application.layout}`"
     sticky-container
   >

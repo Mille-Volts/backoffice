@@ -8,6 +8,7 @@ import MvButton from "./Button.vue";
 import ContentLayout from "./ContentLayout.vue";
 import MvForm from "./Form.vue";
 import FormColumn from "./FormColumn.vue";
+import FormItem from "./FormItem.vue";
 import FormGroup from "./FormGroup.vue";
 import FormRow from "./FormRow.vue";
 import MainMenu from "./MainMenu.vue";
@@ -27,6 +28,7 @@ export default {
     Vue.component("ContentLayout", ContentLayout);
     Vue.component("MvForm", MvForm);
     Vue.component("FormColumn", FormColumn);
+    Vue.component("FormItem", FormItem);
     Vue.component("FormGroup", FormGroup);
     Vue.component("FormRow", FormRow);
     Vue.component("MainMenu", MainMenu);

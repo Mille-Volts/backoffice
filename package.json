@@ -1,6 +1,6 @@
 {
   "name": "@millevolts/backoffice",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/millevolts-backoffice.common.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "build-lib": "vue-cli-service build --target lib --name millevolts-backoffice src/components/index.js",
     "lint": "vue-cli-service lint",
     "dev": "npm run serve",
-    "vue": "vue"
+    "vue": "vue",
+    "prepublish": "npm run lint && npm run build-lib"
   },
   "files": [
     "lib/*",
