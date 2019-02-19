@@ -6,9 +6,13 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <icon class="icon icon--left" v-if="icon || iconLeft" :name="icon || iconLeft"/>
+    <icon
+      class="icon icon--left"
+      v-if="icon || iconLeft"
+      :name="icon || iconLeft"
+    />
     <slot></slot>
-    <icon class="icon icon--right" v-if="iconRight" :name="iconRight"/>
+    <icon class="icon icon--right" v-if="iconRight" :name="iconRight" />
   </el-button>
 </template>
 

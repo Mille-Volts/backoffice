@@ -3,7 +3,11 @@ export default {
   name: "Application",
   data() {
     return {
-      layout: this.layout || "vertical"
+      layout: this.layout || "vertical",
+      author: this.author || {
+        name: "Mille Volts",
+        website: "https://www.millevolts.fr"
+      }
     };
   },
   provide() {

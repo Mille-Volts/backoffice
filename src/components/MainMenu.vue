@@ -1,5 +1,10 @@
 <template>
-  <el-menu class="main-menu" :mode="application.layout" :router="true">
+  <el-menu
+    class="main-menu"
+    :mode="application.layout"
+    :router="true"
+    :default-active="currentPathActive"
+  >
     <template v-for="(item, i) in routes">
       <el-submenu
         :key="`${item.path}-${i}`"
@@ -46,6 +51,11 @@ export default {
   },
   data() {
     return {};
+  },
+  computed: {
+    currentPathActive() {
+      return this.$route.path;
+    }
   },
   methods: {
     getName({ label, name, path }) {

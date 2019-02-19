@@ -34,18 +34,35 @@
       <div class="menu">
         <slot name="menu"></slot>
       </div>
+      <div class="author">
+        <slot name="author">
+          <authorship/>
+        </slot>
+      </div>
     </el-aside>
     <el-main>
       <slot></slot>
     </el-main>
+    <el-footer height="auto" v-if="application.layout === 'horizontal'">
+      <div class="author">
+        <slot name="author">
+          <authorship/>
+        </slot>
+      </div>
+    </el-footer>
   </el-container>
 </template>
 
 <script>
+import Authorship from "./Authorship.vue";
+
 export default {
   name: "PageLayout",
   inject: ["application"],
-  prop: ["title"]
+  prop: ["title"],
+  components: {
+    Authorship
+  }
 };
 </script>
 
@@ -74,6 +91,9 @@ export default {
   text-overflow: ellipsis;
   width: 240px;
 }
+.author {
+  color: $--color-text-regular;
+}
 
 .el-aside {
   @include image-retina("../assets/background-v@2x.png", 320px, 1024px);
@@ -81,15 +101,22 @@ export default {
     center;
   bottom: 0;
   color: $--color-white;
+  display: flex;
+  flex-direction: column;
   position: fixed;
   overflow: auto;
   top: 0;
 
   .logo {
     margin: 22px auto;
+    min-height: 76px;
   }
   .title {
     background: $--color-secondary-dark;
+  }
+  .author {
+    color: $--color-white;
+    margin-top: auto;
   }
 }
 .el-header {
@@ -119,7 +146,8 @@ export default {
     width: 100%;
   }
 }
-.el-main {
+.el-main,
+.el-footer {
   padding: 0;
 }
 .page-container--vertical {

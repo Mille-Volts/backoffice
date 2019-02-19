@@ -21,17 +21,12 @@
             <div v-if="breadcrumb.length" class="breadcrumb">
               <slot name="breadcrumb">
                 <el-breadcrumb separator="/">
-                  <el-breadcrumb-item :to="{ path: '/' }"
-                    >Accueil</el-breadcrumb-item
-                  >
-                  <el-breadcrumb-item
-                    v-for="match in breadcrumb"
-                    :key="match.path"
-                    :to="match"
-                    >{{
-                      match.label || match.name || match.path
-                    }}</el-breadcrumb-item
-                  >
+                  <el-breadcrumb-item :to="{ path: '/' }">Accueil</el-breadcrumb-item>
+                  <el-breadcrumb-item v-for="match in breadcrumb" :key="match.path" :to="match">
+                    {{
+                    match.label || match.name || match.path
+                    }}
+                  </el-breadcrumb-item>
                 </el-breadcrumb>
               </slot>
             </div>
@@ -44,10 +39,7 @@
               <slot name="topActions"></slot>
               <slot name="actions"></slot>
             </div>
-            <div
-              v-if="$slots.tabs || (groups && groups.length > 1)"
-              class="tabs"
-            >
+            <div v-if="$slots.tabs || (groups && groups.length > 1)" class="tabs">
               <slot name="tabs">
                 <el-tabs class="content-tabs" v-model="tabActive">
                   <el-tab-pane

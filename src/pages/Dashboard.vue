@@ -3,17 +3,21 @@
     <h1>Tableau de bord</h1>
     <row :gutter="20">
       <column :sm="4">
-        <img alt="Logo" src="../assets/logo.png">
-        <icon name="wand"/>
+        <img alt="Logo" src="../assets/logo.png" />
+        <icon name="wand" />
       </column>
       <column :sm="10">
         <panel title="Titre du panel">
           <template v-slot:actions>
-            <el-radio label="vertical" v-model="application.layout">Vertical</el-radio>
-            <el-radio label="horizontal" v-model="application.layout">Horizontal</el-radio>
+            <el-radio label="vertical" v-model="application.layout"
+              >Vertical</el-radio
+            >
+            <el-radio label="horizontal" v-model="application.layout"
+              >Horizontal</el-radio
+            >
           </template>
           <p>Test paragraphe</p>
-          <hr>
+          <hr />
           <p>Test paragraphe</p>
         </panel>
       </column>
@@ -26,7 +30,7 @@
             </el-select>
           </template>
           <p>Test paragraphe</p>
-          <hr>
+          <hr />
           <p>Test paragraphe</p>
         </panel>
       </column>

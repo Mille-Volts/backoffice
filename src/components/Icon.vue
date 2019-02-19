@@ -1,5 +1,5 @@
 <template>
-  <i :class="`ti-${name}`"/>
+  <i :class="`ti-${name}`" />
 </template>
 
 <script>
