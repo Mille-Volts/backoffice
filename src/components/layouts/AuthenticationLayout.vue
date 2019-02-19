@@ -1,27 +1,41 @@
 <template>
   <el-container class="authentication-container">
-    <el-header>
-      <slot name="logo">
-        <logo></logo>
+    <el-header height="auto">
+      <slot name="header">
+        <logo :ratio="1.5"></logo>
       </slot>
     </el-header>
     <el-main>
-      <panel>
-        <slot>
-          <h1>Bienvenue</h1>
-          <local-login/>
-          <hr>
-          <guest-login/>
-        </slot>
-      </panel>
+      <div class="content">
+        <main-title></main-title>
+        <panel class="login-panel">
+          <slot>
+            <h1>Bienvenue</h1>
+            <local-login/>
+            <hr>
+            <guest-login/>
+          </slot>
+        </panel>
+        <div class="author">
+          <authorship></authorship>
+        </div>
+      </div>
     </el-main>
+    <el-footer height="auto">
+      <slot name="header">
+        <logo :ratio="1.5"></logo>
+      </slot>
+    </el-footer>
   </el-container>
 </template>
 
 <script>
+import Authorship from "../parts/Authorship.vue";
+import Logo from "../parts/Logo.vue";
+import MainTitle from "../parts/MainTitle.vue";
+
 import LocalLogin from "../authentication/LocalLogin.vue";
 import GuestLogin from "../authentication/GuestLogin.vue";
-import Logo from "../parts/Logo.vue";
 
 export default {
   name: "AuthenticationLayout",
@@ -29,7 +43,9 @@ export default {
   components: {
     LocalLogin,
     GuestLogin,
-    Logo
+    Logo,
+    Authorship,
+    MainTitle
   }
 };
 </script>
@@ -42,6 +58,31 @@ export default {
   background: $--color-menu url("../../assets/background.png") no-repeat center
     center;
 }
+.el-header,
+.el-footer {
+  align-items: center;
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  text-align: center;
+}
+.el-footer {
+  visibility: hidden;
+}
 .el-main {
+  align-items: center;
+  display: flex;
+  flex: 4 0 auto;
+  justify-content: start;
+  .content {
+    margin-left: 50%;
+    width: 440px;
+  }
+  .author {
+    color: $--color-white;
+  }
+  .login-panel {
+    padding: 30px;
+  }
 }
 </style>

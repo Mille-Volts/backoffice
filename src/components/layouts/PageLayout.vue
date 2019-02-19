@@ -107,11 +107,6 @@ export default {
   width: 240px;
 }
 
-.title {
-  padding: 10px;
-  text-align: center;
-}
-
 .user {
   text-overflow: ellipsis;
   width: 240px;
@@ -154,15 +149,10 @@ export default {
   .top {
     display: flex;
   }
-  .logo {
-  }
   .title {
     flex: 1;
     line-height: 56px;
     font-size: 16px;
-    text-align: center;
-  }
-  .user {
   }
   .menu {
     background: $--color-secondary-dark;

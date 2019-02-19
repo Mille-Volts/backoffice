@@ -25,7 +25,7 @@ table {
 hr {
   border: 0;
   border-bottom: 1px solid $--card-border-color;
-  margin: 15px 0;
+  margin: 30px 0;
 }
 
 img {
@@ -41,6 +41,7 @@ img {
 
 // Sets the style and margins of the labels
 .el-form-item__label {
+  color: #5b738c;
   line-height: 120%;
   .el-form-item.is-required & {
     font-weight: 600;

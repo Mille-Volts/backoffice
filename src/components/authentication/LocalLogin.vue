@@ -2,13 +2,13 @@
   <mv-form :model="data" @submit="tryLocalLogin" :disabled="isAuthenticating">
     <h2>Connexion locale</h2>
     <p>Utilisez votre identifiant et votre mot de passe pour accéder à l'interface d'administration.</p>
-    <form-item label="Votre identifiant">
-      <el-input type="text" placeholder="adresse@email.com" v-model="data.username"/>
+    <form-item label="Votre identifiant" required>
+      <el-input type="text" placeholder="adresse@email.com" v-model="data.username" required/>
     </form-item>
-    <form-item label="Votre mot de passe">
-      <el-input type="password" placeholder="******" v-model="data.password"/>
+    <form-item label="Votre mot de passe" required>
+      <el-input type="password" placeholder="******" v-model="data.password" required/>
     </form-item>
-    <mv-button type="submit" icon="check" :loading="isAuthenticating" primary>Connexion</mv-button>
+    <mv-button type="submit" icon="lock" :loading="isAuthenticating" success>Connexion</mv-button>
   </mv-form>
 </template>
 

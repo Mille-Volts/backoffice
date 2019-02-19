@@ -1,6 +1,6 @@
 <template>
   <el-container v-if="!hide" class="form-group">
-    <el-aside width="240px">
+    <el-aside class="form-group__aside" width="240px">
       <slot name="header">
         <h2 v-if="title" v-text="title"></h2>
         <slot name="description"></slot>
@@ -52,5 +52,13 @@ export default {
 }
 .el-main {
   padding: 0 0 0 30px;
+}
+</style>
+
+<style lang="scss">
+.form-group__aside {
+  hr {
+    margin: 15px 0;
+  }
 }
 </style>
