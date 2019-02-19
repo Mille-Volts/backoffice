@@ -11,6 +11,7 @@ import FormColumn from "./FormColumn.vue";
 import FormItem from "./FormItem.vue";
 import FormGroup from "./FormGroup.vue";
 import FormRow from "./FormRow.vue";
+import Icon from "./Icon.vue";
 import MainMenu from "./MainMenu.vue";
 import PageLayout from "./PageLayout.vue";
 import Panel from "./Panel.vue";
@@ -31,6 +32,7 @@ export default {
     Vue.component("FormItem", FormItem);
     Vue.component("FormGroup", FormGroup);
     Vue.component("FormRow", FormRow);
+    Vue.component("Icon", Icon);
     Vue.component("MainMenu", MainMenu);
     Vue.component("PageLayout", PageLayout);
     Vue.component("Panel", Panel);

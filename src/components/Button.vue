@@ -6,14 +6,24 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
+    <icon class="icon icon--left" v-if="icon || iconLeft" :name="icon || iconLeft"/>
     <slot></slot>
+    <icon class="icon icon--right" v-if="iconRight" :name="iconRight"/>
   </el-button>
 </template>
 
 <script>
+import Icon from "./Icon.vue";
+
 export default {
   name: "Button",
+  components: {
+    Icon
+  },
   props: {
+    icon: String,
+    iconLeft: String,
+    iconRight: String,
     primary: Boolean,
     secondary: Boolean,
     ghost: Boolean,
@@ -57,5 +67,16 @@ export default {
 .el-button {
   font-family: $--font-stack-default;
   font-weight: 600;
+  overflow: hidden;
+  .icon--left {
+    float: left;
+    margin-left: -8px;
+    margin-right: 8px;
+  }
+  .icon--right {
+    float: right;
+    margin-left: 8px;
+    margin-right: -8px;
+  }
 }
 </style>

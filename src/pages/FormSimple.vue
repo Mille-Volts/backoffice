@@ -2,36 +2,28 @@
   <content-layout :form="form" @submit="submitForm" :tabScroll="tabScroll">
     <template v-slot:actions>
       <el-checkbox v-model="tabScroll">Scroll</el-checkbox>
-      <mv-button ghost @click="$router.back()">Annuler</mv-button>
-      <mv-button success type="submit">Enregistrer</mv-button>
+      <mv-button ghost icon="arrow-left" @click="$router.back()">Annuler</mv-button>
+      <mv-button success icon-right="check" type="submit">Enregistrer</mv-button>
     </template>
     <form-group :title="groupName">
       <template v-slot:description>
         <p>Ma description</p>
-        <hr />
-        <el-switch v-model="form.published" active-text="Publié" />
+        <hr>
+        <el-switch v-model="form.published" active-text="Publié"/>
       </template>
       <panel>
         <form-item label="Nom du groupe" required>
-          <el-input v-model="groupName" />
+          <el-input v-model="groupName"/>
         </form-item>
         <form-row>
           <form-column>
             <form-item label="Slider" required>
-              <el-slider
-                v-model="form.radio"
-                :show-tooltip="false"
-                :max="3"
-              ></el-slider>
+              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
             </form-item>
           </form-column>
           <form-column>
             <form-item label="Input number">
-              <el-input-number
-                v-model="form.radio"
-                :min="0"
-                :max="3"
-              ></el-input-number>
+              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
             </form-item>
           </form-column>
         </form-row>
@@ -48,28 +40,20 @@
             </column>
           </row>
         </form-item>
-        <el-button @click="form.radio = 2">Set 2</el-button>
-        <mv-button primary>Primaire</mv-button>
-        <mv-button secondary>Secondaire</mv-button>
+        <mv-button @click="form.radio = 2" iconLeft="lock" iconRight="save">Set 2</mv-button>
+        <mv-button icon="wand" primary>Primaire</mv-button>
+        <mv-button iconRight="desktop" secondary>Secondaire</mv-button>
       </panel>
       <panel>
         <form-row>
           <form-column>
             <form-item label="Slider" required>
-              <el-slider
-                v-model="form.radio"
-                :show-tooltip="false"
-                :max="3"
-              ></el-slider>
+              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
             </form-item>
           </form-column>
           <form-column>
             <form-item label="Input number">
-              <el-input-number
-                v-model="form.radio"
-                :min="0"
-                :max="3"
-              ></el-input-number>
+              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
             </form-item>
           </form-column>
         </form-row>
@@ -95,27 +79,19 @@
     <form-group title="Mon groupe de champs 2">
       <template v-slot:description>
         <p>Ma description</p>
-        <hr />
-        <el-switch v-model="form.published" active-text="Publié" />
+        <hr>
+        <el-switch v-model="form.published" active-text="Publié"/>
       </template>
       <panel>
         <form-row>
           <form-column>
             <form-item label="Slider" required>
-              <el-slider
-                v-model="form.radio"
-                :show-tooltip="false"
-                :max="3"
-              ></el-slider>
+              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
             </form-item>
           </form-column>
           <form-column>
             <form-item label="Input number">
-              <el-input-number
-                v-model="form.radio"
-                :min="0"
-                :max="3"
-              ></el-input-number>
+              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
             </form-item>
           </form-column>
         </form-row>
@@ -140,20 +116,12 @@
         <form-row>
           <form-column>
             <form-item label="Slider" required>
-              <el-slider
-                v-model="form.radio"
-                :show-tooltip="false"
-                :max="3"
-              ></el-slider>
+              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
             </form-item>
           </form-column>
           <form-column>
             <form-item label="Input number">
-              <el-input-number
-                v-model="form.radio"
-                :min="0"
-                :max="3"
-              ></el-input-number>
+              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
             </form-item>
           </form-column>
         </form-row>
@@ -179,27 +147,19 @@
     <form-group v-if="form.radio < 2" title="Mon groupe de champs 3">
       <template v-slot:description>
         <p>Ma description</p>
-        <hr />
-        <el-switch v-model="form.published" active-text="Publié" />
+        <hr>
+        <el-switch v-model="form.published" active-text="Publié"/>
       </template>
       <panel>
         <form-row>
           <form-column>
             <form-item label="Slider" required>
-              <el-slider
-                v-model="form.radio"
-                :show-tooltip="false"
-                :max="3"
-              ></el-slider>
+              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
             </form-item>
           </form-column>
           <form-column>
             <form-item label="Input number">
-              <el-input-number
-                v-model="form.radio"
-                :min="0"
-                :max="3"
-              ></el-input-number>
+              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
             </form-item>
           </form-column>
         </form-row>
@@ -224,20 +184,12 @@
         <form-row>
           <form-column>
             <form-item label="Slider" required>
-              <el-slider
-                v-model="form.radio"
-                :show-tooltip="false"
-                :max="3"
-              ></el-slider>
+              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
             </form-item>
           </form-column>
           <form-column>
             <form-item label="Input number">
-              <el-input-number
-                v-model="form.radio"
-                :min="0"
-                :max="3"
-              ></el-input-number>
+              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
             </form-item>
           </form-column>
         </form-row>
