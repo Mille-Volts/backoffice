@@ -24,7 +24,7 @@
                   <el-breadcrumb-item :to="{ path: '/' }">Accueil</el-breadcrumb-item>
                   <el-breadcrumb-item v-for="match in breadcrumb" :key="match.path" :to="match">
                     {{
-                    match.label || match.name || match.path
+                    (match.meta && match.meta.label) || match.name || match.path
                     }}
                   </el-breadcrumb-item>
                 </el-breadcrumb>
@@ -96,7 +96,9 @@ export default {
   },
   computed: {
     breadcrumb() {
-      return this.$route.matched || [];
+      return (
+        this.$route.matched.filter(({ meta }) => !meta || !meta.root) || []
+      );
     },
     pageTitle() {
       return this.title || (this.$route.label || this.$route.name);

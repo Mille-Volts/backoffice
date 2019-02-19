@@ -58,8 +58,8 @@ export default {
     }
   },
   methods: {
-    getName({ label, name, path }) {
-      return label || name || path;
+    getName({ meta, name, path }) {
+      return (meta && meta.label) || name || path;
     }
   }
 };

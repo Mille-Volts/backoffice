@@ -1,22 +1,31 @@
 <template>
-  <application>
-    <page-layout>
-      <template v-slot:menu>
-        <main-menu :routes="routes"></main-menu>
-      </template>
+  <authentication-provider @login="tryLogin" @logout="tryLogout">
+    <application :routes="routes">
       <router-view></router-view>
-    </page-layout>
-  </application>
+    </application>
+  </authentication-provider>
 </template>
 
 <script>
-import { routes } from "./router.js";
+import routes from "./routes";
 
 export default {
   data() {
-    return {
-      routes
-    };
+    // const user = getUser();
+    return { routes };
+  },
+  methods: {
+    async tryLogin(connectionInfo) {
+      switch (connectionInfo.type) {
+        case "local":
+          return new Promise((resolve, reject) => {
+            window.setTimeout(() => {
+              resolve({ firstname: "Camille", lastname: "Vaultier" });
+            }, 1000);
+          });
+      }
+    },
+    async tryLogout() {}
   }
 };
 </script>

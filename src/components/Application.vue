@@ -1,18 +1,27 @@
 <script>
 export default {
   name: "Application",
+  inject: ["authentication"],
+  props: {
+    layout: String,
+    author: Object,
+    routes: Array
+  },
   data() {
     return {
-      layout: this.layout || "vertical",
-      author: this.author || {
-        name: "Mille Volts",
-        website: "https://www.millevolts.fr"
+      data: {
+        layout: this.layout || "vertical",
+        author: this.author || {
+          name: "Mille Volts",
+          website: "https://www.millevolts.fr"
+        },
+        routes: this.routes || []
       }
     };
   },
   provide() {
     return {
-      application: this
+      application: this.data
     };
   },
   render() {
@@ -20,7 +29,3 @@ export default {
   }
 };
 </script>
-
-<style type="text/css">
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600");
-</style>

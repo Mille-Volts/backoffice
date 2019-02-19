@@ -3,16 +3,13 @@
     :plain="plain"
     :type="computedType"
     :native-type="type"
+    :loading="loading"
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <icon
-      class="icon icon--left"
-      v-if="icon || iconLeft"
-      :name="icon || iconLeft"
-    />
+    <icon class="icon icon--left" v-if="!loading && (icon || iconLeft)" :name="icon || iconLeft"/>
     <slot></slot>
-    <icon class="icon icon--right" v-if="iconRight" :name="iconRight" />
+    <icon class="icon icon--right" v-if="iconRight" :name="iconRight"/>
   </el-button>
 </template>
 
@@ -35,7 +32,8 @@ export default {
     success: Boolean,
     warning: Boolean,
     danger: Boolean,
-    type: String
+    type: String,
+    loading: Boolean
   },
   computed: {
     plain() {
@@ -81,6 +79,11 @@ export default {
     float: right;
     margin-left: 8px;
     margin-right: -8px;
+  }
+  .el-icon-loading {
+    float: left;
+    margin-left: -8px;
+    margin-right: 3px;
   }
 }
 </style>
