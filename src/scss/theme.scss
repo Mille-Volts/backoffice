@@ -43,12 +43,21 @@ img {
 .el-form-item__label {
   color: #5b738c;
   line-height: 120%;
+  .el-form--inline & {
+    line-height: 40px; // To stay aligned with form fields
+  }
   .el-form-item.is-required & {
     font-weight: 600;
   }
 }
 .el-form--label-top .el-form-item__label {
   padding-bottom: 5px;
+}
+.el-form--inline .el-form-item {
+  margin-bottom: 15px;
+}
+.panel_actions .el-form-item {
+  margin-bottom: 0;
 }
 
 .el-slider {

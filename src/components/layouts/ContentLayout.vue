@@ -1,19 +1,22 @@
 <template>
   <component
-    :is="form ? 'mv-form' : 'div'"
+    :is="parentComponent"
     class="content-layout"
-    :class="`content-layout--${application.layout}`"
-    :model="form"
-    v-bind="$attrs"
+    :class="{
+      [`content-layout--${application.layout}`]: 1,
+      'content-layout--form': form,
+      'content-layout--table': table
+    }"
+    v-bind="parentProps"
     v-on="$listeners"
   >
     <el-container sticky-container class="content-layout_container">
       <el-header
+        v-if="!!withHeader"
         ref="header"
-        v-if="!noHeader"
+        v-sticky
         height="auto"
         class="content-layout_header"
-        v-sticky
         :sticky-z-index="2000"
         :sticky-offset="{ top: application.layout === 'horizontal' ? 44 : 0 }"
       >
@@ -51,14 +54,11 @@
               <slot name="topActions"></slot>
               <slot name="actions"></slot>
             </div>
-            <div
-              v-if="$slots.tabs || (groups && groups.length > 1)"
-              class="content-layout_tabs"
-            >
+            <div v-if="hasTabs" class="content-layout_tabs">
               <slot name="tabs">
                 <el-tabs
-                  class="content-layout_content-tabs"
                   v-model="tabActive"
+                  class="content-layout_content-tabs"
                 >
                   <el-tab-pane
                     v-for="{ label, name } in tabs"
@@ -73,15 +73,18 @@
         </div>
       </el-header>
       <el-main ref="main" class="content-layout_main">
-        <div class="content-layout_content">
+        <mv-table v-if="table" :data="table">
+          <slot></slot>
+        </mv-table>
+        <div v-else class="content-layout_content">
           <slot></slot>
         </div>
       </el-main>
-      <el-footer class="content-layout_footer" v-if="form">
+      <el-footer v-if="form" class="content-layout_footer">
         <div class="content-layout_content">
           <div
-            class="content-layout_footer-actions"
             v-if="$slots.actions || $slots.bottomActions"
+            class="content-layout_footer-actions"
           >
             <slot name="actions"></slot>
             <slot name="bottomActions"></slot>
@@ -94,10 +97,16 @@
 
 <script>
 import VueScrollTo from "vue-scrollto";
+import MvForm from "../Form.vue";
+import MvTable from "../Table.vue";
 
 export default {
   name: "ContentLayout",
   inject: ["application"],
+  components: {
+    MvForm,
+    MvTable
+  },
   provide() {
     return {
       content: this
@@ -105,9 +114,11 @@ export default {
   },
   props: {
     title: String,
-    noHeader: Boolean,
+    withHeader: { type: Boolean, default: true },
+    withTabs: { type: Boolean, default: true },
     tabScroll: Boolean,
-    form: Object
+    form: Object,
+    table: Array
   },
   data() {
     return {
@@ -116,13 +127,33 @@ export default {
     };
   },
   computed: {
+    parentComponent() {
+      if (this.form) return "mv-form";
+      return "div";
+    },
+    parentProps() {
+      const props = { ...this.$attrs };
+      if (this.form) {
+        props.model = this.form;
+      }
+      return props;
+    },
     breadcrumb() {
       return (
         this.$route.matched.filter(({ meta }) => !meta || !meta.root) || []
       );
     },
     pageTitle() {
-      return this.title || (this.$route.label || this.$route.name);
+      return (
+        this.title ||
+        ((this.$route.meta && this.$route.meta.label) || this.$route.name)
+      );
+    },
+    hasTabs() {
+      return (
+        !!this.withTabs &&
+        (this.$slots.tabs || (this.groups && this.groups.length > 1))
+      );
     },
     tabs() {
       return this.groups.map(({ title: label }, index) => ({
@@ -135,7 +166,7 @@ export default {
     tabActive(newTabStr, oldTabStr) {
       const newTab = parseInt(newTabStr, 10);
       const oldTab = parseInt(oldTabStr, 10);
-      if (this.tabScroll) {
+      if (this.tabScroll || !this.hasTabs) {
         VueScrollTo.scrollTo(
           (this.groups[newTab] || this.$refs.header).$el,
           350,
@@ -181,6 +212,7 @@ export default {
     addGroup(group) {
       if (
         !this.tabScroll &&
+        !!this.hasTabs &&
         this.groups.length !== parseInt(this.tabActive, 10)
       ) {
         group.$emit("hide");
@@ -231,6 +263,9 @@ export default {
   }
   &_main {
     padding: 30px;
+    .content-layout--table & {
+      padding: 0 0 30px 0;
+    }
   }
   &_footer {
     padding: 0 30px;

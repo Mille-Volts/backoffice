@@ -1,5 +1,5 @@
 <template>
-  <mv-form :model="data" @submit="tryLocalLogin" :disabled="isAuthenticating">
+  <mv-form :model="data" :disabled="isAuthenticating" @submit="tryLocalLogin">
     <h2>Connexion locale</h2>
     <p>
       Utilisez votre identifiant et votre mot de passe pour accéder à
@@ -7,21 +7,21 @@
     </p>
     <form-item label="Votre identifiant" required>
       <el-input
+        v-model="data.username"
         type="text"
         placeholder="adresse@email.com"
-        v-model="data.username"
         required
       />
     </form-item>
     <form-item label="Votre mot de passe" required>
       <el-input
+        v-model="data.password"
         type="password"
         placeholder="******"
-        v-model="data.password"
         required
       />
     </form-item>
-    <p class="local-login_error" v-if="error" v-text="error"></p>
+    <p v-if="error" class="local-login_error" v-text="error"></p>
     <mv-button type="submit" icon="lock" :loading="isAuthenticating" success
       >Connexion</mv-button
     >

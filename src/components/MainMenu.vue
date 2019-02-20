@@ -6,8 +6,8 @@
   >
     <template v-for="(item, i) in routes">
       <el-submenu
-        :key="`${item.path}-${i}`"
         v-if="item.children && item.children.length"
+        :key="`${item.path}-${i}`"
         :index="item.path"
         :show-timeout="0"
       >
@@ -15,17 +15,17 @@
         <el-menu-item
           v-for="(subItem, si) in item.children"
           :key="`${subItem.path}-${si}`"
-          v-text="getName(subItem)"
           :index="`${item.path}/${subItem.path}`"
           :disabled="subItem.disabled"
+          v-text="getName(subItem)"
         ></el-menu-item>
       </el-submenu>
       <el-menu-item
-        :key="`${item.path}-${i}`"
         v-else
-        v-text="getName(item)"
+        :key="`${item.path}-${i}`"
         :index="item.path"
         :disabled="item.disabled"
+        v-text="getName(item)"
       ></el-menu-item>
     </template>
   </el-menu>

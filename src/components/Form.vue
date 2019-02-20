@@ -1,7 +1,8 @@
 <template>
   <el-form
-    label-position="top"
+    :label-position="defaultLabelPosition"
     :model="model"
+    :inline="inline"
     hide-required-asterisk
     v-bind="$attrs"
     v-on="$listeners"
@@ -17,8 +18,12 @@
 <script>
 export default {
   name: "Form",
-  props: ["model"],
-  computed: {},
+  props: { model: Object, labelPosition: String, inline: Boolean },
+  computed: {
+    defaultLabelPosition() {
+      return this.labelPosition || this.inline ? "left" : "top";
+    }
+  },
   methods: {
     onSubmit(event) {
       if (!this.$listeners.submit) return;

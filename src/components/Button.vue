@@ -9,14 +9,14 @@
     v-on="$listeners"
   >
     <icon
-      class="button_icon button_icon--left"
       v-if="!loading && (icon || iconLeft)"
+      class="button_icon button_icon--left"
       :name="icon || iconLeft"
     />
     <slot></slot>
     <icon
-      class="button_icon button_icon--right"
       v-if="iconRight"
+      class="button_icon button_icon--right"
       :name="iconRight"
     />
   </el-button>

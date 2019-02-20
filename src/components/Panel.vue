@@ -1,8 +1,8 @@
 <template>
   <el-container class="panel">
     <el-header
-      class="panel_header"
       v-if="$slots.header || $slots.actions || title"
+      class="panel_header"
       height="auto"
     >
       <slot name="header">
@@ -55,6 +55,16 @@ export default {
   }
   &_main {
     padding: $--card-padding;
+  }
+}
+.panel_header ~ .panel_main {
+  padding-top: 15px;
+}
+</style>
+<style lang="scss">
+.panel_main {
+  hr {
+    margin: 15px 0;
   }
 }
 </style>

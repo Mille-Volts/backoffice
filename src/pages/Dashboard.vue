@@ -1,5 +1,5 @@
 <template>
-  <content-layout no-header>
+  <content-layout :with-header="false">
     <h1>Tableau de bord</h1>
     <row :gutter="20">
       <column :sm="4">
@@ -9,10 +9,10 @@
       <column :sm="10">
         <panel title="Titre du panel">
           <template v-slot:actions>
-            <el-radio label="vertical" v-model="application.layout"
+            <el-radio v-model="application.layout" label="vertical"
               >Vertical</el-radio
             >
-            <el-radio label="horizontal" v-model="application.layout"
+            <el-radio v-model="application.layout" label="horizontal"
               >Horizontal</el-radio
             >
           </template>

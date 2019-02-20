@@ -38,13 +38,42 @@ export default [
         children: [
           {
             path: "simple",
-            name: "Simple",
-            component: () => import("./pages/FormSimple.vue")
+            component: () => import("./pages/FormSimple.vue"),
+            meta: {
+              label: "Formulaire simple"
+            }
           },
           {
             path: "complex",
-            name: "Complexe",
-            component: () => import("./pages/FormSimple.vue")
+            component: () => import("./pages/FormComplex.vue"),
+            meta: {
+              label: "Formulaire complexe"
+            }
+          }
+        ]
+      },
+      {
+        path: "/table",
+        component: () => import("./pages/Tables.vue"),
+        redirect: "/table/simple",
+        meta: {
+          label: "Tables",
+          auth: true
+        },
+        children: [
+          {
+            path: "simple",
+            component: () => import("./pages/TableSimple.vue"),
+            meta: {
+              label: "Tableau simple"
+            }
+          },
+          {
+            path: "complex",
+            component: () => import("./pages/TableComplex.vue"),
+            meta: {
+              label: "Tableau complexe"
+            }
           }
         ]
       }

@@ -1,15 +1,15 @@
 <template>
   <div
+    v-if="user.authenticated"
     class="user"
     :class="`user--${application.layout}`"
-    v-if="user.authenticated"
   >
     <div class="user_picture user_picture--icon">
       <icon :name="user.data.icon || 'user'"></icon>
     </div>
     <div class="user_info">
       <p class="user_name" v-text="user.data.name"></p>
-      <mv-button @click="authentication.tryLogout" text>Déconnexion</mv-button>
+      <mv-button text @click="authentication.tryLogout">Déconnexion</mv-button>
     </div>
   </div>
 </template>

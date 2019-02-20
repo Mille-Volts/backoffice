@@ -5,9 +5,9 @@
     sticky-container
   >
     <el-header
+      v-if="application.layout === 'horizontal'"
       class="page_header"
       height="120px"
-      v-if="application.layout === 'horizontal'"
     >
       <div class="page_top">
         <logo></logo>
@@ -22,13 +22,13 @@
           </slot>
         </div>
       </div>
-      <div class="page_menu" v-sticky :sticky-z-index="2001" :sticky-offset="0">
+      <div v-sticky class="page_menu" :sticky-z-index="2001" :sticky-offset="0">
         <slot name="menu">
           <main-menu :routes="routes"></main-menu>
         </slot>
       </div>
     </el-header>
-    <el-aside class="page_aside" v-else width="320px">
+    <el-aside v-else class="page_aside" width="320px">
       <logo></logo>
       <div class="page_title">
         <slot name="title">
@@ -55,9 +55,9 @@
       <router-view></router-view>
     </el-main>
     <el-footer
+      v-if="application.layout === 'horizontal'"
       class="page_footer"
       height="auto"
-      v-if="application.layout === 'horizontal'"
     >
       <div class="page_author">
         <slot name="author">

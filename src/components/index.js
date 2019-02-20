@@ -3,6 +3,7 @@
 import Sticky from "vue-sticky-directive";
 import Element, { Row, Col } from "element-ui";
 import Router from "vue-router";
+import moment from "moment";
 
 import AuthenticationLayout from "./layouts/AuthenticationLayout.vue";
 import ContentLayout from "./layouts/ContentLayout.vue";
@@ -14,14 +15,20 @@ import GuestLogin from "./authentication/GuestLogin.vue";
 import Application from "./Application.vue";
 import AuthenticationProvider from "./AuthenticationProvider.vue";
 import MvButton from "./Button.vue";
+import Icon from "./Icon.vue";
+import MainMenu from "./MainMenu.vue";
+import Panel from "./Panel.vue";
+
 import MvForm from "./Form.vue";
 import FormColumn from "./FormColumn.vue";
 import FormItem from "./FormItem.vue";
 import FormGroup from "./FormGroup.vue";
 import FormRow from "./FormRow.vue";
-import Icon from "./Icon.vue";
-import MainMenu from "./MainMenu.vue";
-import Panel from "./Panel.vue";
+
+import MvTable from "./Table.vue";
+import TableColumn from "./TableColumn.vue";
+
+moment.locale("fr");
 
 export * from "./auth";
 export * from "./router";
@@ -45,13 +52,17 @@ export default {
     Vue.component("Application", Application);
     Vue.component("AuthenticationProvider", AuthenticationProvider);
     Vue.component("MvButton", MvButton);
+    Vue.component("Icon", Icon);
+    Vue.component("MainMenu", MainMenu);
+    Vue.component("Panel", Panel);
+
     Vue.component("MvForm", MvForm);
     Vue.component("FormColumn", FormColumn);
     Vue.component("FormItem", FormItem);
     Vue.component("FormGroup", FormGroup);
     Vue.component("FormRow", FormRow);
-    Vue.component("Icon", Icon);
-    Vue.component("MainMenu", MainMenu);
-    Vue.component("Panel", Panel);
+
+    Vue.component("MvTable", MvTable);
+    Vue.component("TableColumn", TableColumn);
   }
 };
