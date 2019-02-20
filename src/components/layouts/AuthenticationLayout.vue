@@ -10,9 +10,7 @@
         <main-title></main-title>
         <panel class="login-panel">
           <slot>
-            <h1>Bienvenue</h1>
-            <local-login/>
-            <hr>
+            <h1>Welcome</h1>
             <guest-login/>
           </slot>
         </panel>

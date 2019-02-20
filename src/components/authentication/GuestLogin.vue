@@ -21,7 +21,10 @@ export default {
   methods: {
     async tryLocalLogin(data) {
       this.isAuthenticating = true;
-      await this.authentication.tryLogin({ type: "guest", name: this.name });
+      await this.authentication.tryLogin({
+        type: "guest",
+        name: this.name
+      });
       this.isAuthenticating = false;
     }
   }

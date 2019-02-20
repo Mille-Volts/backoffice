@@ -29,10 +29,10 @@ export default {
     };
   },
   async created() {
-    this.user.data = await (this.fetch || this.fetchDefault)();
-    this.user.authenticated = true;
-    this.user.type = "storage";
-    this.user.date = new Date();
+    this.$set(this.user, "data", await (this.fetch || this.fetchDefault)());
+    this.$set(this.user, "authenticated", true);
+    this.$set(this.user, "type", "storage");
+    this.$set(this.user, "date", new Date());
   },
   methods: {
     fetchDefault() {
@@ -41,10 +41,10 @@ export default {
     tryLoginDefault({ type, ...data }) {
       switch (type) {
         case "guest":
-          this.user.data = data;
-          this.user.authenticated = true;
-          this.user.type = "guest";
-          this.user.date = new Date();
+          this.$set(this.user, "data", data);
+          this.$set(this.user, "authenticated", true);
+          this.$set(this.user, "type", "guest");
+          this.$set(this.user, "date", new Date());
           break;
         default:
           throw new Error(`Aucune méthode de connexion implémentée !`);
@@ -53,7 +53,10 @@ export default {
       this.$router.push(this.$route.query.next || { name: "home" });
     },
     tryLogoutDefault() {
-      this.user = { data: null, type: null, date: null };
+      this.$set(this.user, "data", null);
+      this.$set(this.user, "authenticated", false);
+      this.$set(this.user, "type", null);
+      this.$set(this.user, "date", null);
       unsetUser();
       this.$router.push({ name: "login" });
     }
