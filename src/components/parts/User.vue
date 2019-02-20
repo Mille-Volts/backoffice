@@ -4,7 +4,7 @@
       <icon :name="user.data.icon || 'user'"></icon>
     </div>
     <div class="user_info">
-      <p class="user_info_name" v-text="user.data.name"></p>
+      <p class="user_name" v-text="user.data.name"></p>
       <mv-button @click="authentication.tryLogout" text>Déconnexion</mv-button>
     </div>
   </div>
@@ -60,17 +60,9 @@ export default {
     .user--horizontal & {
       text-align: right;
     }
-    &_name {
-      font: 600 16px/20px $--font-stack-default;
-      margin: 0;
-      padding: 0;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      width: 100%;
-    }
     .el-button {
       color: #a1b3c5;
-      font: normal 14px/18px $--font-stack-default;
+      font: font-default(14px, 18px);
       padding: 0;
       text-decoration: underline;
       &:hover {
@@ -78,6 +70,14 @@ export default {
         text-decoration: none;
       }
     }
+  }
+  &_name {
+    font: font-default-bold(16px, 20px);
+    margin: 0;
+    padding: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
   }
 }
 </style>

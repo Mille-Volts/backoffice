@@ -1,12 +1,12 @@
 <template>
   <el-container v-if="!hide" class="form-group">
-    <el-aside class="form-group__aside" width="240px">
+    <el-aside class="form-group_aside" width="240px">
       <slot name="header">
         <h2 v-if="title" v-text="title"></h2>
         <slot name="description"></slot>
       </slot>
     </el-aside>
-    <el-main>
+    <el-main class="form-group_main">
       <slot></slot>
     </el-main>
   </el-container>
@@ -44,19 +44,21 @@ export default {
 <style scoped lang="scss">
 @import "@/scss/common.scss";
 
-.form-group + .form-group {
-  margin-top: 30px;
-}
-.el-aside {
-  padding: 15px 0;
-}
-.el-main {
-  padding: 0 0 0 30px;
+.form-group {
+  + .form-group {
+    margin-top: 30px;
+  }
+  &_aside {
+    padding: 15px 0;
+  }
+  &_main {
+    padding: 0 0 0 30px;
+  }
 }
 </style>
 
 <style lang="scss">
-.form-group__aside {
+.form-group_aside {
   hr {
     margin: 15px 0;
   }

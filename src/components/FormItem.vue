@@ -1,5 +1,5 @@
 <template>
-  <el-form-item v-bind="$attrs" v-on="$listeners" class="is-no-asterisk">
+  <el-form-item v-bind="$attrs" v-on="$listeners">
     <template v-slot:label>
       <slot name="label"></slot>
     </template>

@@ -2,6 +2,7 @@
   <el-form
     label-position="top"
     :model="model"
+    hide-required-asterisk
     v-bind="$attrs"
     v-on="$listeners"
     @submit.native.prevent="onSubmit"

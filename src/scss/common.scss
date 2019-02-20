@@ -19,11 +19,31 @@ $--menu-item-fill: $--color-secondary-dark;
 $--menu-item-hover-fill: $--color-secondary-darker;
 
 $--font-stack-default: "Titillium Web", Helvetica, Arial, sans-serif;
+$--font-weight-default: normal;
+$--font-weight-bold: 600;
+$--font-weight-thin: 300;
 
 /* icon font path, required */
 $--font-path: "~element-ui/lib/theme-chalk/fonts";
 
 @import "~element-ui/packages/theme-chalk/src/common/var";
+
+@function font-size($font-size: 1em) {
+  @return if(unitless($font-size), $font-size * 0.1em, $font-size);
+}
+
+@function font-default($font-size: 1em, $line-height: 130%) {
+  @return $--font-weight-default font-size($font-size) /#{$line-height}
+    $--font-stack-default;
+}
+@function font-default-bold($font-size: 1em, $line-height: 130%) {
+  @return $--font-weight-bold font-size($font-size) /#{$line-height}
+    $--font-stack-default;
+}
+@function font-default-thin($font-size: 1em, $line-height: 130%) {
+  @return $--font-weight-thin font-size($font-size) /#{$line-height}
+    $--font-stack-default;
+}
 
 @mixin image-retina($image, $width, $height) {
   @media (min--moz-device-pixel-ratio: 1.3),

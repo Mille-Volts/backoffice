@@ -8,6 +8,7 @@
     <form-item label="Votre mot de passe" required>
       <el-input type="password" placeholder="******" v-model="data.password" required/>
     </form-item>
+    <p class="local-login_error" v-if="error" v-text="error"></p>
     <mv-button type="submit" icon="lock" :loading="isAuthenticating" success>Connexion</mv-button>
   </mv-form>
 </template>
@@ -19,15 +20,35 @@ export default {
   data() {
     return {
       isAuthenticating: false,
+      error: null,
       data: {}
     };
   },
   methods: {
     async tryLocalLogin(data) {
       this.isAuthenticating = true;
-      await this.authentication.tryLogin({ type: "local", ...data });
-      this.isAuthenticating = false;
+      try {
+        await this.authentication.tryLogin({ type: "local", ...data });
+      } catch (err) {
+        console.log(err);
+        this.error = err.message;
+      } finally {
+        this.isAuthenticating = false;
+      }
     }
   }
 };
 </script>
+
+<style scoped lang="scss">
+@import "@/scss/common.scss";
+
+.local-login {
+  &_error {
+    color: $--color-danger;
+    font: font-bold(14px);
+    padding: 0;
+    margin: 15px 0;
+  }
+}
+</style>

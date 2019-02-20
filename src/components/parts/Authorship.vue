@@ -23,13 +23,13 @@ export default {
 
 .authorship {
   color: inherit;
-  font-size: 12px;
+  font: font-default(12px);
   opacity: 0.5;
   padding: 5px;
   text-align: center;
   a {
     color: inherit;
-    font-weight: 600;
+    font: font-default-bold();
     text-decoration: underline;
     &:hover {
       text-decoration: none;

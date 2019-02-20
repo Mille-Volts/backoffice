@@ -1,5 +1,6 @@
 <template>
   <el-button
+    class="button"
     :plain="plain"
     :type="computedType"
     :native-type="type"
@@ -7,9 +8,13 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <icon class="icon icon--left" v-if="!loading && (icon || iconLeft)" :name="icon || iconLeft"/>
+    <icon
+      class="button_icon button_icon--left"
+      v-if="!loading && (icon || iconLeft)"
+      :name="icon || iconLeft"
+    />
     <slot></slot>
-    <icon class="icon icon--right" v-if="iconRight" :name="iconRight"/>
+    <icon class="button_icon button_icon--right" v-if="iconRight" :name="iconRight"/>
   </el-button>
 </template>
 
@@ -66,16 +71,15 @@ export default {
 <style lang="scss">
 @import "@/scss/common.scss";
 
-.el-button {
-  font-family: $--font-stack-default;
-  font-weight: 600;
+.button {
+  font: font-default-bold(1em, 1);
   overflow: hidden;
-  .icon--left {
+  &_icon--left {
     float: left;
     margin-left: -8px;
     margin-right: 8px;
   }
-  .icon--right {
+  &_icon--right {
     float: right;
     margin-left: 8px;
     margin-right: -8px;

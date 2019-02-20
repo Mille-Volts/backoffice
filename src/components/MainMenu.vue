@@ -1,10 +1,5 @@
 <template>
-  <el-menu
-    class="main-menu"
-    :mode="application.layout"
-    :router="true"
-    :default-active="currentPathActive"
-  >
+  <el-menu :mode="application.layout" :router="true" :default-active="currentPathActive">
     <template v-for="(item, i) in routes">
       <el-submenu
         :key="`${item.path}-${i}`"
@@ -72,7 +67,7 @@ export default {
 .el-menu.el-menu--horizontal,
 .el-menu--horizontal .el-menu {
   border: 0;
-  font-weight: 600;
+  font-weight: $--font-weight-bold;
   .el-submenu .el-menu-item {
     background: lighten($--color-secondary-dark, 3%);
     color: $--menu-item-color;

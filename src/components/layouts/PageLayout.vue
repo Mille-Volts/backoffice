@@ -1,57 +1,57 @@
 <template>
   <el-container
+    :class="`page page--${application.layout}`"
     :direction="application.layout === 'horizontal' ? 'vertical' : 'horizontal'"
-    :class="`page-container--${application.layout}`"
     sticky-container
   >
-    <el-header height="120px" v-if="application.layout === 'horizontal'">
-      <div class="top">
+    <el-header class="page_header" height="120px" v-if="application.layout === 'horizontal'">
+      <div class="page_top">
         <logo></logo>
-        <div class="title">
+        <div class="page_title">
           <slot name="title">
             <main-title></main-title>
           </slot>
         </div>
-        <div class="user">
+        <div class="page_user">
           <slot name="user">
             <user></user>
           </slot>
         </div>
       </div>
-      <div class="menu" v-sticky :sticky-z-index="2001" :sticky-offset="0">
+      <div class="page_menu" v-sticky :sticky-z-index="2001" :sticky-offset="0">
         <slot name="menu">
           <main-menu :routes="routes"></main-menu>
         </slot>
       </div>
     </el-header>
-    <el-aside v-else width="320px">
+    <el-aside class="page_aside" v-else width="320px">
       <logo></logo>
-      <div class="title">
+      <div class="page_title">
         <slot name="title">
           <main-title></main-title>
         </slot>
       </div>
-      <div class="user">
+      <div class="page_user">
         <slot name="user">
           <user></user>
         </slot>
       </div>
-      <div class="menu">
+      <div class="page_menu">
         <slot name="menu">
           <main-menu :routes="routes"></main-menu>
         </slot>
       </div>
-      <div class="author">
+      <div class="page_author">
         <slot name="author">
           <authorship/>
         </slot>
       </div>
     </el-aside>
-    <el-main>
+    <el-main class="page_main">
       <router-view></router-view>
     </el-main>
-    <el-footer height="auto" v-if="application.layout === 'horizontal'">
-      <div class="author">
+    <el-footer class="page_footer" height="auto" v-if="application.layout === 'horizontal'">
+      <div class="page_author">
         <slot name="author">
           <authorship/>
         </slot>
@@ -100,74 +100,79 @@ export default {
 <style scoped lang="scss">
 @import "@/scss/common.scss";
 
-.logo {
-  background: transparent url("../../assets/logo.png") no-repeat center center;
-  background-size: 100% 100%;
-  height: 76px;
-  width: 240px;
-}
-
-.user {
-  text-overflow: ellipsis;
-  width: 240px;
-}
-.author {
-  color: $--color-text-regular;
-}
-
-.el-aside {
-  @include image-retina("../../assets/background-v@2x.png", 320px, 1024px);
-  background: $--color-menu url("../../assets/background-v.png") no-repeat top
-    center;
-  bottom: 0;
-  color: $--color-white;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  overflow: auto;
-  top: 0;
-
-  .logo {
-    margin: 22px auto;
-    min-height: 76px;
+.page {
+  &_logo {
+    background: transparent url("../../assets/logo.png") no-repeat center center;
+    background-size: 100% 100%;
+    height: 76px;
+    width: 240px;
+    .page--vertical & {
+      margin: 22px auto;
+      min-height: 76px;
+    }
   }
-  .title {
-    background: $--color-secondary-dark;
+  &_user {
+    text-overflow: ellipsis;
+    width: 240px;
+    .page--vertical & {
+    }
   }
-  .author {
+  &_author {
+    color: $--color-text-regular;
+    .page--vertical & {
+      color: $--color-white;
+      margin-top: auto;
+    }
+  }
+  &_title {
+    .page--vertical & {
+      background: $--color-secondary-dark;
+    }
+    .page--horizontal & {
+      flex: 1;
+      line-height: 56px;
+      font-size: 16px;
+    }
+  }
+  &_menu {
+    .page--horizontal & {
+      background: $--color-secondary-dark;
+      clear: both;
+      display: flex;
+      width: 100%;
+    }
+  }
+
+  &_header {
+    background: $--color-menu url("../../assets/background-h.png") no-repeat top
+      center;
     color: $--color-white;
-    margin-top: auto;
+    padding: 0;
+    @include image-retina("../../assets/background-h@2x.png", 1440px, 120px);
   }
-}
-.el-header {
-  background: $--color-menu url("../../assets/background-h.png") no-repeat top
-    center;
-  color: $--color-white;
-  padding: 0;
-  @include image-retina("../../assets/background-h@2x.png", 1440px, 120px);
-
-  .top {
+  &_top {
     display: flex;
   }
-  .title {
-    flex: 1;
-    line-height: 56px;
-    font-size: 16px;
-  }
-  .menu {
-    background: $--color-secondary-dark;
-    clear: both;
+  &_aside {
+    @include image-retina("../../assets/background-v@2x.png", 320px, 1024px);
+    background: $--color-menu url("../../assets/background-v.png") no-repeat top
+      center;
+    bottom: 0;
+    color: $--color-white;
     display: flex;
-    width: 100%;
+    flex-direction: column;
+    position: fixed;
+    overflow: auto;
+    top: 0;
   }
-}
-.el-main,
-.el-footer {
-  padding: 0;
-}
-.page-container--vertical {
-  .el-main {
-    margin-left: 320px;
+  &_main {
+    padding: 0;
+    .page--vertical & {
+      margin-left: 320px;
+    }
+  }
+  &_footer {
+    padding: 30px 0 5px 0;
   }
 }
 </style>
