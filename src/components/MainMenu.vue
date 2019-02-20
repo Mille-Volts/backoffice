@@ -1,5 +1,9 @@
 <template>
-  <el-menu :mode="application.layout" :router="true" :default-active="currentPathActive">
+  <el-menu
+    :mode="application.layout"
+    :router="true"
+    :default-active="currentPathActive"
+  >
     <template v-for="(item, i) in routes">
       <el-submenu
         :key="`${item.path}-${i}`"

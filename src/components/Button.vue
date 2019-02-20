@@ -14,7 +14,11 @@
       :name="icon || iconLeft"
     />
     <slot></slot>
-    <icon class="button_icon button_icon--right" v-if="iconRight" :name="iconRight"/>
+    <icon
+      class="button_icon button_icon--right"
+      v-if="iconRight"
+      :name="iconRight"
+    />
   </el-button>
 </template>
 

@@ -2,7 +2,9 @@
   <mv-form @submit="tryLocalLogin" :disabled="isAuthenticating">
     <h2>Connexion invité</h2>
     <p>Connectez-vous à l'interface avec un accès invité.</p>
-    <mv-button type="submit" icon="user" :loading="isAuthenticating" primary>Entrer sans connexion</mv-button>
+    <mv-button type="submit" icon="user" :loading="isAuthenticating" primary
+      >Entrer sans connexion</mv-button
+    >
   </mv-form>
 </template>
 
@@ -19,7 +21,7 @@ export default {
     };
   },
   methods: {
-    async tryLocalLogin(data) {
+    async tryLocalLogin() {
       this.isAuthenticating = true;
       await this.authentication.tryLogin({
         type: "guest",

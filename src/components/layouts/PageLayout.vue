@@ -4,7 +4,11 @@
     :direction="application.layout === 'horizontal' ? 'vertical' : 'horizontal'"
     sticky-container
   >
-    <el-header class="page_header" height="120px" v-if="application.layout === 'horizontal'">
+    <el-header
+      class="page_header"
+      height="120px"
+      v-if="application.layout === 'horizontal'"
+    >
       <div class="page_top">
         <logo></logo>
         <div class="page_title">
@@ -43,17 +47,21 @@
       </div>
       <div class="page_author">
         <slot name="author">
-          <authorship/>
+          <authorship />
         </slot>
       </div>
     </el-aside>
     <el-main class="page_main">
       <router-view></router-view>
     </el-main>
-    <el-footer class="page_footer" height="auto" v-if="application.layout === 'horizontal'">
+    <el-footer
+      class="page_footer"
+      height="auto"
+      v-if="application.layout === 'horizontal'"
+    >
       <div class="page_author">
         <slot name="author">
-          <authorship/>
+          <authorship />
         </slot>
       </div>
     </el-footer>

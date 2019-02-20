@@ -22,10 +22,18 @@
             <div v-if="breadcrumb.length" class="content-layout_breadcrumb">
               <slot name="breadcrumb">
                 <el-breadcrumb separator="/">
-                  <el-breadcrumb-item :to="{ path: '/' }">Accueil</el-breadcrumb-item>
-                  <el-breadcrumb-item v-for="match in breadcrumb" :key="match.path" :to="match">
+                  <el-breadcrumb-item :to="{ path: '/' }"
+                    >Accueil</el-breadcrumb-item
+                  >
+                  <el-breadcrumb-item
+                    v-for="match in breadcrumb"
+                    :key="match.path"
+                    :to="match"
+                  >
                     {{
-                    (match.meta && match.meta.label) || match.name || match.path
+                      (match.meta && match.meta.label) ||
+                        match.name ||
+                        match.path
                     }}
                   </el-breadcrumb-item>
                 </el-breadcrumb>
@@ -36,13 +44,22 @@
                 <h1 v-text="pageTitle"></h1>
               </slot>
             </div>
-            <div v-if="$slots.actions || $slots.topActions" class="content-layout_header-actions">
+            <div
+              v-if="$slots.actions || $slots.topActions"
+              class="content-layout_header-actions"
+            >
               <slot name="topActions"></slot>
               <slot name="actions"></slot>
             </div>
-            <div v-if="$slots.tabs || (groups && groups.length > 1)" class="content-layout_tabs">
+            <div
+              v-if="$slots.tabs || (groups && groups.length > 1)"
+              class="content-layout_tabs"
+            >
               <slot name="tabs">
-                <el-tabs class="content-layout_content-tabs" v-model="tabActive">
+                <el-tabs
+                  class="content-layout_content-tabs"
+                  v-model="tabActive"
+                >
                   <el-tab-pane
                     v-for="{ label, name } in tabs"
                     :key="name"
@@ -62,7 +79,10 @@
       </el-main>
       <el-footer class="content-layout_footer" v-if="form">
         <div class="content-layout_content">
-          <div class="content-layout_footer-actions" v-if="$slots.actions || $slots.bottomActions">
+          <div
+            class="content-layout_footer-actions"
+            v-if="$slots.actions || $slots.bottomActions"
+          >
             <slot name="actions"></slot>
             <slot name="bottomActions"></slot>
           </div>

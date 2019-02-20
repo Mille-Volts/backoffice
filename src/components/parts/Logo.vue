@@ -1,5 +1,8 @@
 <template>
-  <div class="logo" :style="{width: `${width*ratio}px`, height: `${height*ratio}px`}"></div>
+  <div
+    class="logo"
+    :style="{ width: `${width * ratio}px`, height: `${height * ratio}px` }"
+  ></div>
 </template>
 
 <script>

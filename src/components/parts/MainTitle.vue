@@ -1,5 +1,8 @@
 <template>
-  <div class="main-title" v-html="`Interface d'<strong>administration</strong>`"></div>
+  <div
+    class="main-title"
+    v-html="`Interface d'<strong>administration</strong>`"
+  ></div>
 </template>
 
 <style scoped lang="scss">

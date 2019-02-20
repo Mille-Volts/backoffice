@@ -7,7 +7,7 @@
       rel="nofollow"
       v-text="application.author.name"
     ></a>
-    <span v-else v-text="application.author.name"/>
+    <span v-else v-text="application.author.name" />
   </div>
 </template>
 

@@ -11,7 +11,7 @@
         <panel class="authentication-layout_login-panel">
           <slot>
             <h1>Welcome</h1>
-            <guest-login/>
+            <guest-login />
           </slot>
         </panel>
         <div class="authentication-layout_authorship">
@@ -32,14 +32,12 @@ import Authorship from "../parts/Authorship.vue";
 import Logo from "../parts/Logo.vue";
 import MainTitle from "../parts/MainTitle.vue";
 
-import LocalLogin from "../authentication/LocalLogin.vue";
 import GuestLogin from "../authentication/GuestLogin.vue";
 
 export default {
   name: "AuthenticationLayout",
   inject: ["application"],
   components: {
-    LocalLogin,
     GuestLogin,
     Logo,
     Authorship,

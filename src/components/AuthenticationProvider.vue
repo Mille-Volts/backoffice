@@ -1,6 +1,13 @@
 <script>
 import { getUser, setUser, unsetUser } from "./auth";
 
+/*TODO
+ - authentication provider gère le stockage
+ - chaque XXLogin récupère le authentication provider et possède une fonction qui permet de réaliser la connexion
+ - si connexion OK -> on utilise la fonction login() du authentication provider sur chaque XXLogin et on déclenche un évènement "login-success"
+ - si connexion pas OK -> on déclenche un évènement @login-error
+*/
+
 export default {
   name: "AuthenticationProvider",
   props: {
@@ -47,7 +54,7 @@ export default {
           this.$set(this.user, "date", new Date());
           break;
         default:
-          throw new Error(`Aucune méthode de connexion implémentée !`);
+          throw new Error(`Login method not implemented!`);
       }
       setUser(this.user.data);
       this.$router.push(this.$route.query.next || { name: "home" });

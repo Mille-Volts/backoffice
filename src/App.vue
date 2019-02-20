@@ -1,5 +1,5 @@
 <template>
-  <authentication-provider @login="tryLogin" @logout="tryLogout">
+  <authentication-provider>
     <application :routes="routes">
       <router-view></router-view>
     </application>
@@ -11,21 +11,19 @@ import routes from "./routes";
 
 export default {
   data() {
-    // const user = getUser();
     return { routes };
   },
   methods: {
-    async tryLogin(connectionInfo) {
-      switch (connectionInfo.type) {
-        case "local":
-          return new Promise((resolve, reject) => {
-            window.setTimeout(() => {
-              resolve({ firstname: "Camille", lastname: "Vaultier" });
-            }, 1000);
-          });
-      }
-    },
-    async tryLogout() {}
+    // async tryLogin({ type, ...data }) {
+    //   switch (type) {
+    //     case "local":
+    //       return new Promise((resolve, reject) => {
+    //         window.setTimeout(() => {
+    //           resolve({ name: "Camille VAULTIER", icon: "badge" });
+    //         }, 1000);
+    //       });
+    //   }
+    // }
   }
 };
 </script>
