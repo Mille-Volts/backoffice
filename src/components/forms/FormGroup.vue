@@ -1,5 +1,5 @@
 <template>
-  <el-container v-if="!hide" class="form-group">
+  <el-container v-if="!hide" class="form-group mv--block">
     <el-aside class="form-group_aside" width="240px">
       <slot name="header">
         <h2 v-if="title" v-text="title"></h2>
@@ -46,21 +46,26 @@ export default {
 
 .form-group {
   + .form-group {
-    margin-top: 30px;
+    margin-top: ($--margin * 2);
   }
   &_aside {
-    padding: 15px 0;
+    padding: $--margin 0;
   }
   &_main {
-    padding: 0 0 0 30px;
+    padding: 0 0 0 ($--margin * 2);
   }
 }
 </style>
 
 <style lang="scss">
+@import "@/scss/common.scss";
+
+.panel .form-group_aside {
+  padding-top: 0;
+}
 .form-group_aside {
   hr {
-    margin: 15px 0;
+    margin: $--margin 0;
   }
 }
 </style>

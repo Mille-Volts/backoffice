@@ -33,6 +33,10 @@ img {
   max-width: 100%;
 }
 
+.mv--block + .mv--block {
+  margin-top: $--margin;
+}
+
 .el-radio {
   // Makes the radio buttons as high as the other fields
   line-height: 20px;

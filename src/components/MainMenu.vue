@@ -1,5 +1,6 @@
 <template>
   <el-menu
+    class="mv--block"
     :mode="application.layout"
     :router="true"
     :default-active="currentPathActive"

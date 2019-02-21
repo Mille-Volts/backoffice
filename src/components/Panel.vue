@@ -1,5 +1,5 @@
 <template>
-  <el-container class="panel">
+  <el-container class="panel mv--block">
     <el-header
       v-if="$slots.header || $slots.actions || title"
       class="panel_header"
@@ -36,9 +36,6 @@ export default {
   border-radius: $--card-border-radius;
   border: 1px solid $--card-border-color;
   background-color: $--color-white;
-  + .panel {
-    margin-top: 15px;
-  }
   &_header {
     border-bottom: 1px solid $--border-color-base;
     margin: 0 $--card-padding;
@@ -58,13 +55,15 @@ export default {
   }
 }
 .panel_header ~ .panel_main {
-  padding: 15px 30px;
+  padding: $--margin ($--margin * 2);
 }
 </style>
 <style lang="scss">
+@import "@/scss/common.scss";
+
 .panel_main {
   hr {
-    margin: 15px 0;
+    margin: $--margin 0;
   }
 }
 </style>

@@ -3,6 +3,37 @@
     <template v-slot:actions>
       <mv-button primary icon="plus">Ajouter un enregistrement</mv-button>
     </template>
+    <panel>
+      <mv-form>
+        <form-group title="Action rapide">
+          <template v-slot:description>
+            <p>
+              Utilisez ce formulaire pour insérer rapidement un élément dans la
+              liste.
+            </p>
+            <hr />
+            <mv-button success>Enregistrer</mv-button>
+            <mv-button ghost>Annuler</mv-button>
+          </template>
+          <form-row>
+            <form-column>
+              <form-item label="Champ obligatoire" required>
+                <form-input placeholder="Texte"></form-input>
+              </form-item>
+            </form-column>
+            <form-column>
+              <form-item label="Champ facultatif">
+                <form-input placeholder="Texte"></form-input>
+              </form-item>
+            </form-column>
+          </form-row>
+          <form-item label="Champ facultatif">
+            <form-input placeholder="Texte"></form-input>
+          </form-item>
+        </form-group>
+      </mv-form>
+    </panel>
+
     <mv-form :model="filters" inline>
       <panel title="Mon tableau">
         <template v-slot:actions>

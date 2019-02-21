@@ -1,5 +1,5 @@
 <template>
-  <div class="table">
+  <div class="table mv--block">
     <div class="table_header">
       <slot name="header"></slot>
     </div>

@@ -1,5 +1,6 @@
 <template>
   <el-form
+    class="form mv--block"
     :label-position="defaultLabelPosition"
     :model="model"
     :inline="inline"
