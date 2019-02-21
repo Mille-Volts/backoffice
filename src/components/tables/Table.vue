@@ -21,12 +21,12 @@
       v-bind="$attrs"
       v-on="$listeners"
     >
-      <el-table-column v-if="selection || $listeners.updateSelection" type="selection" width="55"></el-table-column>
-      <table-column v-if="$slots.expand || $scopedSlots.expand" type="expand">
+      <table-column v-if="$scopedSlots.expand" type="expand">
         <template v-slot:default="{row}">
           <slot name="expand" :row="row"></slot>
         </template>
       </table-column>
+      <table-column v-if="selection || $listeners.updateSelection" type="selection" width="55"></table-column>
       <slot></slot>
     </el-table>
     <div class="table_footer">

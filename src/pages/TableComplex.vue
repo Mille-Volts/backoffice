@@ -33,12 +33,12 @@
               <el-select v-model="filters.select" placeholder="Filtre spécifique..."></el-select>
             </form-item>
           </template>
-          <!-- <template v-slot:expand>
+          <template v-slot:expand="{row}">
             <p class="no-margin text-bold">
               <a v-text="row.title"></a>
             </p>
             <p class="no-margin text-small text-secondary" v-text="row.subtitle"></p>
-          </template>-->
+          </template>
           <table-column prop="date" date label="Date" width="120" align="left" sortable></table-column>
           <table-column prop="title" label="Titre">
             <template v-slot:header="{ column }">
