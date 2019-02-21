@@ -4,8 +4,7 @@
     class="content-layout"
     :class="{
       [`content-layout--${application.layout}`]: 1,
-      'content-layout--form': form,
-      'content-layout--table': table
+      'content-layout--form': form
     }"
     v-bind="parentProps"
     v-on="$listeners"
@@ -25,18 +24,12 @@
             <div v-if="breadcrumb.length" class="content-layout_breadcrumb">
               <slot name="breadcrumb">
                 <el-breadcrumb separator="/">
-                  <el-breadcrumb-item :to="{ path: '/' }"
-                    >Accueil</el-breadcrumb-item
-                  >
-                  <el-breadcrumb-item
-                    v-for="match in breadcrumb"
-                    :key="match.path"
-                    :to="match"
-                  >
+                  <el-breadcrumb-item :to="{ path: '/' }">Accueil</el-breadcrumb-item>
+                  <el-breadcrumb-item v-for="match in breadcrumb" :key="match.path" :to="match">
                     {{
-                      (match.meta && match.meta.label) ||
-                        match.name ||
-                        match.path
+                    (match.meta && match.meta.label) ||
+                    match.name ||
+                    match.path
                     }}
                   </el-breadcrumb-item>
                 </el-breadcrumb>
@@ -47,19 +40,13 @@
                 <h1 v-text="pageTitle"></h1>
               </slot>
             </div>
-            <div
-              v-if="$slots.actions || $slots.topActions"
-              class="content-layout_header-actions"
-            >
+            <div v-if="$slots.actions || $slots.topActions" class="content-layout_header-actions">
               <slot name="topActions"></slot>
               <slot name="actions"></slot>
             </div>
             <div v-if="hasTabs" class="content-layout_tabs">
               <slot name="tabs">
-                <el-tabs
-                  v-model="tabActive"
-                  class="content-layout_content-tabs"
-                >
+                <el-tabs v-model="tabActive" class="content-layout_content-tabs">
                   <el-tab-pane
                     v-for="{ label, name } in tabs"
                     :key="name"
@@ -73,19 +60,13 @@
         </div>
       </el-header>
       <el-main ref="main" class="content-layout_main">
-        <mv-table v-if="table" :data="table">
-          <slot></slot>
-        </mv-table>
-        <div v-else class="content-layout_content">
+        <div class="content-layout_content">
           <slot></slot>
         </div>
       </el-main>
       <el-footer v-if="form" class="content-layout_footer">
         <div class="content-layout_content">
-          <div
-            v-if="$slots.actions || $slots.bottomActions"
-            class="content-layout_footer-actions"
-          >
+          <div v-if="$slots.actions || $slots.bottomActions" class="content-layout_footer-actions">
             <slot name="actions"></slot>
             <slot name="bottomActions"></slot>
           </div>
@@ -97,15 +78,13 @@
 
 <script>
 import VueScrollTo from "vue-scrollto";
-import MvForm from "../Form.vue";
-import MvTable from "../Table.vue";
+import MvForm from "../forms/Form.vue";
 
 export default {
   name: "ContentLayout",
   inject: ["application"],
   components: {
-    MvForm,
-    MvTable
+    MvForm
   },
   provide() {
     return {
@@ -117,8 +96,7 @@ export default {
     withHeader: { type: Boolean, default: true },
     withTabs: { type: Boolean, default: true },
     tabScroll: Boolean,
-    form: Object,
-    table: Array
+    form: Object
   },
   data() {
     return {
@@ -263,9 +241,6 @@ export default {
   }
   &_main {
     padding: 30px;
-    .content-layout--table & {
-      padding: 0 0 30px 0;
-    }
   }
   &_footer {
     padding: 0 30px;

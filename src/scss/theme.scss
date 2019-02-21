@@ -25,7 +25,7 @@ table {
 hr {
   border: 0;
   border-bottom: 1px solid $--card-border-color;
-  margin: 30px 0;
+  margin: ($--margin * 2) 0;
 }
 
 img {
@@ -54,7 +54,7 @@ img {
   padding-bottom: 5px;
 }
 .el-form--inline .el-form-item {
-  margin-bottom: 15px;
+  margin-bottom: $--margin;
 }
 .panel_actions .el-form-item {
   margin-bottom: 0;

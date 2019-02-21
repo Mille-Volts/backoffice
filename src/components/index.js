@@ -19,14 +19,16 @@ import Icon from "./Icon.vue";
 import MainMenu from "./MainMenu.vue";
 import Panel from "./Panel.vue";
 
-import MvForm from "./Form.vue";
-import FormColumn from "./FormColumn.vue";
-import FormItem from "./FormItem.vue";
-import FormGroup from "./FormGroup.vue";
-import FormRow from "./FormRow.vue";
+import MvForm from "./forms/Form.vue";
+import FormColumn from "./forms/FormColumn.vue";
+import FormItem from "./forms/FormItem.vue";
+import FormGroup from "./forms/FormGroup.vue";
+import FormRow from "./forms/FormRow.vue";
+import FormInput from "./forms/FormInput.vue";
+import FormSelect from "./forms/FormSelect.vue";
 
-import MvTable from "./Table.vue";
-import TableColumn from "./TableColumn.vue";
+import MvTable from "./tables/Table.vue";
+import TableColumn from "./tables/TableColumn.vue";
 
 moment.locale("fr");
 
@@ -61,6 +63,8 @@ export default {
     Vue.component("FormItem", FormItem);
     Vue.component("FormGroup", FormGroup);
     Vue.component("FormRow", FormRow);
+    Vue.component("FormInput", FormInput);
+    Vue.component("FormSelect", FormSelect);
 
     Vue.component("MvTable", MvTable);
     Vue.component("TableColumn", TableColumn);

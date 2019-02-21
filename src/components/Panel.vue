@@ -1,10 +1,6 @@
 <template>
   <el-container class="panel">
-    <el-header
-      v-if="$slots.header || $slots.actions || title"
-      class="panel_header"
-      height="auto"
-    >
+    <el-header v-if="$slots.header || $slots.actions || title" class="panel_header" height="auto">
       <slot name="header">
         <span v-if="title" class="panel_title">
           <h3 v-text="title"></h3>
@@ -58,7 +54,7 @@ export default {
   }
 }
 .panel_header ~ .panel_main {
-  padding-top: 15px;
+  padding: 15px 30px;
 }
 </style>
 <style lang="scss">

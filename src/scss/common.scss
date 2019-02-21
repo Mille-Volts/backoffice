@@ -1,4 +1,6 @@
 /* theme color */
+$--margin: 15px;
+
 $--color-primary: #288ff7;
 $--color-secondary: #0a3556;
 $--color-secondary-dark: darken($--color-secondary, 5%);
@@ -12,12 +14,13 @@ $--border-color-base: #dcdfe6;
 
 $--card-border-radius: 2px;
 $--card-border-color: $--border-color-base;
-$--card-padding: 30px;
+$--card-padding: $--margin * 2;
 
 $--menu-item-color: #d0d5de;
 $--menu-item-fill: $--color-secondary-dark;
 $--menu-item-hover-fill: $--color-secondary-darker;
 
+$--table-border-color: $--border-color-base;
 $--table-row-hover-background: #e6f0f7;
 
 $--font-stack-default: "Titillium Web", Helvetica, Arial, sans-serif;

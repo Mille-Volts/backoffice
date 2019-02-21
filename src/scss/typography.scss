@@ -3,20 +3,20 @@ $--font-stack-default: "Arial" !default;
 h1 {
   color: $--color-secondary;
   font: 300 40px/120% $--font-stack-default;
-  margin: 30px 0;
+  margin: ($--margin * 2) 0;
 }
 
 h2 {
   color: $--color-text-secondary;
   font: 600 16px/120% $--font-stack-default;
-  margin: 15px 0;
+  margin: $--margin 0;
   text-transform: uppercase;
 }
 
 h3 {
   color: $--color-secondary;
   font: normal 16px/120% $--font-stack-default;
-  margin: 20px 0;
+  margin: ($--margin * 2) 0;
 }
 
 p {
@@ -44,6 +44,14 @@ a {
 .no-margin {
   line-height: 1.2;
   margin: 0;
+}
+.margin-bottom,
+.mb {
+  margin-bottom: $--margin;
+}
+.margin-top,
+.mt {
+  margin-top: $--margin;
 }
 .text-secondary {
   color: $--color-text-secondary;
