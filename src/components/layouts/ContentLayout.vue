@@ -24,12 +24,18 @@
             <div v-if="breadcrumb.length" class="content-layout_breadcrumb">
               <slot name="breadcrumb">
                 <el-breadcrumb separator="/">
-                  <el-breadcrumb-item :to="{ path: '/' }">Accueil</el-breadcrumb-item>
-                  <el-breadcrumb-item v-for="match in breadcrumb" :key="match.path" :to="match">
+                  <el-breadcrumb-item :to="{ path: '/' }"
+                    >Accueil</el-breadcrumb-item
+                  >
+                  <el-breadcrumb-item
+                    v-for="match in breadcrumb"
+                    :key="match.path"
+                    :to="match"
+                  >
                     {{
-                    (match.meta && match.meta.label) ||
-                    match.name ||
-                    match.path
+                      (match.meta && match.meta.label) ||
+                        match.name ||
+                        match.path
                     }}
                   </el-breadcrumb-item>
                 </el-breadcrumb>
@@ -40,13 +46,19 @@
                 <h1 v-text="pageTitle"></h1>
               </slot>
             </div>
-            <div v-if="$slots.actions || $slots.topActions" class="content-layout_header-actions">
+            <div
+              v-if="$slots.actions || $slots.topActions"
+              class="content-layout_header-actions"
+            >
               <slot name="topActions"></slot>
               <slot name="actions"></slot>
             </div>
             <div v-if="hasTabs" class="content-layout_tabs">
               <slot name="tabs">
-                <el-tabs v-model="tabActive" class="content-layout_content-tabs">
+                <el-tabs
+                  v-model="tabActive"
+                  class="content-layout_content-tabs"
+                >
                   <el-tab-pane
                     v-for="{ label, name } in tabs"
                     :key="name"
@@ -66,7 +78,10 @@
       </el-main>
       <el-footer v-if="form" class="content-layout_footer">
         <div class="content-layout_content">
-          <div v-if="$slots.actions || $slots.bottomActions" class="content-layout_footer-actions">
+          <div
+            v-if="$slots.actions || $slots.bottomActions"
+            class="content-layout_footer-actions"
+          >
             <slot name="actions"></slot>
             <slot name="bottomActions"></slot>
           </div>

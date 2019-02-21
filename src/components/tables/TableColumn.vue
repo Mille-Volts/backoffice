@@ -7,7 +7,11 @@
     v-on="$listeners"
   >
     <template v-if="$scopedSlots.header" v-slot:header="slotProps">
-      <slot name="header" :row="slotProps.row" :column="slotProps.column"></slot>
+      <slot
+        name="header"
+        :row="slotProps.row"
+        :column="slotProps.column"
+      ></slot>
     </template>
     <template v-if="$scopedSlots.default" v-slot:default="slotProps">
       <slot :row="slotProps.row" :column="slotProps.column"></slot>
@@ -25,7 +29,8 @@ export default {
     formatter: Function,
     date: { type: [Boolean, String], default: false },
     datetime: { type: [Boolean, String], default: false },
-    ago: { type: [Boolean, String], default: false }
+    ago: { type: [Boolean, String], default: false },
+    actions: { type: [Boolean, String], default: false }
   },
   computed: {
     defaultAlign() {

@@ -1,14 +1,20 @@
 <template>
   <el-input v-bind="$attrs" v-on="$listeners">
-    <template v-if="icon || iconLeft" v-slot:prefix>
+    <template v-if="icon || iconLeft" v-slot:prefix>
       <span class="form-input_icon-container">
-        <icon class="form-input_icon form-input_icon--left" :name="icon || iconLeft"/>
+        <icon
+          class="form-input_icon form-input_icon--left"
+          :name="icon || iconLeft"
+        />
       </span>
     </template>
     <slot></slot>
     <template v-if="iconRight" v-slot:suffix>
       <span class="form-input_icon-container">
-        <icon class="form-input_icon form-input_icon--right" :name="iconRight"/>
+        <icon
+          class="form-input_icon form-input_icon--right"
+          :name="iconRight"
+        />
       </span>
     </template>
   </el-input>

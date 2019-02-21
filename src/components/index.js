@@ -15,6 +15,7 @@ import GuestLogin from "./authentication/GuestLogin.vue";
 import Application from "./Application.vue";
 import AuthenticationProvider from "./AuthenticationProvider.vue";
 import MvButton from "./Button.vue";
+import DropDownAction from "./DropDownAction.vue";
 import Icon from "./Icon.vue";
 import MainMenu from "./MainMenu.vue";
 import Panel from "./Panel.vue";
@@ -28,6 +29,7 @@ import FormInput from "./forms/FormInput.vue";
 import FormSelect from "./forms/FormSelect.vue";
 
 import MvTable from "./tables/Table.vue";
+import TableAction from "./tables/TableAction.vue";
 import TableColumn from "./tables/TableColumn.vue";
 
 moment.locale("fr");
@@ -54,6 +56,7 @@ export default {
     Vue.component("Application", Application);
     Vue.component("AuthenticationProvider", AuthenticationProvider);
     Vue.component("MvButton", MvButton);
+    Vue.component("DropDownAction", DropDownAction);
     Vue.component("Icon", Icon);
     Vue.component("MainMenu", MainMenu);
     Vue.component("Panel", Panel);
@@ -67,6 +70,7 @@ export default {
     Vue.component("FormSelect", FormSelect);
 
     Vue.component("MvTable", MvTable);
+    Vue.component("TableAction", TableAction);
     Vue.component("TableColumn", TableColumn);
   }
 };

@@ -6,7 +6,11 @@
     <div v-if="currentlySelected" class="table_selected">
       <el-alert
         class="table_selected-message"
-        :title="currentlySelected === 1? `Un élément sélectionné`: `${currentlySelected} éléments sélectionnés`"
+        :title="
+          currentlySelected === 1
+            ? `Un élément sélectionné`
+            : `${currentlySelected} éléments sélectionnés`
+        "
         type="info"
         :closable="false"
       >
@@ -22,11 +26,15 @@
       v-on="$listeners"
     >
       <table-column v-if="$scopedSlots.expand" type="expand">
-        <template v-slot:default="{row}">
+        <template v-slot:default="{ row }">
           <slot name="expand" :row="row"></slot>
         </template>
       </table-column>
-      <table-column v-if="selection || $listeners.updateSelection" type="selection" width="55"></table-column>
+      <table-column
+        v-if="selection || $listeners.updateSelection"
+        type="selection"
+        width="55"
+      ></table-column>
       <slot></slot>
     </el-table>
     <div class="table_footer">
@@ -35,7 +43,13 @@
           <slot name="results">
             <span v-if="total">
               <strong
-                v-text="results? (results === 1? `Un résultat`: `${results} résultats`): `Aucun résultat`"
+                v-text="
+                  results
+                    ? results === 1
+                      ? `Un résultat`
+                      : `${results} résultats`
+                    : `Aucun résultat`
+                "
               ></strong>
               /
               <span v-text="`${total} au total`"></span>
@@ -57,7 +71,8 @@
         </div>
         <div class="table_limit">
           <slot name="limit">
-            <label>Afficher :
+            <label
+              >Afficher :
               <form-select
                 class="table_limit_select"
                 size="mini"
@@ -102,7 +117,7 @@ export default {
       this._dataForSelection = [this.data, this.selection];
     }
     this._data = this.data;
-    this.data.forEach((row, index) => {
+    this.data.forEach(row => {
       const wasSelected = (this._selection || []).indexOf(row) !== -1;
       const isSelected = (this.selection || []).indexOf(row) !== -1;
       if (wasSelected === isSelected) return;

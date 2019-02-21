@@ -1,6 +1,11 @@
 <template>
   <el-button
     class="button"
+    :class="{
+      [`button--${computedType || 'standard'}`]: 1,
+      'button--has-text': !!$slots.default,
+      'button--has-icon': !!icon || !!iconLeft || !!iconRight
+    }"
     :plain="plain"
     :type="computedType"
     :native-type="type"
@@ -78,20 +83,22 @@ export default {
 .button {
   font: font-default-bold(1em, 1);
   overflow: hidden;
-  &_icon--left {
-    float: left;
-    margin-left: -8px;
-    margin-right: 8px;
-  }
-  &_icon--right {
-    float: right;
-    margin-left: 8px;
-    margin-right: -8px;
-  }
-  .el-icon-loading {
-    float: left;
-    margin-left: -8px;
-    margin-right: 3px;
+  &--has-text {
+    .button_icon--left {
+      float: left;
+      margin-left: -8px;
+      margin-right: 8px;
+    }
+    .button_icon--right {
+      float: right;
+      margin-left: 8px;
+      margin-right: -8px;
+    }
+    .el-icon-loading {
+      float: left;
+      margin-left: -8px;
+      margin-right: 3px;
+    }
   }
 }
 </style>
