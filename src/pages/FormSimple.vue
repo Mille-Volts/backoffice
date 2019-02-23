@@ -1,40 +1,31 @@
 <template>
-  <content-layout :form="form" :with-tabs="false" @submit="submitForm">
+  <content-layout :form="form" :with-tabs="false" @submit="submitForm" v-loading="loading">
     <template v-slot:actions>
-      <mv-button ghost icon="arrow-left" @click="$router.back()"
-        >Annuler</mv-button
-      >
-      <mv-button success icon-right="check" type="submit"
-        >Enregistrer</mv-button
-      >
+      <mv-button ghost icon="arrow-left" @click="$router.back()">Annuler</mv-button>
+      <mv-button success icon-right="check" type="submit">Enregistrer</mv-button>
     </template>
     <form-group title="Groupe de champs">
       <template v-slot:description>
         <p>Ma description</p>
-        <hr />
-        <el-switch v-model="form.published" active-text="Publié" />
+        <hr>
+        <el-switch v-model="form.published" active-text="Publié"/>
       </template>
       <panel>
         <form-row>
           <form-column>
             <form-item label="Slider" required>
-              <el-slider
-                v-model="form.radio"
-                :show-tooltip="false"
-                :max="3"
-              ></el-slider>
+              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
             </form-item>
           </form-column>
           <form-column>
             <form-item label="Input number">
-              <el-input-number
-                v-model="form.radio"
-                :min="0"
-                :max="3"
-              ></el-input-number>
+              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
             </form-item>
           </form-column>
         </form-row>
+        <form-item label="Fichier">
+          <form-upload></form-upload>
+        </form-item>
         <form-item label="Radio buttons">
           <row>
             <column :sm="8">
@@ -48,9 +39,7 @@
             </column>
           </row>
         </form-item>
-        <mv-button icon-left="lock" icon-right="save" @click="form.radio = 2"
-          >Set 2</mv-button
-        >
+        <mv-button icon-left="lock" icon-right="save" @click="form.radio = 2">Set 2</mv-button>
         <mv-button icon="wand" primary>Primaire</mv-button>
         <mv-button icon-right="desktop" secondary>Secondaire</mv-button>
       </panel>
@@ -59,27 +48,19 @@
     <form-group v-if="form.radio < 2" title="Mon groupe de champs 3">
       <template v-slot:description>
         <p>Ma description</p>
-        <hr />
-        <el-switch v-model="form.published" active-text="Publié" />
+        <hr>
+        <el-switch v-model="form.published" active-text="Publié"/>
       </template>
       <panel>
         <form-row>
           <form-column>
             <form-item label="Slider" required>
-              <el-slider
-                v-model="form.radio"
-                :show-tooltip="false"
-                :max="3"
-              ></el-slider>
+              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
             </form-item>
           </form-column>
           <form-column>
             <form-item label="Input number">
-              <el-input-number
-                v-model="form.radio"
-                :min="0"
-                :max="3"
-              ></el-input-number>
+              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
             </form-item>
           </form-column>
         </form-row>
@@ -108,6 +89,7 @@
 export default {
   data() {
     return {
+      loading: false,
       form: {
         published: false,
         radio: 0
@@ -115,8 +97,18 @@ export default {
     };
   },
   methods: {
-    submitForm(data, evt) {
-      console.log(data, this.form, evt);
+    submitForm(data) {
+      this.loading = true;
+      window.setTimeout(() => {
+        this.loading = false;
+        this.$notify({
+          type: "success",
+          title: "Formulaire validé",
+          message: `Le formulaire a été validé, merci (${JSON.stringify(
+            data
+          )}).`
+        });
+      }, 1500);
     }
   }
 };

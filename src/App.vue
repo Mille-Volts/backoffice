@@ -1,7 +1,9 @@
 <template>
   <authentication-provider>
     <application :routes="routes">
-      <router-view></router-view>
+      <upload-provider v-bind="uploadProviderAttrs">
+        <router-view></router-view>
+      </upload-provider>
     </application>
   </authentication-provider>
 </template>
@@ -12,6 +14,11 @@ import routes from "./routes";
 export default {
   data() {
     return { routes };
+  },
+  computed: {
+    uploadProviderAttrs() {
+      return {};
+    }
   },
   methods: {
     // async tryLogin({ type, ...data }) {

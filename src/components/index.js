@@ -27,6 +27,8 @@ import FormGroup from "./forms/FormGroup.vue";
 import FormRow from "./forms/FormRow.vue";
 import FormInput from "./forms/FormInput.vue";
 import FormSelect from "./forms/FormSelect.vue";
+import FormUpload from "./forms/FormUpload.vue";
+import UploadProvider from "./UploadProvider.vue";
 
 import MvTable from "./tables/Table.vue";
 import TableAction from "./tables/TableAction.vue";
@@ -68,6 +70,8 @@ export default {
     Vue.component("FormRow", FormRow);
     Vue.component("FormInput", FormInput);
     Vue.component("FormSelect", FormSelect);
+    Vue.component("FormUpload", FormUpload);
+    Vue.component("UploadProvider", UploadProvider);
 
     Vue.component("MvTable", MvTable);
     Vue.component("TableAction", TableAction);
