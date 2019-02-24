@@ -5,9 +5,14 @@
 </template>
 
 <script>
+import { Col as ElCol } from "element-ui";
+
 export default {
   name: "FormColumn",
   inject: ["application"],
+  components: {
+    ElCol
+  },
   computed: {
     md() {
       return this.application.layout === "horizontal" ? 12 : 24;

@@ -2,15 +2,15 @@
   "name": "@millevolts/backoffice",
   "version": "0.0.4",
   "description": "",
-  "main": "dist/millevolts-backoffice.common.js",
+  "main": "lib/millevolts-backoffice.common.js",
+  "module": "lib/millevolts-backoffice.umd.js",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build-lib": "vue-cli-service build --target lib --name millevolts-backoffice src/components/index.js",
+    "serve": "vue-cli-service serve example/main.js",
+    "build": "vue-cli-service build --dest lib --target lib --name millevolts-backoffice src/index.js",
     "lint": "vue-cli-service lint",
     "dev": "npm run serve",
     "vue": "vue",
-    "prepublish": "npm run lint && npm run build-lib",
+    "prepublish": "npm run lint && npm run build",
     "preversion": "npm run lint",
     "postversion": "git push && git push --tags"
   },
@@ -24,7 +24,7 @@
   "files": [
     "lib/*",
     "src/*",
-    "public/*",
+    "example/*",
     "*.json",
     "*.js"
   ],

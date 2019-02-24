@@ -28,11 +28,13 @@
 </template>
 
 <script>
+import { Button as ElButton } from "element-ui";
 import Icon from "./Icon.vue";
 
 export default {
   name: "Button",
   components: {
+    ElButton,
     Icon
   },
   props: {
@@ -78,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .button {
   font: font-default-bold(1em, 1);

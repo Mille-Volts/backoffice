@@ -69,20 +69,34 @@
 </template>
 
 <script>
+import {
+  Container as ElContainer,
+  Header as ElHeader,
+  Aside as ElAside,
+  Main as ElMain,
+  Footer as ElFooter
+} from "element-ui";
 import Authorship from "../parts/Authorship.vue";
 import Logo from "../parts/Logo.vue";
 import User from "../parts/User.vue";
 import MainTitle from "../parts/MainTitle.vue";
+import MainMenu from "../MainMenu.vue";
 
 export default {
   name: "PageLayout",
   inject: ["application"],
   prop: ["title"],
   components: {
+    ElContainer,
+    ElHeader,
+    ElAside,
+    ElMain,
+    ElFooter,
     Authorship,
     Logo,
     User,
-    MainTitle
+    MainTitle,
+    MainMenu
   },
   computed: {
     routes() {
@@ -106,7 +120,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .page {
   &_logo {

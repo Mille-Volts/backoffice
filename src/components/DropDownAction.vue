@@ -16,11 +16,13 @@
 </template>
 
 <script>
+import { DropdownItem as ElDropdownItem } from "element-ui";
 import MvButton from "./Button.vue";
 
 export default {
   name: "DropDownAction",
   components: {
+    ElDropdownItem,
     MvButton
   },
   props: {
@@ -47,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .dropdown-action {
   &_button {

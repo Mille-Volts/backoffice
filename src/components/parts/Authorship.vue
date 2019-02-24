@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .authorship {
   color: inherit;

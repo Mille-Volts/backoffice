@@ -95,8 +95,25 @@
 </template>
 
 <script>
+import {
+  Option as ElOption,
+  Pagination as ElPagination,
+  Table as ElTable,
+  Alert as ElAlert
+} from "element-ui";
+import FormSelect from "../forms/FormSelect.vue";
+import TableColumn from "./TableColumn.vue";
+
 export default {
   name: "Table",
+  components: {
+    ElAlert,
+    ElOption,
+    ElPagination,
+    ElTable,
+    FormSelect,
+    TableColumn
+  },
   props: {
     data: Array,
     selection: Array,
@@ -137,7 +154,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .table {
   &_selected {
@@ -182,7 +199,7 @@ export default {
 </style>
 
 <style lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 .panel .table_content {
   border-top: $--table-border;
 }

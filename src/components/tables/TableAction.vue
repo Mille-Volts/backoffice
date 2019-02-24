@@ -27,8 +27,15 @@
 </template>
 
 <script>
+import { DropdownMenu as ElDropdownMenu } from "element-ui";
+import MvButton from "../Button.vue";
+
 export default {
   name: "TableAction",
+  components: {
+    ElDropdownMenu,
+    MvButton
+  },
   props: {},
   computed: {},
   methods: {}
@@ -36,7 +43,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .table-action {
   display: inline-block;

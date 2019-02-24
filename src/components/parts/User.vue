@@ -15,14 +15,19 @@
 </template>
 
 <script>
+import MvButton from "../Button.vue";
+
 export default {
   name: "User",
-  inject: ["user", "authentication", "application"]
+  inject: ["user", "authentication", "application"],
+  components: {
+    MvButton
+  }
 };
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .user {
   display: flex;

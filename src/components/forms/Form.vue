@@ -17,8 +17,13 @@
 </template>
 
 <script>
+import { Form as ElForm } from "element-ui";
+
 export default {
   name: "Form",
+  components: {
+    ElForm
+  },
   props: { model: Object, labelPosition: String, inline: Boolean },
   computed: {
     defaultLabelPosition() {

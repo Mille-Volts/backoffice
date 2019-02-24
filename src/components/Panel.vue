@@ -21,8 +21,19 @@
 </template>
 
 <script>
+import {
+  Container as ElContainer,
+  Header as ElHeader,
+  Main as ElMain
+} from "element-ui";
+
 export default {
   name: "Panel",
+  components: {
+    ElContainer,
+    ElHeader,
+    ElMain
+  },
   props: {
     title: String
   }
@@ -30,7 +41,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .panel {
   border-radius: $--card-border-radius;
@@ -59,7 +70,7 @@ export default {
 }
 </style>
 <style lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .panel_main {
   hr {

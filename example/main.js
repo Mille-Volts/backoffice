@@ -1,7 +1,7 @@
 import Vue from "vue";
-import "./scss/theme.scss";
+import "../src/theme/index.scss";
 
-import Components, { generateRouter } from "./components/index";
+import Components, { generateRouter } from "../src/index";
 import App from "./App.vue";
 import routes from "./routes";
 import store from "./store";

@@ -29,10 +29,20 @@
 </template>
 
 <script>
+import { Input as ElInput } from "element-ui";
+import MvButton from "../Button.vue";
+import MvForm from "../forms/Form.vue";
+import FormItem from "../forms/FormItem.vue";
+
 export default {
   name: "LocalLogin",
   inject: ["authentication"],
-
+  components: {
+    ElInput,
+    MvButton,
+    MvForm,
+    FormItem
+  },
   data() {
     return {
       isAuthenticating: false,
@@ -46,7 +56,6 @@ export default {
       try {
         await this.authentication.tryLogin({ type: "local", ...data });
       } catch (err) {
-        console.log(err);
         this.error = err.message;
       } finally {
         this.isAuthenticating = false;
@@ -57,7 +66,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .local-login {
   &_error {

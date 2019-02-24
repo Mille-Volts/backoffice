@@ -5,7 +5,12 @@
 </template>
 
 <script>
+import { Row as ElRow } from "element-ui";
+
 export default {
-  name: "FormRow"
+  name: "FormRow",
+  components: {
+    ElRow
+  }
 };
 </script>

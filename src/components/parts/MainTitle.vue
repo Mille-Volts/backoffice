@@ -6,7 +6,7 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .main-title {
   color: $--color-white;

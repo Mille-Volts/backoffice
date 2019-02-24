@@ -9,9 +9,16 @@
 </template>
 
 <script>
+import MvButton from "../Button.vue";
+import MvForm from "../forms/Form.vue";
+
 export default {
   name: "GuestLogin",
   inject: ["authentication"],
+  components: {
+    MvButton,
+    MvForm
+  },
   props: {
     name: { type: String, default: "Guest" }
   },

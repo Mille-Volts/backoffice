@@ -93,12 +93,30 @@
 
 <script>
 import VueScrollTo from "vue-scrollto";
+import {
+  Container as ElContainer,
+  Header as ElHeader,
+  Main as ElMain,
+  Footer as ElFooter,
+  Breadcrumb as ElBreadcrumb,
+  BreadcrumbItem as ElBreadcrumbItem,
+  Tabs as ElTabs,
+  TabPane as ElTabPane
+} from "element-ui";
 import MvForm from "../forms/Form.vue";
 
 export default {
   name: "ContentLayout",
   inject: ["application"],
   components: {
+    ElContainer,
+    ElHeader,
+    ElMain,
+    ElFooter,
+    ElBreadcrumb,
+    ElBreadcrumbItem,
+    ElTabs,
+    ElTabPane,
     MvForm
   },
   provide() {
@@ -220,7 +238,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .content-layout {
   &,

@@ -8,7 +8,12 @@
 </template>
 
 <script>
+import { FormItem as ElFormItem } from "element-ui";
+
 export default {
-  name: "FormItem"
+  name: "FormItem",
+  components: {
+    ElFormItem
+  }
 };
 </script>

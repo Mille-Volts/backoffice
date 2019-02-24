@@ -13,10 +13,21 @@
 </template>
 
 <script>
+import {
+  Container as ElContainer,
+  Aside as ElAside,
+  Main as ElMain
+} from "element-ui";
+
 export default {
   name: "FormGroup",
-  props: { title: { type: String, required: true } },
   inject: ["content"],
+  components: {
+    ElContainer,
+    ElAside,
+    ElMain
+  },
+  props: { title: { type: String, required: true } },
   data() {
     return { hide: false };
   },
@@ -42,7 +53,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .form-group {
   + .form-group {
@@ -58,7 +69,7 @@ export default {
 </style>
 
 <style lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .panel .form-group_aside {
   padding-top: 0;

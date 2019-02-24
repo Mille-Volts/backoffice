@@ -28,6 +28,12 @@
 </template>
 
 <script>
+import {
+  Container as ElContainer,
+  Header as ElHeader,
+  Main as ElMain,
+  Footer as ElFooter
+} from "element-ui";
 import Authorship from "../parts/Authorship.vue";
 import Logo from "../parts/Logo.vue";
 import MainTitle from "../parts/MainTitle.vue";
@@ -38,6 +44,10 @@ export default {
   name: "AuthenticationLayout",
   inject: ["application"],
   components: {
+    ElContainer,
+    ElHeader,
+    ElMain,
+    ElFooter,
     GuestLogin,
     Logo,
     Authorship,
@@ -47,7 +57,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .authentication-layout {
   @include image-retina("../../assets/background@2x.png", 1440px, 1024px);

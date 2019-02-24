@@ -33,9 +33,20 @@
 </template>
 
 <script>
+import {
+  Menu as ElMenu,
+  Submenu as ElSubmenu,
+  MenuItem as ElMenuItem
+} from "element-ui";
+
 export default {
   name: "MainMenu",
   inject: ["application"],
+  components: {
+    ElMenu,
+    ElSubmenu,
+    ElMenuItem
+  },
   props: {
     routes: Array
     /*
@@ -66,7 +77,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .el-menu,
 .el-menu.el-menu--horizontal,

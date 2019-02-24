@@ -1,4 +1,4 @@
-import PageLayout from "@/components/layouts/PageLayout.vue";
+import PageLayout from "../src/components/layouts/PageLayout.vue";
 import LoginPage from "./pages/Login.vue";
 
 export default [

@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .logo {
   background: transparent url("../../assets/logo.png") no-repeat center center;

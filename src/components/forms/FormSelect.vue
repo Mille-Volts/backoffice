@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import { Select as ElSelect } from "element-ui";
+
 export default {
-  name: "FormSelect"
+  name: "FormSelect",
+  components: {
+    ElSelect
+  }
 };
 </script>
 

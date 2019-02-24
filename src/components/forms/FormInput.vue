@@ -21,11 +21,13 @@
 </template>
 
 <script>
+import { Input as ElInput } from "element-ui";
 import Icon from "../Icon.vue";
 
 export default {
   name: "FormInput",
   components: {
+    ElInput,
     Icon
   },
   props: {

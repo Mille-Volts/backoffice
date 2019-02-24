@@ -5,39 +5,39 @@ import Element, { Row, Col } from "element-ui";
 import Router from "vue-router";
 import moment from "moment";
 
-import AuthenticationLayout from "./layouts/AuthenticationLayout.vue";
-import ContentLayout from "./layouts/ContentLayout.vue";
-import PageLayout from "./layouts/PageLayout.vue";
+import AuthenticationLayout from "./components/layouts/AuthenticationLayout.vue";
+import ContentLayout from "./components/layouts/ContentLayout.vue";
+import PageLayout from "./components/layouts/PageLayout.vue";
 
-import LocalLogin from "./authentication/LocalLogin.vue";
-import GuestLogin from "./authentication/GuestLogin.vue";
+import LocalLogin from "./components/authentication/LocalLogin.vue";
+import GuestLogin from "./components/authentication/GuestLogin.vue";
 
-import Application from "./Application.vue";
-import AuthenticationProvider from "./AuthenticationProvider.vue";
-import MvButton from "./Button.vue";
-import DropDownAction from "./DropDownAction.vue";
-import Icon from "./Icon.vue";
-import MainMenu from "./MainMenu.vue";
-import Panel from "./Panel.vue";
+import Application from "./components/Application.vue";
+import AuthenticationProvider from "./components/AuthenticationProvider.vue";
+import MvButton from "./components/Button.vue";
+import DropDownAction from "./components/DropDownAction.vue";
+import Icon from "./components/Icon.vue";
+import MainMenu from "./components/MainMenu.vue";
+import Panel from "./components/Panel.vue";
 
-import MvForm from "./forms/Form.vue";
-import FormColumn from "./forms/FormColumn.vue";
-import FormItem from "./forms/FormItem.vue";
-import FormGroup from "./forms/FormGroup.vue";
-import FormRow from "./forms/FormRow.vue";
-import FormInput from "./forms/FormInput.vue";
-import FormSelect from "./forms/FormSelect.vue";
-import FormUpload from "./forms/FormUpload.vue";
-import UploadProvider from "./UploadProvider.vue";
+import MvForm from "./components/forms/Form.vue";
+import FormColumn from "./components/forms/FormColumn.vue";
+import FormItem from "./components/forms/FormItem.vue";
+import FormGroup from "./components/forms/FormGroup.vue";
+import FormRow from "./components/forms/FormRow.vue";
+import FormInput from "./components/forms/FormInput.vue";
+import FormSelect from "./components/forms/FormSelect.vue";
+import FormUpload from "./components/forms/FormUpload.vue";
+import UploadProvider from "./components/UploadProvider.vue";
 
-import MvTable from "./tables/Table.vue";
-import TableAction from "./tables/TableAction.vue";
-import TableColumn from "./tables/TableColumn.vue";
+import MvTable from "./components/tables/Table.vue";
+import TableAction from "./components/tables/TableAction.vue";
+import TableColumn from "./components/tables/TableColumn.vue";
 
 moment.locale("fr");
 
-export * from "./auth";
-export * from "./router";
+export * from "./util/auth";
+export * from "./util/router";
 
 export default {
   install: function(Vue) {

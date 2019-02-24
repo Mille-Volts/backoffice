@@ -20,10 +20,14 @@
 </template>
 
 <script>
+import { TableColumn as ElTableColumn } from "element-ui";
 import moment from "moment";
 
 export default {
   name: "TableColumn",
+  component: {
+    ElTableColumn
+  },
   props: {
     align: String,
     formatter: Function,
@@ -71,7 +75,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/scss/common.scss";
+@import "@/theme/common.scss";
 
 .table-column {
   th {

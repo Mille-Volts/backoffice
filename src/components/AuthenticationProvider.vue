@@ -1,5 +1,5 @@
 <script>
-import { getUser, setUser, unsetUser } from "./auth";
+import { getUser, setUser, unsetUser } from "../util/auth";
 
 /*TODO
  - authentication provider gère le stockage
