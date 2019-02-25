@@ -4,11 +4,7 @@
     :direction="application.layout === 'horizontal' ? 'vertical' : 'horizontal'"
     sticky-container
   >
-    <el-header
-      v-if="application.layout === 'horizontal'"
-      class="page_header"
-      height="120px"
-    >
+    <el-header v-if="application.layout === 'horizontal'" class="page_header" height="120px">
       <div class="page_top">
         <logo></logo>
         <div class="page_title">
@@ -47,21 +43,17 @@
       </div>
       <div class="page_author">
         <slot name="author">
-          <authorship />
+          <authorship/>
         </slot>
       </div>
     </el-aside>
     <el-main class="page_main">
       <router-view></router-view>
     </el-main>
-    <el-footer
-      v-if="application.layout === 'horizontal'"
-      class="page_footer"
-      height="auto"
-    >
+    <el-footer v-if="application.layout === 'horizontal'" class="page_footer" height="auto">
       <div class="page_author">
         <slot name="author">
-          <authorship />
+          <authorship/>
         </slot>
       </div>
     </el-footer>
@@ -107,7 +99,7 @@ export default {
     findRoot(routes) {
       const root = routes.find(({ meta }) => !!meta && meta.root);
       if (root) return root.children || [];
-      const childRoutes = routes.reduc(
+      const childRoutes = routes.reduce(
         (all, { children }) =>
           children && children.length ? [...all, ...children] : all,
         []
