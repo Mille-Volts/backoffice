@@ -29,3 +29,7 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+@import "@/theme/application.scss";
+</style>

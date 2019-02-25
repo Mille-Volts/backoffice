@@ -1,5 +1,9 @@
 <template>
-  <div v-if="user.authenticated && user.data" class="user" :class="`user--${application.layout}`">
+  <div
+    v-if="user.authenticated && user.data"
+    class="user"
+    :class="`user--${application.layout}`"
+  >
     <div class="user_picture user_picture--icon">
       <icon :name="user.data.icon || 'user'"></icon>
     </div>
