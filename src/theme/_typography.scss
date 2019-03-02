@@ -1,4 +1,4 @@
-$--font-stack-default: "Arial" !default;
+@import "./_variables.scss";
 
 h1 {
   color: $--color-secondary;
@@ -40,18 +40,6 @@ a {
 }
 .text-bold {
   font-weight: $--font-weight-bold;
-}
-.no-margin {
-  line-height: 1.2;
-  margin: 0;
-}
-.margin-bottom,
-.mb {
-  margin-bottom: $--margin;
-}
-.margin-top,
-.mt {
-  margin-top: $--margin;
 }
 .text-secondary {
   color: $--color-text-secondary;

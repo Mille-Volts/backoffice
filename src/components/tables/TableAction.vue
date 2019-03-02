@@ -1,5 +1,5 @@
 <template>
-  <div class="table-action">
+  <div class="mv-tableAction inline-block">
     <mv-button
       v-if="!$slots.menu"
       size="mini"
@@ -41,14 +41,3 @@ export default {
   methods: {}
 };
 </script>
-
-<style scoped lang="scss">
-@import "@/theme/common.scss";
-
-.table-action {
-  display: inline-block;
-  + .table-action {
-    margin-left: 5px;
-  }
-}
-</style>

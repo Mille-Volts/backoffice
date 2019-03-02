@@ -1,27 +1,27 @@
 <template>
   <component
     :is="parentComponent"
-    class="content-layout"
+    class="mv-contentLayout"
     :class="{
-      [`content-layout--${application.layout}`]: 1,
-      'content-layout--form': form
+      [`mv-contentLayout--${application.layout}`]: 1,
+      'mv-contentLayout--form': form
     }"
     v-bind="parentProps"
     v-on="$listeners"
   >
-    <el-container sticky-container class="content-layout_container">
+    <el-container sticky-container class="mv-contentLayout-container">
       <el-header
         v-if="!!withHeader"
         ref="header"
         v-sticky
         height="auto"
-        class="content-layout_header"
+        class="mv-contentLayout-header"
         :sticky-z-index="2000"
         :sticky-offset="{ top: application.layout === 'horizontal' ? 44 : 0 }"
       >
-        <div class="content-layout_content">
+        <div class="mv-contentLayout-content">
           <slot name="header">
-            <div v-if="breadcrumb.length" class="content-layout_breadcrumb">
+            <div v-if="breadcrumb.length" class="mv-contentLayout-breadcrumb">
               <slot name="breadcrumb">
                 <el-breadcrumb separator="/">
                   <el-breadcrumb-item :to="{ path: '/' }"
@@ -41,23 +41,23 @@
                 </el-breadcrumb>
               </slot>
             </div>
-            <div class="content-layout_title">
+            <div class="mv-contentLayout-title">
               <slot name="title">
                 <h1 v-text="pageTitle"></h1>
               </slot>
             </div>
             <div
               v-if="$slots.actions || $slots.topActions"
-              class="content-layout_header-actions"
+              class="mv-contentLayout-header-actions"
             >
               <slot name="topActions"></slot>
               <slot name="actions"></slot>
             </div>
-            <div v-if="hasTabs" class="content-layout_tabs">
+            <div v-if="hasTabs" class="mv-contentLayout-tabs">
               <slot name="tabs">
                 <el-tabs
                   v-model="tabActive"
-                  class="content-layout_content-tabs"
+                  class="mv-contentLayout-content-tabs"
                 >
                   <el-tab-pane
                     v-for="{ label, name } in tabs"
@@ -71,16 +71,16 @@
           </slot>
         </div>
       </el-header>
-      <el-main ref="main" class="content-layout_main">
-        <div class="content-layout_content">
+      <el-main ref="main" class="mv-contentLayout-main">
+        <div class="mv-contentLayout-content">
           <slot></slot>
         </div>
       </el-main>
-      <el-footer v-if="form" class="content-layout_footer">
-        <div class="content-layout_content">
+      <el-footer v-if="form" class="mv-contentLayout-footer">
+        <div class="mv-contentLayout-content">
           <div
             v-if="$slots.actions || $slots.bottomActions"
-            class="content-layout_footer-actions"
+            class="mv-contentLayout-footer-actions"
           >
             <slot name="actions"></slot>
             <slot name="bottomActions"></slot>
@@ -237,55 +237,53 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.content-layout {
+.mv-contentLayout {
   &,
-  &_container {
+  &-container {
     min-height: 100%;
   }
-  &_content {
+  &-content {
     margin: 0 auto;
     max-width: 960px;
   }
-  &_header {
+  &-header {
     background: $--color-white;
     padding: 0 30px;
-    .content-layout_content {
+    .mv-contentLayout-content {
       padding: 30px 0;
       overflow: hidden;
     }
   }
-  &_breadcrumb {
+  &-breadcrumb {
     margin: -15px 0 15px 0;
   }
-  &_title {
+  &-title {
     float: left;
     margin: 15px 0;
   }
-  &_header-actions {
+  &-header-actions {
     float: right;
     margin: 15px 0;
   }
-  &_tabs {
+  &-tabs {
     clear: both;
     margin: 15px 0 -30px 0;
   }
-  &_main {
+  &-main {
     padding: 30px;
   }
-  &_footer {
+  &-footer {
     padding: 0 30px;
   }
-  &_footer-actions {
+  &-footer-actions {
     text-align: right;
   }
 }
-</style>
 
-<style>
-.content-layout_tabs .el-tabs__header {
+.mv-contentLayout-tabs .el-tabs__header {
   margin-bottom: 0;
 }
 </style>

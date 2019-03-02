@@ -2,11 +2,11 @@
   "name": "@millevolts/backoffice",
   "version": "0.1.0",
   "description": "",
-  "main": "lib/millevolts-backoffice.common.js",
-  "module": "lib/millevolts-backoffice.umd.js",
+  "main": "lib/backoffice.common.js",
+  "module": "lib/backoffice.umd.js",
   "scripts": {
     "serve": "vue-cli-service serve example/main.js",
-    "build": "vue-cli-service build --dest lib --target lib --name millevolts-backoffice src/index.js",
+    "build": "vue-cli-service build --dest lib --target lib --name backoffice src/index.js",
     "lint": "vue-cli-service lint",
     "dev": "npm run serve",
     "vue": "vue",
@@ -30,29 +30,32 @@
   ],
   "author": "Mille Volts - https://www.millevolts.fr",
   "license": "ISC",
+  "peerDependencies": {
+    "element-ui": "^2.6.0"
+  },
   "dependencies": {
-    "element-ui": "^2.5.4",
+    "element-ui": "^2.6.0",
     "moment": "^2.24.0",
-    "vue": "^2.6.6",
+    "vue": "^2.6.8",
     "vue-router": "^3.0.1",
-    "vue-scrollto": "^2.13.0",
+    "vue-scrollto": "^2.14.0",
     "vue-sticky-directive": "0.0.8",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli": "^3.4.0",
-    "@vue/cli-plugin-babel": "^3.4.0",
-    "@vue/cli-plugin-eslint": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
-    "@vue/cli-service-global": "^3.4.0",
+    "@vue/cli": "^3.4.1",
+    "@vue/cli-plugin-babel": "^3.4.1",
+    "@vue/cli-plugin-eslint": "^3.4.1",
+    "@vue/cli-service": "^3.4.1",
+    "@vue/cli-service-global": "^3.4.1",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "core-js": "^2.6.5",
-    "eslint": "^5.14.0",
-    "eslint-plugin-vue": "^5.2.1",
+    "eslint": "^5.15.0",
+    "eslint-plugin-vue": "^5.2.2",
     "fibers": "^3.1.1",
-    "sass": "^1.16.0",
+    "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.6"
+    "vue-template-compiler": "^2.6.8"
   }
 }

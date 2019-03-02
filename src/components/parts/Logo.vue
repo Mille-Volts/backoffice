@@ -1,6 +1,6 @@
 <template>
   <div
-    class="logo"
+    class="mv-logo"
     :style="{ width: `${width * ratio}px`, height: `${height * ratio}px` }"
   ></div>
 </template>
@@ -16,10 +16,10 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.logo {
+.mv-logo {
   background: transparent url("../../assets/logo.png") no-repeat center center;
   background-size: 100% 100%;
   display: inline-block;

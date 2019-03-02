@@ -1,12 +1,12 @@
 <template>
-  <el-container v-if="!hide" class="form-group mv--block">
-    <el-aside class="form-group_aside" width="240px">
+  <el-container v-if="!hide" class="mv-formGroup block">
+    <el-aside class="mv-formGroup-aside" width="240px">
       <slot name="header">
         <h2 v-if="title" v-text="title"></h2>
         <slot name="description"></slot>
       </slot>
     </el-aside>
-    <el-main class="form-group_main">
+    <el-main class="mv-formGroup-main">
       <slot></slot>
     </el-main>
   </el-container>
@@ -52,31 +52,24 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.form-group {
-  + .form-group {
+.mv-formGroup {
+  + .mv-formGroup {
     margin-top: ($--margin * 2);
   }
-  &_aside {
+  &-aside {
     padding: $--margin 0;
+    .mv-panel & {
+      padding-top: 0;
+    }
+    hr {
+      margin: $--margin 0;
+    }
   }
-  &_main {
+  &-main {
     padding: 0 0 0 ($--margin * 2);
-  }
-}
-</style>
-
-<style lang="scss">
-@import "@/theme/common.scss";
-
-.panel .form-group_aside {
-  padding-top: 0;
-}
-.form-group_aside {
-  hr {
-    margin: $--margin 0;
   }
 }
 </style>

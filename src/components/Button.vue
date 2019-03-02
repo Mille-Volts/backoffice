@@ -1,10 +1,10 @@
 <template>
   <el-button
-    class="button"
+    class="mv-button"
     :class="{
-      [`button--${computedType || 'standard'}`]: 1,
-      'button--has-text': !!$slots.default,
-      'button--has-icon': !!icon || !!iconLeft || !!iconRight
+      [`mv-button--${computedType || 'standard'}`]: 1,
+      'mv-button--has-text': !!$slots.default,
+      'mv-button--has-icon': !!icon || !!iconLeft || !!iconRight
     }"
     :plain="plain"
     :type="computedType"
@@ -15,13 +15,13 @@
   >
     <icon
       v-if="!loading && (icon || iconLeft)"
-      class="button_icon button_icon--left"
+      class="mv-button-icon mv-button-icon--left"
       :name="icon || iconLeft"
     />
     <slot></slot>
     <icon
       v-if="iconRight"
-      class="button_icon button_icon--right"
+      class="mv-button-icon mv-button-icon--right"
       :name="iconRight"
     />
   </el-button>
@@ -80,18 +80,18 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/common.scss";
+@import "@/theme/_variables.scss";
 
-.button {
+.mv-button {
   font: font-default-bold(1em, 1);
   overflow: hidden;
   &--has-text {
-    .button_icon--left {
+    .mv-button-icon--left {
       float: left;
       margin-left: -8px;
       margin-right: 8px;
     }
-    .button_icon--right {
+    .mv-button-icon--right {
       float: right;
       margin-left: 8px;
       margin-right: -8px;

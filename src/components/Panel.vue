@@ -1,20 +1,20 @@
 <template>
-  <el-container class="panel mv--block">
+  <el-container class="mv-panel block">
     <el-header
       v-if="$slots.header || $slots.actions || title"
-      class="panel_header"
+      class="mv-panel-header"
       height="auto"
     >
       <slot name="header">
-        <span v-if="title" class="panel_title">
+        <span v-if="title" class="mv-panel-title">
           <h3 v-text="title"></h3>
         </span>
-        <span v-if="$slots.actions" class="panel_actions">
+        <span v-if="$slots.actions" class="mv-panel-actions">
           <slot name="actions"></slot>
         </span>
       </slot>
     </el-header>
-    <el-main class="panel_main">
+    <el-main class="mv-panel-main">
       <slot></slot>
     </el-main>
   </el-container>
@@ -40,41 +40,35 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.panel {
+.mv-panel {
   border-radius: $--card-border-radius;
   border: 1px solid $--card-border-color;
   background-color: $--color-white;
-  &_header {
+  &-header {
     border-bottom: 1px solid $--border-color-base;
     margin: 0 $--card-padding;
     padding: $--card-padding/2 0;
   }
-  &_title {
+  &-title {
     float: left;
     line-height: 20px;
     margin: 10px 0;
   }
-  &_actions {
+  &-actions {
     float: right;
     margin: 0;
   }
-  &_main {
+  &-main {
     padding: $--card-padding;
-  }
-}
-.panel_header ~ .panel_main {
-  padding: $--margin ($--margin * 2);
-}
-</style>
-<style lang="scss">
-@import "@/theme/common.scss";
-
-.panel_main {
-  hr {
-    margin: $--margin 0;
+    .mv-panel-header ~ & {
+      padding: $--margin ($--margin * 2);
+    }
+    hr {
+      margin: $--margin 0;
+    }
   }
 }
 </style>

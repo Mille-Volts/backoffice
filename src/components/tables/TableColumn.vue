@@ -1,6 +1,6 @@
 <template>
-  <el-table-column
-    class="table-column"
+  <el-tableColumn
+    class="mv-tableColumn"
     :formatter="defaultFormatter"
     :align="defaultAlign"
     v-bind="$attrs"
@@ -16,7 +16,7 @@
     <template v-if="$scopedSlots.default" v-slot:default="slotProps">
       <slot :row="slotProps.row" :column="slotProps.column"></slot>
     </template>
-  </el-table-column>
+  </el-tableColumn>
 </template>
 
 <script>
@@ -74,10 +74,10 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.table-column {
+.mv-tableColumn {
   th {
     background: $--color-background;
   }

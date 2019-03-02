@@ -1,25 +1,25 @@
 <template>
-  <el-container class="authentication-layout">
-    <el-header height="auto" class="authentication-layout_header">
+  <el-container class="mv-authenticationLayout">
+    <el-header height="auto" class="mv-authenticationLayout-header">
       <slot name="header">
         <logo :ratio="1.5"></logo>
       </slot>
     </el-header>
-    <el-main class="authentication-layout_main">
-      <div class="authentication-layout_content">
+    <el-main class="mv-authenticationLayout-main">
+      <div class="mv-authenticationLayout-content">
         <main-title></main-title>
-        <panel class="authentication-layout_login-panel">
+        <panel class="mv-authenticationLayout-login-panel">
           <slot>
             <h1>Welcome</h1>
             <guest-login />
           </slot>
         </panel>
-        <div class="authentication-layout_authorship">
+        <div class="mv-authenticationLayout-authorship">
           <authorship></authorship>
         </div>
       </div>
     </el-main>
-    <el-footer height="auto" class="authentication-layout_footer">
+    <el-footer height="auto" class="mv-authenticationLayout-footer">
       <slot name="header">
         <logo :ratio="1.5"></logo>
       </slot>
@@ -56,39 +56,39 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.authentication-layout {
+.mv-authenticationLayout {
   @include image-retina("../../assets/background@2x.png", 1440px, 1024px);
   background: $--color-menu url("../../assets/background.png") no-repeat center
     center;
 
-  &_header,
-  &_footer {
+  &-header,
+  &-footer {
     align-items: center;
     display: flex;
     flex: 1 0 auto;
     justify-content: center;
     text-align: center;
   }
-  &_footer {
+  &-footer {
     visibility: hidden;
   }
-  &_main {
+  &-main {
     align-items: center;
     display: flex;
     flex: 4 0 auto;
     justify-content: start;
   }
-  &_content {
+  &-content {
     margin-left: 50%;
     width: 440px;
   }
-  &_authorship {
+  &-authorship {
     color: $--color-white;
   }
-  &_login-panel {
+  &-login-panel {
     padding: 30px;
   }
 }

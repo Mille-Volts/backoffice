@@ -1,14 +1,14 @@
 <template>
   <div
     v-if="user.authenticated && user.data"
-    class="user"
-    :class="`user--${application.layout}`"
+    class="mv-user"
+    :class="`mv-user--${application.layout}`"
   >
-    <div class="user_picture user_picture--icon">
+    <div class="mv-user-picture mv-user-picture--icon">
       <icon :name="user.data.icon || 'user'"></icon>
     </div>
-    <div class="user_info">
-      <p class="user_name" v-text="user.data.name"></p>
+    <div class="mv-user-info">
+      <p class="mv-user-name" v-text="user.data.name"></p>
       <mv-button text @click="authentication.tryLogout">Déconnexion</mv-button>
     </div>
   </div>
@@ -26,32 +26,32 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.user {
+.mv-user {
   display: flex;
   align-items: center;
-  &.user--vertical {
+  &--vertical {
     padding: 15px;
   }
-  &.user--horizontal {
+  &--horizontal {
     flex-direction: row-reverse;
   }
-  &_picture {
+  &-picture {
     &--icon {
       background: $--color-secondary;
       box-sizing: border-box;
       color: #a1b3c5;
       vertical-align: middle;
-      .user--vertical & {
+      .mv-user--vertical & {
         border: 2px solid #a1b3c5;
         border-radius: 100%;
         font-size: 32px;
         line-height: 32px;
         padding: 14px;
       }
-      .user--horizontal & {
+      .mv-user--horizontal & {
         border: 1px solid #a1b3c5;
         border-radius: 2px;
         font-size: 24px;
@@ -61,12 +61,12 @@ export default {
       }
     }
   }
-  &_info {
-    .user--vertical & {
+  &-info {
+    .mv-user--vertical & {
       padding: 0 12px;
       text-align: left;
     }
-    .user--horizontal & {
+    .mv-user--horizontal & {
       text-align: right;
     }
     .el-button {
@@ -80,7 +80,7 @@ export default {
       }
     }
   }
-  &_name {
+  &-name {
     font: font-default-bold(16px, 20px);
     margin: 0;
     padding: 0;

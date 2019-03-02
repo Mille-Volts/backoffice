@@ -1,5 +1,5 @@
 <template>
-  <div class="authorship">
+  <div class="mv-authorship">
     Réalisé par
     <a
       v-if="application.author.website"
@@ -18,10 +18,10 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.authorship {
+.mv-authorship {
   color: inherit;
   font: font-default(12px);
   opacity: 0.5;

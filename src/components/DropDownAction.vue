@@ -1,11 +1,11 @@
 <template>
   <el-dropdown-item
     :divided="divided"
-    class="dropdown-action"
-    :class="`dropdown-action--${computedType}`"
+    class="mv-dropdownAction"
+    :class="`mv-dropdownAction--${computedType}`"
   >
     <mv-button
-      class="dropdown-action_button"
+      class="mv-dropdownAction-button"
       text
       v-bind="$attrs"
       v-on="$listeners"
@@ -49,26 +49,26 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/common.scss";
+@import "@/theme/_variables.scss";
 
-.dropdown-action {
+.mv-dropdownAction {
   &_button {
     color: $--color-text-primary;
-    .dropdown-action--success & {
+    .mv-dropdownAction--success & {
       color: $--color-success;
     }
-    .dropdown-action--warning & {
+    .mv-dropdownAction--warning & {
       color: $--color-warning;
     }
-    .dropdown-action--danger & {
+    .mv-dropdownAction--danger & {
       color: $--color-danger;
     }
-    .button_icon--left {
+    .button-icon--left {
       float: left;
       margin-left: 0;
       margin-right: 8px;
     }
-    .button_icon--right {
+    .button-icon--right {
       float: right;
       margin-left: 8px;
       margin-right: 0;

@@ -2,7 +2,7 @@
   <content-layout :with-header="false">
     <h1>Tableau de bord</h1>
     <row :gutter="20">
-      <column :sm="8">
+      <column :sm="12">
         <panel title="Titre du panel">
           <template v-slot:actions>
             <el-radio v-model="application.layout" label="vertical">Vertical</el-radio>
@@ -13,7 +13,7 @@
           <p>Test paragraphe</p>
         </panel>
       </column>
-      <column :sm="8">
+      <column :sm="12">
         <panel title="Titre du panel">
           <template v-slot:actions>
             <el-select v-model="application.layout">

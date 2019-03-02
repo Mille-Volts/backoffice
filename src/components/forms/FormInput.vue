@@ -1,18 +1,18 @@
 <template>
   <el-input v-bind="$attrs" v-on="$listeners">
     <template v-if="icon || iconLeft" v-slot:prefix>
-      <span class="form-input_icon-container">
+      <span class="mv-formInput-iconContainer">
         <icon
-          class="form-input_icon form-input_icon--left"
+          class="mv-formInput-icon mv-formInput-icon--left"
           :name="icon || iconLeft"
         />
       </span>
     </template>
     <slot></slot>
     <template v-if="iconRight" v-slot:suffix>
-      <span class="form-input_icon-container">
+      <span class="mv-formInput-iconContainer">
         <icon
-          class="form-input_icon form-input_icon--right"
+          class="mv-formInput-icon mv-formInput-icon--right"
           :name="iconRight"
         />
       </span>
@@ -39,8 +39,8 @@ export default {
 </script>
 
 <style lang="scss">
-.form-input {
-  &_icon-container {
+.mv-formInput {
+  &-iconContainer {
     padding: 5px;
   }
 }

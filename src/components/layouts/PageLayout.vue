@@ -1,65 +1,70 @@
 <template>
   <el-container
-    :class="`page page--${application.layout}`"
+    :class="`mv-page mv-page--${application.layout}`"
     :direction="application.layout === 'horizontal' ? 'vertical' : 'horizontal'"
     sticky-container
   >
     <el-header
       v-if="application.layout === 'horizontal'"
-      class="page_header"
+      class="mv-page-header"
       height="120px"
     >
-      <div class="page_top">
+      <div class="mv-page-top">
         <logo></logo>
-        <div class="page_title">
+        <div class="mv-page-title">
           <slot name="title">
             <main-title></main-title>
           </slot>
         </div>
-        <div class="page_user">
+        <div class="mv-page-user">
           <slot name="user">
             <user></user>
           </slot>
         </div>
       </div>
-      <div v-sticky class="page_menu" :sticky-z-index="2001" :sticky-offset="0">
+      <div
+        v-sticky
+        class="mv-page-menu"
+        :sticky-z-index="2001"
+        :sticky-offset="0"
+      >
         <slot name="menu">
           <main-menu :routes="routes"></main-menu>
         </slot>
       </div>
     </el-header>
-    <el-aside v-else class="page_aside" width="320px">
+    <el-aside v-else class="mv-page-aside" width="320px">
       <logo></logo>
-      <div class="page_title">
+      <div class="mv-page-title">
         <slot name="title">
           <main-title></main-title>
         </slot>
       </div>
-      <div class="page_user">
+      <div class="mv-page-user">
         <slot name="user">
           <user></user>
         </slot>
       </div>
-      <div class="page_menu">
+      <div class="mv-page-menu">
         <slot name="menu">
           <main-menu :routes="routes"></main-menu>
         </slot>
       </div>
-      <div class="page_author">
+      <div class="mv-page-author">
         <slot name="author">
           <authorship />
         </slot>
       </div>
     </el-aside>
-    <el-main class="page_main">
+    <el-main class="mv-page-main">
       <router-view></router-view>
     </el-main>
     <el-footer
       v-if="application.layout === 'horizontal'"
-      class="page_footer"
+      class="mv-page-footer"
       height="auto"
     >
-      <div class="page_author">
+      <div class="mv-page-author">
         <slot name="author">
           <authorship />
         </slot>
@@ -119,45 +124,45 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.page {
-  &_logo {
+.mv-page {
+  &-logo {
     background: transparent url("../../assets/logo.png") no-repeat center center;
     background-size: 100% 100%;
     height: 76px;
     width: 240px;
-    .page--vertical & {
+    .mv-page--vertical & {
       margin: 22px auto;
       min-height: 76px;
     }
   }
-  &_user {
+  &-user {
     text-overflow: ellipsis;
     width: 240px;
-    .page--vertical & {
+    .mv-page--vertical & {
     }
   }
-  &_author {
+  &-author {
     color: $--color-text-regular;
-    .page--vertical & {
+    .mv-page--vertical & {
       color: $--color-white;
       margin-top: auto;
     }
   }
-  &_title {
-    .page--vertical & {
+  &-title {
+    .mv-page--vertical & {
       background: $--color-secondary-dark;
     }
-    .page--horizontal & {
+    .mv-page--horizontal & {
       flex: 1;
       line-height: 56px;
       font-size: 16px;
     }
   }
-  &_menu {
-    .page--horizontal & {
+  &-menu {
+    .mv-page--horizontal & {
       background: $--color-secondary-dark;
       clear: both;
       display: flex;
@@ -165,17 +170,17 @@ export default {
     }
   }
 
-  &_header {
+  &-header {
     background: $--color-menu url("../../assets/background-h.png") no-repeat top
       center;
     color: $--color-white;
     padding: 0;
     @include image-retina("../../assets/background-h@2x.png", 1440px, 120px);
   }
-  &_top {
+  &-top {
     display: flex;
   }
-  &_aside {
+  &-aside {
     @include image-retina("../../assets/background-v@2x.png", 320px, 1024px);
     background: $--color-menu url("../../assets/background-v.png") no-repeat top
       center;
@@ -187,13 +192,13 @@ export default {
     overflow: auto;
     top: 0;
   }
-  &_main {
+  &-main {
     padding: 0;
-    .page--vertical & {
+    .mv-page--vertical & {
       margin-left: 320px;
     }
   }
-  &_footer {
+  &-footer {
     padding: 30px 0 5px 0;
   }
 }

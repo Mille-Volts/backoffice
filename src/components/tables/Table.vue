@@ -1,11 +1,11 @@
 <template>
-  <div class="table mv--block">
-    <div class="table_header">
+  <div class="mv-table block">
+    <div class="mv-table-header">
       <slot name="header"></slot>
     </div>
-    <div v-if="currentlySelected" class="table_selected">
+    <div v-if="currentlySelected" class="mv-table-selected">
       <el-alert
-        class="table_selected-message"
+        class="mv-table-selected-message"
         :title="
           currentlySelected === 1
             ? `Un élément sélectionné`
@@ -19,7 +19,7 @@
     </div>
     <el-table
       ref="table"
-      class="table_content"
+      class="mv-table-content"
       :data="data"
       @selection-change="onSelectionChange"
       v-bind="$attrs"
@@ -37,9 +37,9 @@
       ></table-column>
       <slot></slot>
     </el-table>
-    <div class="table_footer">
+    <div class="mv-table-footer">
       <slot name="footer">
-        <div class="table_results">
+        <div class="mv-table-results">
           <slot name="results">
             <span v-if="total">
               <strong
@@ -56,7 +56,7 @@
             </span>
           </slot>
         </div>
-        <div class="table_pagination">
+        <div class="mv-table-pagination">
           <slot name="pagination">
             <div v-if="total">
               <el-pagination
@@ -69,12 +69,12 @@
             </div>
           </slot>
         </div>
-        <div class="table_limit">
+        <div class="mv-table-limit">
           <slot name="limit">
             <label
               >Afficher :
               <form-select
-                class="table_limit_select"
+                class="mv-table-limit_select"
                 size="mini"
                 :value="limit"
                 @change="$emit('update:limit', $event)"
@@ -154,15 +154,15 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/common.scss";
+@import "@/theme/_variables.scss";
 
-.table {
-  &_selected {
+.mv-table {
+  &-selected {
     &-message {
       margin-bottom: 15px;
     }
   }
-  &_content {
+  &-content {
     th {
       background: $--color-background;
       .el-input {
@@ -170,13 +170,16 @@ export default {
         padding: 0;
       }
     }
+    .panel & {
+      border-top: $--table-border;
+    }
   }
-  &_footer {
+  &-footer {
     align-items: center;
     display: flex;
     margin-top: 15px;
   }
-  &_results {
+  &-results {
     color: $--color-text-secondary;
     flex: 1;
     text-align: left;
@@ -184,23 +187,16 @@ export default {
       color: $--color-text-primary;
     }
   }
-  &_pagination {
+  &-pagination {
     flex: 1;
     text-align: center;
   }
-  &_limit {
+  &-limit {
     flex: 1;
     text-align: right;
-    &_select {
+    &-select {
       width: 120px;
     }
   }
-}
-</style>
-
-<style lang="scss">
-@import "@/theme/common.scss";
-.panel .table_content {
-  border-top: $--table-border;
 }
 </style>

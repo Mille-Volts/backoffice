@@ -1,9 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600");
+@import "./_variables.scss";
 
-@import "./common.scss";
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600");
 
 @import "~element-ui/packages/theme-chalk/src/reset";
 @import "~element-ui/packages/theme-chalk/src/index";
+
+@import "./base.scss";
 
 body {
   background: $--color-background;
@@ -31,10 +33,6 @@ hr {
 img {
   height: auto;
   max-width: 100%;
-}
-
-.mv--block + .mv--block {
-  margin-top: $--margin;
 }
 
 .el-radio {
@@ -67,6 +65,10 @@ img {
 .el-slider {
   // Adds a tiny space so that the handle is in the box
   margin: 0 10px;
+}
+
+.el-tag {
+  @extend .inline-block;
 }
 
 @import "./typography.scss";

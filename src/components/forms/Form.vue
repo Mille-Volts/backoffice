@@ -1,6 +1,6 @@
 <template>
   <el-form
-    class="form mv--block"
+    class="mv-form block"
     :label-position="defaultLabelPosition"
     :model="model"
     :inline="inline"

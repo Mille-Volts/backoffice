@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    class="mv--block"
+    class="block"
     :mode="application.layout"
     :router="true"
     :default-active="currentPathActive"
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/common.scss";
+@import "@/theme/_variables.scss";
 
 .el-menu,
 .el-menu.el-menu--horizontal,

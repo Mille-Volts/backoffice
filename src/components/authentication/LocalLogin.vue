@@ -21,7 +21,7 @@
         required
       />
     </form-item>
-    <p v-if="error" class="local-login_error" v-text="error"></p>
+    <p v-if="error" class="mv-localLogin-error" v-text="error"></p>
     <mv-button type="submit" icon="lock" :loading="isAuthenticating" success
       >Connexion</mv-button
     >
@@ -65,11 +65,11 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/theme/common.scss";
+<style lang="scss">
+@import "@/theme/_variables.scss";
 
-.local-login {
-  &_error {
+.mv-localLogin {
+  &-error {
     color: $--color-danger;
     font: font-bold(14px);
     padding: 0;

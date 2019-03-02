@@ -1,0 +1,29 @@
+@import "./_variables.scss";
+
+.block + .block {
+  margin-top: $--margin;
+}
+.inline-block {
+  display: inline-block;
+  margin-left: $--margin / 4;
+  margin-right: $--margin / 4;
+  &:first-child {
+    margin-left: 0;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.no-margin {
+  line-height: 1.2;
+  margin: 0;
+}
+.margin-bottom,
+.mb {
+  margin-bottom: $--margin;
+}
+.margin-top,
+.mt {
+  margin-top: $--margin;
+}

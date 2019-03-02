@@ -1,14 +1,14 @@
 <template>
   <div
-    class="main-title"
+    class="mv-mainTitle"
     v-html="`Interface d'<strong>administration</strong>`"
   ></div>
 </template>
 
 <style scoped lang="scss">
-@import "@/theme/common.scss";
+@import "@/theme/_variables.scss";
 
-.main-title {
+.mv-mainTitle {
   color: $--color-white;
   font: font-default();
   padding: 10px;

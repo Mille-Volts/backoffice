@@ -1,7 +1,7 @@
 //https://medium.com/justfrontendthings/how-to-create-and-publish-your-own-vuejs-component-library-on-npm-using-vue-cli-28e60943eed3
 //import Vue from "vue";
 import Sticky from "vue-sticky-directive";
-import Element, { Row, Col } from "element-ui";
+import { Row, Col } from "element-ui";
 import Router from "vue-router";
 import moment from "moment";
 
@@ -38,11 +38,11 @@ moment.locale("fr");
 
 export * from "./util/auth";
 export * from "./util/router";
+export * from "./theme/index.scss";
 
 export default {
   install: function(Vue) {
     Vue.use(Router);
-    Vue.use(Element);
     Vue.use(Sticky);
 
     Vue.component("row", Row);
