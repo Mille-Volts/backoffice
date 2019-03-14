@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/_variables.scss";
+@import "../../theme/_variables.scss";
 
 .mv-formGroup {
   + .mv-formGroup {

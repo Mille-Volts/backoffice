@@ -6,25 +6,13 @@
       l'interface d'administration.
     </p>
     <form-item label="Votre identifiant" required>
-      <el-input
-        v-model="data.username"
-        type="text"
-        placeholder="adresse@email.com"
-        required
-      />
+      <el-input v-model="data.username" type="text" placeholder="adresse@email.com" required/>
     </form-item>
     <form-item label="Votre mot de passe" required>
-      <el-input
-        v-model="data.password"
-        type="password"
-        placeholder="******"
-        required
-      />
+      <el-input v-model="data.password" type="password" placeholder="******" required/>
     </form-item>
     <p v-if="error" class="mv-localLogin-error" v-text="error"></p>
-    <mv-button type="submit" icon="lock" :loading="isAuthenticating" success
-      >Connexion</mv-button
-    >
+    <mv-button type="submit" icon="lock" :loading="isAuthenticating" success>Connexion</mv-button>
   </mv-form>
 </template>
 
@@ -54,7 +42,7 @@ export default {
     async tryLocalLogin(data) {
       this.isAuthenticating = true;
       try {
-        await this.authentication.tryLogin({ type: "local", ...data });
+        await this.authentication.login({ type: "local", ...data });
       } catch (err) {
         this.error = err.message;
       } finally {
@@ -66,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/_variables.scss";
+@import "../../theme/_variables.scss";
 
 .mv-localLogin {
   &-error {

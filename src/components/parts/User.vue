@@ -9,7 +9,7 @@
     </div>
     <div class="mv-user-info">
       <p class="mv-user-name" v-text="user.data.name"></p>
-      <mv-button text @click="authentication.tryLogout">Déconnexion</mv-button>
+      <mv-button text @click="authentication.logout">Déconnexion</mv-button>
     </div>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/_variables.scss";
+@import "../../theme/_variables.scss";
 
 .mv-user {
   display: flex;

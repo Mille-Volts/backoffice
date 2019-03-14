@@ -38,16 +38,13 @@ $--font-path: "~element-ui/lib/theme-chalk/fonts";
 }
 
 @function font-default($font-size: 1em, $line-height: 130%) {
-  @return $--font-weight-default font-size($font-size) /#{$line-height}
-    $--font-stack-default;
+  @return #{$--font-weight-default} #{font-size($font-size)} / #{$line-height} #{$--font-stack-default};
 }
 @function font-default-bold($font-size: 1em, $line-height: 130%) {
-  @return $--font-weight-bold font-size($font-size) /#{$line-height}
-    $--font-stack-default;
+  @return #{$--font-weight-bold} #{font-size($font-size)} / #{$line-height} #{$--font-stack-default};
 }
 @function font-default-thin($font-size: 1em, $line-height: 130%) {
-  @return $--font-weight-thin font-size($font-size) /#{$line-height}
-    $--font-stack-default;
+  @return #{$--font-weight-thin} #{font-size($font-size)} / #{$line-height} #{$--font-stack-default};
 }
 
 @mixin image-retina($image, $width, $height) {

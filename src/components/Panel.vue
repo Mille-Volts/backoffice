@@ -41,7 +41,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/_variables.scss";
+@import "../theme/_variables.scss";
 
 .mv-panel {
   border-radius: $--card-border-radius;

@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/_variables.scss";
+@import "../theme/_variables.scss";
 
 .mv-button {
   font: font-default-bold(1em, 1);

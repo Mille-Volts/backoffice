@@ -6,7 +6,7 @@
 </template>
 
 <style scoped lang="scss">
-@import "@/theme/_variables.scss";
+@import "../../theme/_variables.scss";
 
 .mv-mainTitle {
   color: $--color-white;

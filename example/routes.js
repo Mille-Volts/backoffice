@@ -1,4 +1,4 @@
-import PageLayout from "../src/components/layouts/PageLayout.vue";
+import Page from "./pages/Page.vue";
 import LoginPage from "./pages/Login.vue";
 
 export default [
@@ -13,7 +13,7 @@ export default [
   },
   {
     path: "/",
-    component: PageLayout,
+    component: Page,
     meta: {
       root: true,
       auth: true

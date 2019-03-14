@@ -11,7 +11,7 @@
         <panel class="mv-authenticationLayout-login-panel">
           <slot>
             <h1>Welcome</h1>
-            <guest-login />
+            <guest-login/>
           </slot>
         </panel>
         <div class="mv-authenticationLayout-authorship">
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/theme/_variables.scss";
+@import "../../theme/_variables.scss";
 
 .mv-authenticationLayout {
   @include image-retina("../../assets/background@2x.png", 1440px, 1024px);
@@ -66,20 +66,29 @@ export default {
 
   &-header,
   &-footer {
-    align-items: center;
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: center;
-    text-align: center;
+    &.el-header,
+    &.el-footer {
+      align-items: center;
+      display: flex;
+      flex: 1 0 auto;
+      justify-content: center;
+      text-align: center;
+    }
   }
   &-footer {
-    visibility: hidden;
+    &.el-footer {
+      visibility: hidden;
+    }
   }
   &-main {
-    align-items: center;
-    display: flex;
-    flex: 4 0 auto;
-    justify-content: start;
+    &.el-main {
+      align-items: center;
+      display: flex;
+      flex: 4 0 auto;
+      flex-grow: 0;
+      flex-shrink: 0;
+      justify-content: start;
+    }
   }
   &-content {
     margin-left: 50%;
@@ -89,6 +98,7 @@ export default {
     color: $--color-white;
   }
   &-login-panel {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     padding: 30px;
   }
 }

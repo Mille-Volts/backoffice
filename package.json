@@ -2,8 +2,8 @@
   "name": "@millevolts/backoffice",
   "version": "0.2.0",
   "description": "",
-  "main": "lib/backoffice.common.js",
-  "module": "lib/backoffice.umd.js",
+  "main": "lib/backoffice.umd.min.js",
+  "module": "src/index.js",
   "scripts": {
     "serve": "vue-cli-service serve example/main.js",
     "build": "vue-cli-service build --dest lib --target lib --name backoffice src/index.js",
@@ -56,6 +56,7 @@
     "fibers": "^3.1.1",
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.8"
+    "vue-template-compiler": "^2.6.8",
+    "webpack-node-externals": "^1.7.2"
   }
 }
