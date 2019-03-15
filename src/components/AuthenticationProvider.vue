@@ -39,7 +39,7 @@ export default {
   },
   async created() {
     const userData = await this.doFetch();
-    if (userData) {
+    if (!userData) {
       this.doUnsetUser();
     } else {
       this.doSetUser(userData, "session");
@@ -57,7 +57,7 @@ export default {
     async doLogin({ type, ...data }) {
       const fnLogin = this.login || this.loginDefault;
       await fnLogin({ type, ...data });
-      this.doSetUser(userData, type);
+      this.doSetUser(data, type);
     },
     loginDefault({ type, ...data }) {
       switch (type) {
@@ -71,8 +71,8 @@ export default {
     },
     async doLogout() {
       const fnLogout = this.logout || this.logoutDefault;
-      await fnLogout();
       this.doUnsetUser();
+      await fnLogout();
     },
     logoutDefault() {
       this.$router.push({ name: "login" });
@@ -90,11 +90,11 @@ export default {
     },
     async doUnsetUser() {
       const fnUnsetUser = this.unsetUser || this.unsetUserDefault;
-      await fnUnsetUser();
       this.$set(this.user, "data", null);
       this.$set(this.user, "authenticated", false);
       this.$set(this.user, "type", null);
       this.$set(this.user, "date", null);
+      await fnUnsetUser();
     },
     unsetUserDefault() {
       return unsetUser();
