@@ -33,7 +33,7 @@
       <mv-table-column v-if="selection || $listeners.updateSelection" type="selection" width="55"></mv-table-column>
       <slot></slot>
     </el-table>
-    <div class="mv-table-footer">
+    <div v-if="!noFooter" class="mv-table-footer">
       <slot name="footer">
         <div class="mv-table-results">
           <slot name="results">
@@ -115,6 +115,7 @@ export default {
     selected: Number,
     results: Number,
     total: Number,
+    noFooter: Boolean,
     page: { type: Number, default: 1 },
     limit: { type: Number, default: 10 },
     limits: { type: Array, default: () => [10, 25, 50, 100] }
@@ -192,6 +193,9 @@ export default {
     &-select {
       width: 120px;
     }
+  }
+  .cell {
+    line-height: 1.2;
   }
 }
 </style>

@@ -35,7 +35,8 @@ export default {
     ElMain
   },
   props: {
-    title: String
+    title: String,
+    noPadding: Boolean
   }
 };
 </script>

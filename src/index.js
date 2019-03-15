@@ -1,7 +1,7 @@
 //https://medium.com/justfrontendthings/how-to-create-and-publish-your-own-vuejs-component-library-on-npm-using-vue-cli-28e60943eed3
 //import Vue from "vue";
 import Sticky from "vue-sticky-directive";
-import { Row, Col } from "element-ui";
+import { Col } from "element-ui";
 import Router from "vue-router";
 import moment from "moment";
 
@@ -35,6 +35,8 @@ import MvUploadProvider from "./components/forms/UploadProvider.vue";
 import MvTable from "./components/tables/Table.vue";
 import MvTableAction from "./components/tables/TableAction.vue";
 import MvTableColumn from "./components/tables/TableColumn.vue";
+
+import Row from "./components/Row.vue";
 
 moment.locale("fr");
 

@@ -16,14 +16,30 @@
 }
 
 .no-margin {
-  line-height: 1.2;
-  margin: 0;
+  margin: 0 !important;
+}
+.no-margin-top {
+  margin-top: 0 !important;
+}
+.no-margin-bottom {
+  margin-bottom: 0 !important;
 }
 .margin-bottom,
 .mb {
-  margin-bottom: $--margin;
+  margin-bottom: $--margin !important;
 }
 .margin-top,
 .mt {
-  margin-top: $--margin;
+  margin-top: $--margin !important;
+}
+
+.mv-panel .extended {
+  margin-left: -$--card-padding !important;
+  margin-right: -$--card-padding !important;
+}
+.mv-panel .extended-top {
+  margin-top: -$--card-padding !important;
+}
+.mv-panel .extended-bottom {
+  margin-bottom: -$--card-padding !important;
 }

@@ -41,12 +41,26 @@
       <column :sm="8">
         <mv-panel>
           <mv-stat icon="flag"></mv-stat>
-          <hr>
+          <hr class="extended">
           <mv-stat icon="cup" badge="-12%" badge-type="danger"></mv-stat>
-          <hr>
+          <hr class="extended">
           <mv-stat primary>
             <strong>1 423,00 €</strong>
           </mv-stat>
+          <hr class="extended no-margin-bottom">
+          <mv-table :data="table" no-footer class="extended extended-bottom">
+            <mv-table-column label="Derniers éléments" width="200" align="left">
+              <template v-slot:default="{ row }">
+                <a v-text="row.title"></a>
+                <div class="text-small text-secondary" v-if="row.subtitle" v-text="row.subtitle"></div>
+              </template>
+            </mv-table-column>
+            <mv-table-column align="right">
+              <template v-slot:default="{ row }">
+                <el-tag>Test</el-tag>
+              </template>
+            </mv-table-column>
+          </mv-table>
         </mv-panel>
       </column>
       <column :sm="8">
@@ -77,7 +91,7 @@
 
     <!-- Panels -->
     <row :gutter="20" class="block">
-      <column :sm="12">
+      <column :sm="8">
         <mv-panel title="Titre du panel">
           <template v-slot:actions>
             <el-radio v-model="application.layout" label="vertical">Vertical</el-radio>
@@ -97,7 +111,7 @@
           </mv-stat>
         </mv-panel>
       </column>
-      <column :sm="12">
+      <column :sm="16">
         <mv-panel title="Titre du panel">
           <template v-slot:actions>
             <el-select v-model="application.layout">
@@ -105,12 +119,28 @@
               <el-option value="horizontal" label="Horizontal"></el-option>
             </el-select>
           </template>
-          <mv-stat :badge="29" badge-type="success" :badge-max="10">
-            <strong>1 423,00 €</strong>
-            sur le dernier mois
-          </mv-stat>
+          <row class="extended" border>
+            <column :sm="8">
+              <mv-stat :badge="29" badge-type="success" :badge-max="10">
+                <strong>1 423,00 €</strong>
+                sur le dernier mois
+              </mv-stat>
+            </column>
+            <column :sm="8">
+              <mv-stat :badge="29" badge-type="success" :badge-max="10">
+                <strong>1 423,00 €</strong>
+                sur le dernier mois
+              </mv-stat>
+            </column>
+            <column :sm="8">
+              <mv-stat :badge="29" badge-type="success" :badge-max="10">
+                <strong>1 423,00 €</strong>
+                sur le dernier mois
+              </mv-stat>
+            </column>
+          </row>
           <hr>
-          <p>Test paragraphe</p>
+          <p>Paragraphe de texte</p>
         </mv-panel>
       </column>
     </row>
@@ -119,6 +149,27 @@
 
 <script>
 export default {
-  inject: ["application"]
+  inject: ["application"],
+  data() {
+    return {
+      table: [
+        {
+          date: new Date(2019, 1, 3, 1, 2, 3),
+          title: "Title",
+          subtitle: "Test sous-titre"
+        },
+        {
+          date: new Date(2019, 1, 15, 3, 4, 5),
+          title: "Title 2",
+          subtitle: "Test sous-titre 2"
+        },
+        {
+          date: new Date(2019, 2, 4, 5, 6, 7),
+          title: "Title 3",
+          subtitle: "Test sous-titre 3"
+        }
+      ]
+    };
+  }
 };
 </script>
