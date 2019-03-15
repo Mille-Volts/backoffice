@@ -1,48 +1,45 @@
 <template>
-  <content-layout>
+  <mv-content-layout>
     <template v-slot:actions>
       <mv-button primary icon="plus">Ajouter un enregistrement</mv-button>
     </template>
-    <panel>
+    <mv-panel>
       <mv-form>
-        <form-group title="Action rapide">
+        <mv-form-group title="Action rapide">
           <template v-slot:description>
             <p>
               Utilisez ce formulaire pour insérer rapidement un élément dans la
               liste.
             </p>
-            <hr />
+            <hr>
             <mv-button success>Enregistrer</mv-button>
             <mv-button ghost>Annuler</mv-button>
           </template>
-          <form-row>
-            <form-column>
-              <form-item label="Champ obligatoire" required>
-                <form-input placeholder="Texte"></form-input>
-              </form-item>
-            </form-column>
-            <form-column>
-              <form-item label="Champ facultatif">
-                <form-input placeholder="Texte"></form-input>
-              </form-item>
-            </form-column>
-          </form-row>
-          <form-item label="Champ facultatif">
-            <form-input placeholder="Texte"></form-input>
-          </form-item>
-        </form-group>
+          <mv-form-row>
+            <mv-form-column>
+              <mv-form-item label="Champ obligatoire" required>
+                <mv-form-input placeholder="Texte"/>
+              </mv-form-item>
+            </mv-form-column>
+            <mv-form-column>
+              <mv-form-item label="Champ facultatif">
+                <mv-form-input placeholder="Texte"/>
+              </mv-form-item>
+            </mv-form-column>
+          </mv-form-row>
+          <mv-form-item label="Champ facultatif">
+            <mv-form-input placeholder="Texte"/>
+          </mv-form-item>
+        </mv-form-group>
       </mv-form>
-    </panel>
+    </mv-panel>
 
     <mv-form :model="filters" inline>
-      <panel title="Mon tableau">
+      <mv-panel title="Mon tableau">
         <template v-slot:actions>
-          <form-item label="Filtres :">
-            <el-select
-              v-model="filters.select"
-              placeholder="Filtre général..."
-            ></el-select>
-          </form-item>
+          <mv-form-item label="Filtres :">
+            <el-select v-model="filters.select" placeholder="Filtre général..."></el-select>
+          </mv-form-item>
           <mv-button secondary icon="plus">Une autre action</mv-button>
         </template>
         <mv-table
@@ -55,104 +52,65 @@
           :limit.sync="filters.limit"
         >
           <template v-slot:selection>
-            <div class="margin-top">
-              Vous avez sélectionné :
-              <el-tag
-                v-for="(item, index) in selected"
-                :key="index"
-                v-text="item.title"
-              ></el-tag>
+            <div class="margin-top">Vous avez sélectionné :
+              <el-tag v-for="(item, index) in selected" :key="index" v-text="item.title"></el-tag>
             </div>
           </template>
           <template v-slot:header>
-            <form-item>
-              <form-input
-                v-model="filters.search"
-                icon="search"
-                placeholder="Rechercher..."
-              />
-            </form-item>
-            <form-item>
-              <el-select
-                v-model="filters.select"
-                placeholder="Filtre spécifique..."
-              ></el-select>
-            </form-item>
+            <mv-form-item>
+              <mv-form-input v-model="filters.search" icon="search" placeholder="Rechercher..."/>
+            </mv-form-item>
+            <mv-form-item>
+              <el-select v-model="filters.select" placeholder="Filtre spécifique..."></el-select>
+            </mv-form-item>
           </template>
           <template v-slot:expand="{ row }">
             <p class="no-margin text-bold">
               <a v-text="row.title"></a>
             </p>
-            <p
-              class="no-margin text-small text-secondary"
-              v-text="row.subtitle"
-            ></p>
+            <p class="no-margin text-small text-secondary" v-text="row.subtitle"></p>
           </template>
-          <table-column
-            prop="date"
-            date
-            label="Date"
-            width="120"
-            align="left"
-            sortable
-          ></table-column>
-          <table-column prop="title" label="Titre">
+          <mv-table-column prop="date" date label="Date" width="120" align="left" sortable></mv-table-column>
+          <mv-table-column prop="title" label="Titre">
             <template v-slot:header="{ column }">
-              <form-input
-                v-model="filters.search"
-                icon="search"
-                :placeholder="column.title"
-              />
+              <mv-form-input v-model="filters.search" icon="search" :placeholder="column.title"/>
             </template>
-          </table-column>
-          <table-column
+          </mv-table-column>
+          <mv-table-column
             prop="date"
             datetime="YYYY-MM-DD / HH:mm:ss"
             label="Date et heure"
             width="180"
-          ></table-column>
-          <table-column
-            prop="date"
-            ago
-            label="Depuis"
-            width="140"
-          ></table-column>
-          <table-column label="Actions" align="right" width="240">
+          ></mv-table-column>
+          <mv-table-column prop="date" ago label="Depuis" width="140"></mv-table-column>
+          <mv-table-column label="Actions" align="right" width="240">
             <template v-slot:default="{ row }">
-              <table-action icon="eye" @click="alert('view ' + row.title)"
-                >Détails</table-action
-              >
-              <table-action
-                icon="pencil"
-                @click="alert('edit ' + row.title)"
-              ></table-action>
-              <table-action @click="alert('edit ' + row.title)">
+              <mv-table-action icon="eye" @click="alert('view ' + row.title)">Détails</mv-table-action>
+              <mv-table-action icon="pencil" @click="alert('edit ' + row.title)"></mv-table-action>
+              <mv-table-action @click="alert('edit ' + row.title)">
                 <template v-slot:menu>
-                  <drop-down-action
+                  <mv-drop-down-action
                     icon="eye"
                     @click="alert('view ' + row.title)"
-                    >Détails de l'élément</drop-down-action
-                  >
-                  <drop-down-action
+                  >Détails de l'élément</mv-drop-down-action>
+                  <mv-drop-down-action
                     icon="pencil"
                     @click="alert('edit ' + row.title)"
-                    >Modifier cet élément</drop-down-action
-                  >
-                  <drop-down-action
+                  >Modifier cet élément</mv-drop-down-action>
+                  <mv-drop-down-action
                     divided
                     danger
                     icon="trash"
                     @click="alert('delete ' + row.title)"
-                    >Supprimer cet élément</drop-down-action
-                  >
+                  >Supprimer cet élément</mv-drop-down-action>
                 </template>
-              </table-action>
+              </mv-table-action>
             </template>
-          </table-column>
+          </mv-table-column>
         </mv-table>
-      </panel>
+      </mv-panel>
     </mv-form>
-  </content-layout>
+  </mv-content-layout>
 </template>
 
 <script>

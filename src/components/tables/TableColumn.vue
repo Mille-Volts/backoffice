@@ -1,5 +1,5 @@
 <template>
-  <el-tableColumn
+  <el-table-column
     class="mv-tableColumn"
     :formatter="defaultFormatter"
     :align="defaultAlign"
@@ -7,16 +7,12 @@
     v-on="$listeners"
   >
     <template v-if="$scopedSlots.header" v-slot:header="slotProps">
-      <slot
-        name="header"
-        :row="slotProps.row"
-        :column="slotProps.column"
-      ></slot>
+      <slot name="header" :row="slotProps.row" :column="slotProps.column"></slot>
     </template>
     <template v-if="$scopedSlots.default" v-slot:default="slotProps">
       <slot :row="slotProps.row" :column="slotProps.column"></slot>
     </template>
-  </el-tableColumn>
+  </el-table-column>
 </template>
 
 <script>

@@ -1,10 +1,10 @@
 <template>
-  <authentication-layout>
+  <mv-authentication-layout>
     <h1>Bienvenue</h1>
-    <local-login />
-    <hr />
-    <guest-login name="Compte invité" />
-  </authentication-layout>
+    <mv-local-login/>
+    <hr>
+    <mv-guest-login name="Compte invité"/>
+  </mv-authentication-layout>
 </template>
 
 <script>

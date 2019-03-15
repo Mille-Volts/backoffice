@@ -25,16 +25,12 @@
       v-bind="$attrs"
       v-on="$listeners"
     >
-      <table-column v-if="$scopedSlots.expand" type="expand">
+      <mv-table-column v-if="$scopedSlots.expand" type="expand">
         <template v-slot:default="{ row }">
           <slot name="expand" :row="row"></slot>
         </template>
-      </table-column>
-      <table-column
-        v-if="selection || $listeners.updateSelection"
-        type="selection"
-        width="55"
-      ></table-column>
+      </mv-table-column>
+      <mv-table-column v-if="selection || $listeners.updateSelection" type="selection" width="55"></mv-table-column>
       <slot></slot>
     </el-table>
     <div class="mv-table-footer">
@@ -71,9 +67,8 @@
         </div>
         <div class="mv-table-limit">
           <slot name="limit">
-            <label
-              >Afficher :
-              <form-select
+            <label>Afficher :
+              <mv-form-select
                 class="mv-table-limit_select"
                 size="mini"
                 :value="limit"
@@ -85,7 +80,7 @@
                   :label="`${item} par page`"
                   :value="item"
                 ></el-option>
-              </form-select>
+              </mv-form-select>
             </label>
           </slot>
         </div>
@@ -101,8 +96,8 @@ import {
   Table as ElTable,
   Alert as ElAlert
 } from "element-ui";
-import FormSelect from "../forms/FormSelect.vue";
-import TableColumn from "./TableColumn.vue";
+import MvFormSelect from "../forms/FormSelect.vue";
+import MvTableColumn from "./TableColumn.vue";
 
 export default {
   name: "Table",
@@ -111,8 +106,8 @@ export default {
     ElOption,
     ElPagination,
     ElTable,
-    FormSelect,
-    TableColumn
+    MvFormSelect,
+    MvTableColumn
   },
   props: {
     data: Array,

@@ -4,69 +4,56 @@
     :direction="application.layout === 'horizontal' ? 'vertical' : 'horizontal'"
     sticky-container
   >
-    <el-header
-      v-if="application.layout === 'horizontal'"
-      class="mv-page-header"
-      height="120px"
-    >
+    <el-header v-if="application.layout === 'horizontal'" class="mv-page-header" height="120px">
       <div class="mv-page-top">
-        <logo></logo>
+        <mv-logo></mv-logo>
         <div class="mv-page-title">
           <slot name="title">
-            <main-title></main-title>
+            <mv-main-title></mv-main-title>
           </slot>
         </div>
         <div class="mv-page-user">
           <slot name="user">
-            <user></user>
+            <mv-user></mv-user>
           </slot>
         </div>
       </div>
-      <div
-        v-sticky
-        class="mv-page-menu"
-        :sticky-z-index="2001"
-        :sticky-offset="0"
-      >
+      <div v-sticky class="mv-page-menu" :sticky-z-index="2001" :sticky-offset="0">
         <slot name="menu">
-          <main-menu :routes="routes"></main-menu>
+          <mv-main-menu :routes="routes"></mv-main-menu>
         </slot>
       </div>
     </el-header>
     <el-aside v-else class="mv-page-aside" width="320px">
-      <logo></logo>
+      <mv-logo></mv-logo>
       <div class="mv-page-title">
         <slot name="title">
-          <main-title></main-title>
+          <mv-main-title></mv-main-title>
         </slot>
       </div>
       <div class="mv-page-user">
         <slot name="user">
-          <user></user>
+          <mv-user></mv-user>
         </slot>
       </div>
       <div class="mv-page-menu">
         <slot name="menu">
-          <main-menu :routes="routes"></main-menu>
+          <mv-main-menu :routes="routes"></mv-main-menu>
         </slot>
       </div>
       <div class="mv-page-author">
         <slot name="author">
-          <authorship />
+          <mv-authorship/>
         </slot>
       </div>
     </el-aside>
     <el-main class="mv-page-main">
       <slot></slot>
     </el-main>
-    <el-footer
-      v-if="application.layout === 'horizontal'"
-      class="mv-page-footer"
-      height="auto"
-    >
+    <el-footer v-if="application.layout === 'horizontal'" class="mv-page-footer" height="auto">
       <div class="mv-page-author">
         <slot name="author">
-          <authorship />
+          <mv-authorship/>
         </slot>
       </div>
     </el-footer>
@@ -81,11 +68,11 @@ import {
   Main as ElMain,
   Footer as ElFooter
 } from "element-ui";
-import Authorship from "../parts/Authorship.vue";
-import Logo from "../parts/Logo.vue";
-import User from "../parts/User.vue";
-import MainTitle from "../parts/MainTitle.vue";
-import MainMenu from "../MainMenu.vue";
+import MvAuthorship from "../parts/Authorship.vue";
+import MvLogo from "../parts/Logo.vue";
+import MvUser from "../parts/User.vue";
+import MvMainTitle from "../parts/MainTitle.vue";
+import MvMainMenu from "../MainMenu.vue";
 
 export default {
   name: "PageLayout",
@@ -97,11 +84,11 @@ export default {
     ElAside,
     ElMain,
     ElFooter,
-    Authorship,
-    Logo,
-    User,
-    MainTitle,
-    MainMenu
+    MvAuthorship,
+    MvLogo,
+    MvUser,
+    MvMainTitle,
+    MvMainMenu
   },
   computed: {
     routes() {

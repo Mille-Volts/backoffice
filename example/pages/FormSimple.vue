@@ -1,32 +1,32 @@
 <template>
-  <content-layout :form="form" :with-tabs="false" @submit="submitForm" v-loading="loading">
+  <mv-content-layout :form="form" :with-tabs="false" @submit="submitForm" v-loading="loading">
     <template v-slot:actions>
       <mv-button ghost icon="arrow-left" @click="$router.back()">Annuler</mv-button>
       <mv-button success icon-right="check" type="submit">Enregistrer</mv-button>
     </template>
-    <form-group title="Groupe de champs">
+    <mv-form-group title="Groupe de champs">
       <template v-slot:description>
         <p>Ma description</p>
         <hr>
         <el-switch v-model="form.published" active-text="Publié"/>
       </template>
-      <panel>
-        <form-row>
-          <form-column>
-            <form-item label="Slider" required>
+      <mv-panel>
+        <mv-form-row>
+          <mv-form-column>
+            <mv-form-item label="Slider" required>
               <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
-            </form-item>
-          </form-column>
-          <form-column>
-            <form-item label="Input number">
+            </mv-form-item>
+          </mv-form-column>
+          <mv-form-column>
+            <mv-form-item label="Input number">
               <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
-            </form-item>
-          </form-column>
-        </form-row>
-        <form-item label="Fichier">
-          <form-upload></form-upload>
-        </form-item>
-        <form-item label="Radio buttons">
+            </mv-form-item>
+          </mv-form-column>
+        </mv-form-row>
+        <mv-form-item label="Fichier">
+          <mv-form-upload></mv-form-upload>
+        </mv-form-item>
+        <mv-form-item label="Radio buttons">
           <row>
             <column :sm="8">
               <el-radio v-model="form.radio" :label="1">Option A</el-radio>
@@ -38,33 +38,33 @@
               <el-radio v-model="form.radio" :label="3">Option C</el-radio>
             </column>
           </row>
-        </form-item>
+        </mv-form-item>
         <mv-button icon-left="lock" icon-right="save" @click="form.radio = 2">Set 2</mv-button>
         <mv-button icon="wand" primary>Primaire</mv-button>
         <mv-button icon-right="desktop" secondary>Secondaire</mv-button>
-      </panel>
-    </form-group>
+      </mv-panel>
+    </mv-form-group>
 
-    <form-group v-if="form.radio < 2" title="Mon groupe de champs 3">
+    <mv-form-group v-if="form.radio < 2" title="Mon groupe de champs 3">
       <template v-slot:description>
         <p>Ma description</p>
         <hr>
         <el-switch v-model="form.published" active-text="Publié"/>
       </template>
-      <panel>
-        <form-row>
-          <form-column>
-            <form-item label="Slider" required>
+      <mv-panel>
+        <mv-form-row>
+          <mv-form-column>
+            <mv-form-item label="Slider" required>
               <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
-            </form-item>
-          </form-column>
-          <form-column>
-            <form-item label="Input number">
+            </mv-form-item>
+          </mv-form-column>
+          <mv-form-column>
+            <mv-form-item label="Input number">
               <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
-            </form-item>
-          </form-column>
-        </form-row>
-        <form-item label="Radio buttons">
+            </mv-form-item>
+          </mv-form-column>
+        </mv-form-row>
+        <mv-form-item label="Radio buttons">
           <row>
             <column :sm="8">
               <el-radio v-model="form.radio" :label="1">Option A</el-radio>
@@ -76,13 +76,13 @@
               <el-radio v-model="form.radio" :label="3">Option C</el-radio>
             </column>
           </row>
-        </form-item>
+        </mv-form-item>
         <el-button @click="form.radio = 2">Set 2</el-button>
         <mv-button primary>Primaire</mv-button>
         <mv-button secondary>Secondaire</mv-button>
-      </panel>
-    </form-group>
-  </content-layout>
+      </mv-panel>
+    </mv-form-group>
+  </mv-content-layout>
 </template>
 
 <script>

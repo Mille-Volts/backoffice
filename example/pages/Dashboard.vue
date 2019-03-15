@@ -1,9 +1,9 @@
 <template>
-  <content-layout :with-header="false">
+  <mv-content-layout :with-header="false">
     <h1>Tableau de bord</h1>
     <row :gutter="20">
       <column :sm="12">
-        <panel title="Titre du panel">
+        <mv-panel title="Titre du panel">
           <template v-slot:actions>
             <el-radio v-model="application.layout" label="vertical">Vertical</el-radio>
             <el-radio v-model="application.layout" label="horizontal">Horizontal</el-radio>
@@ -11,10 +11,10 @@
           <p>Test paragraphe</p>
           <hr>
           <p>Test paragraphe</p>
-        </panel>
+        </mv-panel>
       </column>
       <column :sm="12">
-        <panel title="Titre du panel">
+        <mv-panel title="Titre du panel">
           <template v-slot:actions>
             <el-select v-model="application.layout">
               <el-option value="vertical" label="Vertical"></el-option>
@@ -24,10 +24,10 @@
           <p>Test paragraphe</p>
           <hr>
           <p>Test paragraphe</p>
-        </panel>
+        </mv-panel>
       </column>
     </row>
-  </content-layout>
+  </mv-content-layout>
 </template>
 
 <script>

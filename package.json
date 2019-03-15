@@ -2,11 +2,11 @@
   "name": "@millevolts/backoffice",
   "version": "0.2.1",
   "description": "",
-  "main": "lib/backoffice.umd.min.js",
+  "main": "lib/backoffice.common.js",
   "module": "src/index.js",
   "scripts": {
     "serve": "vue-cli-service serve example/main.js",
-    "build": "vue-cli-service build --dest lib --target lib --name backoffice src/index.js",
+    "build": "vue-cli-service build --dest lib --target lib --formats commonjs --name backoffice src/index.js",
     "lint": "vue-cli-service lint",
     "dev": "npm run serve",
     "vue": "vue",

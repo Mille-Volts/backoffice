@@ -1,11 +1,11 @@
 <template>
-  <authentication-provider>
-    <application :routes="routes">
-      <upload-provider v-bind="uploadProviderAttrs">
+  <mv-authentication-provider>
+    <mv-application :routes="routes">
+      <mv-upload-provider v-bind="uploadProviderAttrs">
         <router-view></router-view>
-      </upload-provider>
-    </application>
-  </authentication-provider>
+      </mv-upload-provider>
+    </mv-application>
+  </mv-authentication-provider>
 </template>
 
 <script>

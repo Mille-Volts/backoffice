@@ -5,34 +5,34 @@ import { Row, Col } from "element-ui";
 import Router from "vue-router";
 import moment from "moment";
 
-import AuthenticationLayout from "./components/layouts/AuthenticationLayout.vue";
-import ContentLayout from "./components/layouts/ContentLayout.vue";
-import PageLayout from "./components/layouts/PageLayout.vue";
+import MvAuthenticationLayout from "./components/layouts/AuthenticationLayout.vue";
+import MvContentLayout from "./components/layouts/ContentLayout.vue";
+import MvPageLayout from "./components/layouts/PageLayout.vue";
 
-import LocalLogin from "./components/authentication/LocalLogin.vue";
-import GuestLogin from "./components/authentication/GuestLogin.vue";
+import MvLocalLogin from "./components/authentication/LocalLogin.vue";
+import MvGuestLogin from "./components/authentication/GuestLogin.vue";
+import MvAuthenticationProvider from "./components/authentication/AuthenticationProvider.vue";
 
-import Application from "./components/Application.vue";
-import AuthenticationProvider from "./components/AuthenticationProvider.vue";
+import MvApplication from "./components/Application.vue";
 import MvButton from "./components/Button.vue";
-import DropDownAction from "./components/DropDownAction.vue";
-import Icon from "./components/Icon.vue";
-import MainMenu from "./components/MainMenu.vue";
-import Panel from "./components/Panel.vue";
+import MvDropDownAction from "./components/DropDownAction.vue";
+import MvIcon from "./components/Icon.vue";
+import MvMainMenu from "./components/MainMenu.vue";
+import MvPanel from "./components/Panel.vue";
 
 import MvForm from "./components/forms/Form.vue";
-import FormColumn from "./components/forms/FormColumn.vue";
-import FormItem from "./components/forms/FormItem.vue";
-import FormGroup from "./components/forms/FormGroup.vue";
-import FormRow from "./components/forms/FormRow.vue";
-import FormInput from "./components/forms/FormInput.vue";
-import FormSelect from "./components/forms/FormSelect.vue";
-import FormUpload from "./components/forms/FormUpload.vue";
-import UploadProvider from "./components/UploadProvider.vue";
+import MvFormColumn from "./components/forms/FormColumn.vue";
+import MvFormItem from "./components/forms/FormItem.vue";
+import MvFormGroup from "./components/forms/FormGroup.vue";
+import MvFormRow from "./components/forms/FormRow.vue";
+import MvFormInput from "./components/forms/FormInput.vue";
+import MvFormSelect from "./components/forms/FormSelect.vue";
+import MvFormUpload from "./components/forms/FormUpload.vue";
+import MvUploadProvider from "./components/forms/UploadProvider.vue";
 
 import MvTable from "./components/tables/Table.vue";
-import TableAction from "./components/tables/TableAction.vue";
-import TableColumn from "./components/tables/TableColumn.vue";
+import MvTableAction from "./components/tables/TableAction.vue";
+import MvTableColumn from "./components/tables/TableColumn.vue";
 
 moment.locale("fr");
 
@@ -48,33 +48,33 @@ export default {
     Vue.component("row", Row);
     Vue.component("column", Col);
 
-    Vue.component("AuthenticationLayout", AuthenticationLayout);
-    Vue.component("ContentLayout", ContentLayout);
-    Vue.component("PageLayout", PageLayout);
+    Vue.component("MvAuthenticationLayout", MvAuthenticationLayout);
+    Vue.component("MvContentLayout", MvContentLayout);
+    Vue.component("MvPageLayout", MvPageLayout);
 
-    Vue.component("LocalLogin", LocalLogin);
-    Vue.component("GuestLogin", GuestLogin);
+    Vue.component("MvLocalLogin", MvLocalLogin);
+    Vue.component("MvGuestLogin", MvGuestLogin);
 
-    Vue.component("Application", Application);
-    Vue.component("AuthenticationProvider", AuthenticationProvider);
+    Vue.component("MvApplication", MvApplication);
+    Vue.component("MvAuthenticationProvider", MvAuthenticationProvider);
     Vue.component("MvButton", MvButton);
-    Vue.component("DropDownAction", DropDownAction);
-    Vue.component("Icon", Icon);
-    Vue.component("MainMenu", MainMenu);
-    Vue.component("Panel", Panel);
+    Vue.component("MvDropDownAction", MvDropDownAction);
+    Vue.component("MvIcon", MvIcon);
+    Vue.component("MvMainMenu", MvMainMenu);
+    Vue.component("MvPanel", MvPanel);
 
     Vue.component("MvForm", MvForm);
-    Vue.component("FormColumn", FormColumn);
-    Vue.component("FormItem", FormItem);
-    Vue.component("FormGroup", FormGroup);
-    Vue.component("FormRow", FormRow);
-    Vue.component("FormInput", FormInput);
-    Vue.component("FormSelect", FormSelect);
-    Vue.component("FormUpload", FormUpload);
-    Vue.component("UploadProvider", UploadProvider);
+    Vue.component("MvFormColumn", MvFormColumn);
+    Vue.component("MvFormItem", MvFormItem);
+    Vue.component("MvFormGroup", MvFormGroup);
+    Vue.component("MvFormRow", MvFormRow);
+    Vue.component("MvFormInput", MvFormInput);
+    Vue.component("MvFormSelect", MvFormSelect);
+    Vue.component("MvFormUpload", MvFormUpload);
+    Vue.component("MvUploadProvider", MvUploadProvider);
 
     Vue.component("MvTable", MvTable);
-    Vue.component("TableAction", TableAction);
-    Vue.component("TableColumn", TableColumn);
+    Vue.component("MvTableAction", MvTableAction);
+    Vue.component("MvTableColumn", MvTableColumn);
   }
 };

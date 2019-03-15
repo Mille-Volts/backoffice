@@ -13,29 +13,25 @@
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <icon
+    <mv-icon
       v-if="!loading && (icon || iconLeft)"
       class="mv-button-icon mv-button-icon--left"
       :name="icon || iconLeft"
     />
     <slot></slot>
-    <icon
-      v-if="iconRight"
-      class="mv-button-icon mv-button-icon--right"
-      :name="iconRight"
-    />
+    <mv-icon v-if="iconRight" class="mv-button-icon mv-button-icon--right" :name="iconRight"/>
   </el-button>
 </template>
 
 <script>
 import { Button as ElButton } from "element-ui";
-import Icon from "./Icon.vue";
+import MvIcon from "./Icon.vue";
 
 export default {
   name: "Button",
   components: {
     ElButton,
-    Icon
+    MvIcon
   },
   props: {
     icon: String,

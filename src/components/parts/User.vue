@@ -5,7 +5,7 @@
     :class="`mv-user--${application.layout}`"
   >
     <div class="mv-user-picture mv-user-picture--icon">
-      <icon :name="user.data.icon || 'user'"></icon>
+      <mv-icon :name="user.data.icon || 'user'"></mv-icon>
     </div>
     <div class="mv-user-info">
       <p class="mv-user-name" v-text="user.data.name"></p>
@@ -16,12 +16,14 @@
 
 <script>
 import MvButton from "../Button.vue";
+import MvIcon from "../Icon.vue";
 
 export default {
   name: "User",
   inject: ["user", "authentication", "application"],
   components: {
-    MvButton
+    MvButton,
+    MvIcon
   }
 };
 </script>

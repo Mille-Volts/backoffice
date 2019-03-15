@@ -2,26 +2,26 @@
   <el-container class="mv-authenticationLayout">
     <el-header height="auto" class="mv-authenticationLayout-header">
       <slot name="header">
-        <logo :ratio="1.5"></logo>
+        <mv-logo :ratio="1.5"></mv-logo>
       </slot>
     </el-header>
     <el-main class="mv-authenticationLayout-main">
       <div class="mv-authenticationLayout-content">
-        <main-title></main-title>
-        <panel class="mv-authenticationLayout-login-panel">
+        <mv-main-title></mv-main-title>
+        <mv-panel class="mv-authenticationLayout-login-panel">
           <slot>
             <h1>Welcome</h1>
-            <guest-login />
+            <mv-guest-login/>
           </slot>
-        </panel>
+        </mv-panel>
         <div class="mv-authenticationLayout-authorship">
-          <authorship></authorship>
+          <mv-authorship></mv-authorship>
         </div>
       </div>
     </el-main>
     <el-footer height="auto" class="mv-authenticationLayout-footer">
       <slot name="header">
-        <logo :ratio="1.5"></logo>
+        <mv-logo :ratio="1.5"></mv-logo>
       </slot>
     </el-footer>
   </el-container>
@@ -34,11 +34,12 @@ import {
   Main as ElMain,
   Footer as ElFooter
 } from "element-ui";
-import Authorship from "../parts/Authorship.vue";
-import Logo from "../parts/Logo.vue";
-import MainTitle from "../parts/MainTitle.vue";
+import MvAuthorship from "../parts/Authorship.vue";
+import MvLogo from "../parts/Logo.vue";
+import MvMainTitle from "../parts/MainTitle.vue";
+import MvPanel from "../Panel.vue";
 
-import GuestLogin from "../authentication/GuestLogin.vue";
+import MvGuestLogin from "../authentication/GuestLogin.vue";
 
 export default {
   name: "AuthenticationLayout",
@@ -48,10 +49,11 @@ export default {
     ElHeader,
     ElMain,
     ElFooter,
-    GuestLogin,
-    Logo,
-    Authorship,
-    MainTitle
+    MvGuestLogin,
+    MvLogo,
+    MvAuthorship,
+    MvMainTitle,
+    MvPanel
   }
 };
 </script>

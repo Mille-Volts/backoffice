@@ -1,5 +1,5 @@
 <template>
-  <page-layout>
+  <mv-page-layout>
     <router-view></router-view>
-  </page-layout>
+  </mv-page-layout>
 </template>

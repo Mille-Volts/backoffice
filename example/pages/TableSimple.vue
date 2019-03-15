@@ -1,38 +1,28 @@
 <template>
-  <content-layout>
+  <mv-content-layout>
     <template v-slot:actions>
       <mv-button primary icon="plus">Ajouter un enregistrement</mv-button>
     </template>
     <mv-table :data="table">
-      <table-column
-        prop="date"
-        date
-        label="Date"
-        width="180"
-        align="left"
-        sortable
-      ></table-column>
-      <table-column prop="title" label="Titre" sortable></table-column>
-      <table-column label="Autre titre">
+      <mv-table-column prop="date" date label="Date" width="180" align="left" sortable></mv-table-column>
+      <mv-table-column prop="title" label="Titre" sortable></mv-table-column>
+      <mv-table-column label="Autre titre">
         <template v-slot:default="{ row }">
           <p class="no-margin text-bold">
             <a v-text="row.title"></a>
           </p>
-          <p
-            class="no-margin text-small text-secondary"
-            v-text="row.subtitle"
-          ></p>
+          <p class="no-margin text-small text-secondary" v-text="row.subtitle"></p>
         </template>
-      </table-column>
-      <table-column
+      </mv-table-column>
+      <mv-table-column
         prop="date"
         datetime="YYYY-MM-DD / HH:mm:ss"
         label="Date et heure"
         width="240"
-      ></table-column>
-      <table-column prop="date" ago label="Depuis" width="240"></table-column>
+      ></mv-table-column>
+      <mv-table-column prop="date" ago label="Depuis" width="240"></mv-table-column>
     </mv-table>
-  </content-layout>
+  </mv-content-layout>
 </template>
 
 <script>
