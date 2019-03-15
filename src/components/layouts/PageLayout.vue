@@ -147,6 +147,7 @@ export default {
       flex: 1;
       line-height: 56px;
       font-size: 16px;
+      padding: 18px 0;
     }
   }
   &-menu {
@@ -158,7 +159,7 @@ export default {
     }
   }
 
-  &-header {
+  &-header.el-header {
     background: $--color-menu url("../../assets/background-h.png") no-repeat top
       center;
     color: $--color-white;
@@ -168,7 +169,7 @@ export default {
   &-top {
     display: flex;
   }
-  &-aside {
+  &-aside.el-aside {
     @include image-retina("../../assets/background-v@2x.png", 320px, 1024px);
     background: $--color-menu url("../../assets/background-v.png") no-repeat top
       center;
@@ -180,15 +181,13 @@ export default {
     overflow: auto;
     top: 0;
   }
-  &-main {
-    &.el-main {
-      padding: 0;
-    }
+  &-main.el-main {
+    padding: 0;
     .mv-page--vertical & {
       margin-left: 320px;
     }
   }
-  &-footer {
+  &-footer.el-footer {
     padding: 30px 0 5px 0;
   }
 }

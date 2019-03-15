@@ -19,6 +19,7 @@ import MvDropDownAction from "./components/DropDownAction.vue";
 import MvIcon from "./components/Icon.vue";
 import MvMainMenu from "./components/MainMenu.vue";
 import MvPanel from "./components/Panel.vue";
+import MvQuickAction from "./components/QuickAction.vue";
 import MvStat from "./components/Stat.vue";
 
 import MvForm from "./components/forms/Form.vue";
@@ -63,6 +64,7 @@ export default {
     Vue.component("MvIcon", MvIcon);
     Vue.component("MvMainMenu", MvMainMenu);
     Vue.component("MvPanel", MvPanel);
+    Vue.component("MvQuickAction", MvQuickAction);
     Vue.component("MvStat", MvStat);
 
     Vue.component("MvForm", MvForm);

@@ -2,13 +2,13 @@
 
 h1 {
   color: $--color-secondary;
-  font: 300 40px/120% $--font-stack-default;
+  font: $--font-weight-thin 40px/120% $--font-stack-default;
   margin: ($--margin * 2) 0;
 }
 
 h2 {
   color: $--color-text-secondary;
-  font: 600 16px/120% $--font-stack-default;
+  font: $--font-weight-bold 16px/120% $--font-stack-default;
   margin: $--margin 0;
   text-transform: uppercase;
 }
@@ -17,6 +17,12 @@ h3 {
   color: $--color-secondary;
   font: normal 16px/120% $--font-stack-default;
   margin: ($--margin * 2) 0;
+}
+
+h4 {
+  color: $--color-text-primary;
+  font: $--font-weight-bold 16px/120% $--font-stack-default;
+  margin: $--margin 0;
 }
 
 p {
