@@ -3,12 +3,12 @@
     :thumbnail-mode="thumbnailMode"
     :fileList="fileList"
     :multiple="multiple"
-    :limit="multiple? limit: 1"
+    :limit="multiple ? limit : 1"
     :disabled="disabled"
     v-bind="attrs"
     v-on="listeners"
     class="mv-formUpload"
-    :class="{'mv-formUpload--cannot-upload': !canUpload}"
+    :class="{ 'mv-formUpload--cannot-upload': !canUpload }"
   >
     <template v-if="$slots.trigger" v-slot:trigger>
       <slot name="trigger"></slot>
@@ -19,12 +19,9 @@
     </template>
     <slot>
       <span @click="preventUpload">
-        <mv-button
-          :disabled="!canUpload"
-          size="mini"
-          icon="upload"
-          secondary
-        >Sélectionner un fichier...</mv-button>
+        <mv-button :disabled="!canUpload" size="mini" icon="upload" secondary
+          >Sélectionner un fichier...</mv-button
+        >
       </span>
     </slot>
   </el-upload>

@@ -19,7 +19,11 @@
       :name="icon || iconLeft"
     />
     <slot></slot>
-    <mv-icon v-if="iconRight" class="mv-button-icon mv-button-icon--right" :name="iconRight"/>
+    <mv-icon
+      v-if="iconRight"
+      class="mv-button-icon mv-button-icon--right"
+      :name="iconRight"
+    />
   </el-button>
 </template>
 
