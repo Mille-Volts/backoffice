@@ -27,7 +27,7 @@ export default {
     ElAside,
     ElMain
   },
-  props: { title: { type: String, required: true } },
+  props: { title: { type: String } },
   data() {
     return { hide: false };
   },

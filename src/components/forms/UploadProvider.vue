@@ -1,30 +1,40 @@
 <script>
 export default {
   name: "UploadProvider",
+  props: {
+    httpRequest: Function,
+    onChange: Function,
+    onSuccess: Function,
+    onRemove: Function
+  },
   data() {
     return {
       files: []
     };
   },
   provide() {
-    const selfUploadProvider = this;
+    const self = this;
     return {
       upload: {
         files: this.files,
         attrs: {
           action: "#",
-          ...this.$attrs,
-          "http-request"() {
-            if (selfUploadProvider.$attrs["http-request"])
-              selfUploadProvider.$attrs["http-request"].call(this, arguments);
+          httpRequest() {
+            if (self.httpRequest) self.httpRequest(...arguments);
           },
-          "on-change"(file) {
-            if (selfUploadProvider.files.indexOf(file) === -1) {
-              selfUploadProvider.files.push(file);
+          onChange(file) {
+            if (self.files.indexOf(file) === -1) {
+              self.files.push(file);
             }
-            if (selfUploadProvider.$attrs["on-change"])
-              selfUploadProvider.$attrs["on-change"].call(this, arguments);
-          }
+            if (self.onChange) self.onChange(...arguments);
+          },
+          onRemove() {
+            if (self.onRemove) self.onRemove(...arguments);
+          },
+          onSuccess() {
+            if (self.onSuccess) self.onSuccess(...arguments);
+          },
+          ...this.$attrs
         },
         listeners: this.listeners
       }

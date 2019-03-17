@@ -1,7 +1,7 @@
 <template>
   <el-row
     class="mv-row"
-    :class="{'mv-row--border': !!border}"
+    :class="{ 'mv-row--border': !!border }"
     v-bind="$attrs"
     v-on="$listeners"
     :gutter="gutterComputed"

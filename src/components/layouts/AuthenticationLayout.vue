@@ -11,7 +11,7 @@
         <mv-panel class="mv-authenticationLayout-login-panel">
           <slot>
             <h1>Welcome</h1>
-            <mv-guest-login/>
+            <mv-guest-login />
           </slot>
         </mv-panel>
         <div class="mv-authenticationLayout-authorship">

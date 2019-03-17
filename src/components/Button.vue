@@ -79,8 +79,10 @@ export default {
 @import "../theme/_variables.scss";
 
 .mv-button {
-  font: font-default-bold(1em, 1);
-  overflow: hidden;
+  &.el-button {
+    font: font-default-bold(1em, 1);
+    overflow: hidden;
+  }
   &--has-text {
     .mv-button-icon--left {
       float: left;

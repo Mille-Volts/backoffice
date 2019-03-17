@@ -6,13 +6,25 @@
       l'interface d'administration.
     </p>
     <mv-form-item label="Votre identifiant" required>
-      <el-input v-model="data.username" type="text" placeholder="adresse@email.com" required/>
+      <el-input
+        v-model="data.username"
+        type="text"
+        placeholder="adresse@email.com"
+        required
+      />
     </mv-form-item>
     <mv-form-item label="Votre mot de passe" required>
-      <el-input v-model="data.password" type="password" placeholder="******" required/>
+      <el-input
+        v-model="data.password"
+        type="password"
+        placeholder="******"
+        required
+      />
     </mv-form-item>
     <p v-if="error" class="mv-localLogin-error" v-text="error"></p>
-    <mv-button type="submit" icon="lock" :loading="isAuthenticating" success>Connexion</mv-button>
+    <mv-button type="submit" icon="lock" :loading="isAuthenticating" success
+      >Connexion</mv-button
+    >
   </mv-form>
 </template>
 

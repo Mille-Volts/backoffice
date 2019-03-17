@@ -30,7 +30,11 @@
           <slot name="expand" :row="row"></slot>
         </template>
       </mv-table-column>
-      <mv-table-column v-if="selection || $listeners.updateSelection" type="selection" width="55"></mv-table-column>
+      <mv-table-column
+        v-if="selection || $listeners.updateSelection"
+        type="selection"
+        width="55"
+      ></mv-table-column>
       <slot></slot>
     </el-table>
     <div v-if="!noFooter" class="mv-table-footer">
@@ -67,7 +71,8 @@
         </div>
         <div class="mv-table-limit">
           <slot name="limit">
-            <label>Afficher :
+            <label
+              >Afficher :
               <mv-form-select
                 class="mv-table-limit_select"
                 size="mini"

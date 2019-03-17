@@ -4,12 +4,12 @@
     :class="{
       [`mv-quickAction--${computedType || 'standard'}`]: 1,
       'mv-quickAction--has-text': !!$slots.default,
-      'mv-quickAction--has-icon': !!icon,
+      'mv-quickAction--has-icon': !!icon
     }"
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <mv-icon v-if="icon" class="mv-quickAction-icon" :name="icon"/>
+    <mv-icon v-if="icon" class="mv-quickAction-icon" :name="icon" />
     <div v-if="$slots.default" class="mv-quickAction-text">
       <slot></slot>
     </div>

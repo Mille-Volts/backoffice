@@ -2,13 +2,19 @@
   <el-input v-bind="$attrs" v-on="$listeners">
     <template v-if="icon || iconLeft" v-slot:prefix>
       <span class="mv-formInput-iconContainer">
-        <mv-icon class="mv-formInput-icon mv-formInput-icon--left" :name="icon || iconLeft"/>
+        <mv-icon
+          class="mv-formInput-icon mv-formInput-icon--left"
+          :name="icon || iconLeft"
+        />
       </span>
     </template>
     <slot></slot>
     <template v-if="iconRight" v-slot:suffix>
       <span class="mv-formInput-iconContainer">
-        <mv-icon class="mv-formInput-icon mv-formInput-icon--right" :name="iconRight"/>
+        <mv-icon
+          class="mv-formInput-icon mv-formInput-icon--right"
+          :name="iconRight"
+        />
       </span>
     </template>
   </el-input>

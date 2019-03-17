@@ -7,7 +7,7 @@
       'mv-stat--has-icon': !!icon,
       'mv-stat--has-text-and-icon': !!icon && !!$slots.default,
       'mv-stat--has-badge': !!badge,
-      'mv-stat--vertical': !!vertical,
+      'mv-stat--vertical': !!vertical
     }"
     v-bind="$attrs"
     v-on="$listeners"
@@ -15,7 +15,7 @@
     <template v-if="badgeAttrs">
       <template v-if="icon">
         <el-badge v-bind="badgeAttrs">
-          <mv-icon v-if="icon" class="mv-stat-icon" :name="icon"/>
+          <mv-icon v-if="icon" class="mv-stat-icon" :name="icon" />
         </el-badge>
         <div v-if="$slots.default" class="mv-stat-text">
           <slot></slot>
@@ -30,7 +30,7 @@
       </template>
     </template>
     <template v-else>
-      <mv-icon v-if="icon" class="mv-stat-icon" :name="icon"/>
+      <mv-icon v-if="icon" class="mv-stat-icon" :name="icon" />
       <div v-if="$slots.default" class="mv-stat-text">
         <slot></slot>
       </div>
