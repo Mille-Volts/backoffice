@@ -62,7 +62,7 @@ export default {
 @import "../../theme/_variables.scss";
 
 .mv-authenticationLayout {
-  @include image-retina("../../assets/background@2x.png", 1440px, 1024px);
+  @include image-retina("../../assets/background@2x.png", 1920px, 1080px);
   background: $--color-menu url("../../assets/background.png") no-repeat center
     center;
 

@@ -177,13 +177,13 @@ export default {
       center;
     color: $--color-white;
     padding: 0;
-    @include image-retina("../../assets/background-h@2x.png", 1440px, 120px);
+    @include image-retina("../../assets/background-h@2x.png", 1920px, 120px);
   }
   &-top {
     display: flex;
   }
   &-aside.el-aside {
-    @include image-retina("../../assets/background-v@2x.png", 320px, 1024px);
+    @include image-retina("../../assets/background-v@2x.png", 320px, 1080px);
     background: $--color-menu url("../../assets/background-v.png") no-repeat top
       center;
     bottom: 0;
