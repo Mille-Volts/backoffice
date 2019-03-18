@@ -2,7 +2,10 @@ const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   configureWebpack: config => {
-    if (process.env.NODE_ENV === "production") {
+    if (
+      process.env.NODE_ENV === "production" &&
+      process.env.BUILD_TARGET !== "app"
+    ) {
       // in order to ignore all modules in node_modules folder (Element)
       if (!config.externals) config.externals = [];
       if (!Array.isArray(config.externals))

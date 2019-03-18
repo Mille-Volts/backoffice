@@ -6,7 +6,9 @@
   "module": "src/index.js",
   "scripts": {
     "serve": "vue-cli-service serve example/main.js",
-    "build": "vue-cli-service build --dest lib --target lib --formats commonjs --name backoffice src/index.js",
+    "predeploy": "BUILD_TARGET=app vue-cli-service build --dest dist example/main.js",
+    "deploy": "firebase deploy",
+    "build": "BUILD_TARGET=lib vue-cli-service build --dest lib --target lib --formats commonjs --name backoffice src/index.js",
     "lint": "vue-cli-service lint",
     "dev": "npm run serve",
     "vue": "vue",

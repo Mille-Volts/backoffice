@@ -69,6 +69,7 @@ export default {
     }
   }
   &-main {
+    overflow: hidden;
     padding: 0 0 0 ($--margin * 2);
   }
 }
