@@ -178,14 +178,16 @@ export default {
       const newTab = parseInt(newTabStr, 10);
       const oldTab = parseInt(oldTabStr, 10);
       if (this.tabScroll || !this.hasTabs) {
-        VueScrollTo.scrollTo(
-          (this.groups[newTab] || this.$refs.header).$el,
-          350,
-          {
-            offset:
-              (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30
-          }
-        );
+        if (!this._inScroll) {
+          VueScrollTo.scrollTo(
+            (this.groups[newTab] || this.$refs.header).$el,
+            350,
+            {
+              offset:
+                (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30
+            }
+          );
+        }
       } else {
         if (this.groups[oldTab]) this.groups[oldTab].$emit("hide");
         if (this.groups[newTab]) this.groups[newTab].$emit("show");
@@ -219,7 +221,34 @@ export default {
     this.$on("add-group", this.addGroup);
     this.$on("remove-group", this.removeGroup);
   },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
+  },
   methods: {
+    onScroll(evt) {
+      if (!this.form) return;
+      // last group after the scroll + 2/3 of the screen
+      const yScroll = window.scrollY + (2 * window.innerHeight) / 3;
+      const groupsAndY = this.groups.map((group, index) => ({
+        index: "" + index,
+        y: group.$el.offsetTop
+      }));
+      const currentGroup = groupsAndY.filter(({ y }) => y < yScroll);
+      const nextTabActive = currentGroup.length
+        ? currentGroup[currentGroup.length - 1].index
+        : "0";
+      if (!this.tabActive !== nextTabActive) {
+        window.clearTimeout(this._inScroll);
+        this._inScroll = window.setTimeout(() => {
+          window.clearTimeout(this._inScroll);
+          this._inScroll = null;
+        }, 100);
+        this.tabActive = nextTabActive;
+      }
+    },
     addGroup(group) {
       if (
         !this.tabScroll &&
