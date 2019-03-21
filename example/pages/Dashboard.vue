@@ -114,10 +114,10 @@
       <column :sm="16">
         <mv-panel title="Titre du panel">
           <template v-slot:actions>
-            <el-select v-model="application.layout">
+            <mv-form-select v-model="application.layout">
               <el-option value="vertical" label="Vertical"></el-option>
               <el-option value="horizontal" label="Horizontal"></el-option>
-            </el-select>
+            </mv-form-select>
           </template>
           <row class="extended" border>
             <column :sm="8">

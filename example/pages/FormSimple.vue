@@ -39,9 +39,9 @@
             </column>
           </row>
         </mv-form-item>
-        <mv-button icon-left="lock" icon-right="save" @click="form.radio = 2">Set 2</mv-button>
         <mv-button icon="wand" primary>Primaire</mv-button>
         <mv-button icon-right="desktop" secondary>Secondaire</mv-button>
+        <mv-button icon-left="lock" icon-right="save">Facultatif</mv-button>
       </mv-panel>
     </mv-form-group>
 
@@ -77,9 +77,9 @@
             </column>
           </row>
         </mv-form-item>
-        <el-button @click="form.radio = 2">Set 2</el-button>
         <mv-button primary>Primaire</mv-button>
         <mv-button secondary>Secondaire</mv-button>
+        <mv-button>Facultatif</mv-button>
       </mv-panel>
     </mv-form-group>
   </mv-content-layout>

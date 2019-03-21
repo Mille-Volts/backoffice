@@ -38,7 +38,7 @@
       <mv-panel title="Mon tableau">
         <template v-slot:actions>
           <mv-form-item label="Filtres :">
-            <el-select v-model="filters.select" placeholder="Filtre général..."></el-select>
+            <mv-form-select v-model="filters.select" placeholder="Filtre général..."></mv-form-select>
           </mv-form-item>
           <mv-button secondary icon="plus">Une autre action</mv-button>
         </template>
@@ -61,7 +61,7 @@
               <mv-form-input v-model="filters.search" icon="search" placeholder="Rechercher..."/>
             </mv-form-item>
             <mv-form-item>
-              <el-select v-model="filters.select" placeholder="Filtre spécifique..."></el-select>
+              <mv-form-select v-model="filters.select" placeholder="Filtre spécifique..."></mv-form-select>
             </mv-form-item>
           </template>
           <template v-slot:expand="{ row }">

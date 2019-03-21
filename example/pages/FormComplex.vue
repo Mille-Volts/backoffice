@@ -70,7 +70,7 @@
             </column>
           </row>
         </mv-form-item>
-        <el-button @click="form.radio = 2">Set 2</el-button>
+        <mv-button @click="form.radio = 2">Set 2</mv-button>
         <mv-button primary>Primaire</mv-button>
         <mv-button secondary>Secondaire</mv-button>
       </mv-panel>
@@ -108,7 +108,7 @@
             </column>
           </row>
         </mv-form-item>
-        <el-button @click="form.radio = 2">Set 2</el-button>
+        <mv-button @click="form.radio = 2">Set 2</mv-button>
         <mv-button primary>Primaire</mv-button>
         <mv-button secondary>Secondaire</mv-button>
       </mv-panel>
@@ -138,7 +138,7 @@
             </column>
           </row>
         </mv-form-item>
-        <el-button @click="form.radio = 2">Set 2</el-button>
+        <mv-button @click="form.radio = 2">Set 2</mv-button>
         <mv-button primary>Primaire</mv-button>
         <mv-button secondary>Secondaire</mv-button>
       </mv-panel>
@@ -176,7 +176,7 @@
             </column>
           </row>
         </mv-form-item>
-        <el-button @click="form.radio = 2">Set 2</el-button>
+        <mv-button @click="form.radio = 2">Set 2</mv-button>
         <mv-button primary>Primaire</mv-button>
         <mv-button secondary>Secondaire</mv-button>
       </mv-panel>
@@ -206,7 +206,7 @@
             </column>
           </row>
         </mv-form-item>
-        <el-button @click="form.radio = 2">Set 2</el-button>
+        <mv-button @click="form.radio = 2">Set 2</mv-button>
         <mv-button primary>Primaire</mv-button>
         <mv-button secondary>Secondaire</mv-button>
       </mv-panel>
