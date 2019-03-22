@@ -250,6 +250,8 @@ export default {
       }
     },
     addGroup(group) {
+      this.groups.push(group);
+      
       if (
         !this.tabScroll &&
         !!this.hasTabs &&
@@ -257,7 +259,6 @@ export default {
       ) {
         group.$emit("hide");
       }
-      this.groups.push(group);
     },
     removeGroup(group) {
       this.groups.splice(this.groups.indexOf(group), 1);
