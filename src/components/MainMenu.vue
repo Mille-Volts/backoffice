@@ -74,7 +74,7 @@ export default {
     },
     getDisplayedChildren({ children }) {
       return children
-        ? children.filter(({ meta }) => !meta || (meta.menu !== false))
+        ? children.filter(({ meta }) => !meta || meta.menu !== false)
         : [];
     }
   }

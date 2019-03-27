@@ -56,7 +56,9 @@
             <span v-else>
               <strong
                 v-text="
-                  `Résultats de ${limit * (page - 1) + 1} à ${limit * (page - 1) + Math.min(limit, data.length)}`
+                  `Résultats de ${limit * (page - 1) + 1} à ${limit *
+                    (page - 1) +
+                    Math.min(limit, data.length)}`
                 "
               ></strong>
             </span>
@@ -79,9 +81,9 @@
                 :page-size="limit"
                 :current-page="page"
                 @update:currentPage="$emit('update:page', $event)"
-                next-text="Suivant ›"
-                prev-text="‹ Précédent"
-                :total="(page + (hasNext? 1: 0)) * limit"
+                next-text="Suivant ›"
+                prev-text="‹ Précédent"
+                :total="(page + (hasNext ? 1 : 0)) * limit"
               ></el-pagination>
             </div>
           </slot>
@@ -144,6 +146,14 @@ export default {
     sort: Object,
     sortable: { type: [Boolean, String], default: null }
   },
+  watch: {
+    sort(newSort) {
+      if (newSort === this._lastSort) return;
+      this._lastSort = newSort;
+      //TODO this.$refs.table.sort(newSort.prop, newSort.order);
+      //--> creates a loop
+    }
+  },
   computed: {
     currentlySelected() {
       return this.selected || (this.selection && this.selection.length);
@@ -176,6 +186,7 @@ export default {
       return this.$emit("update:selection", selection);
     },
     onSortChange(sort) {
+      this._lastSort = sort;
       return this.$emit("update:sort", sort);
     }
   }
@@ -192,15 +203,20 @@ export default {
     }
   }
   &-content {
-    th {
-      background: $--color-background;
-      .el-input {
-        display: block;
-        padding: 0;
+    &.el-table {
+      th {
+        background: $--color-background;
+        .el-input {
+          display: block;
+          padding: 0;
+        }
+      }
+      .panel & {
+        border-top: $--table-border;
       }
     }
-    .panel & {
-      border-top: $--table-border;
+    .cell {
+      line-height: 1.2;
     }
   }
   &-footer {
@@ -226,9 +242,6 @@ export default {
     &-select {
       width: 120px;
     }
-  }
-  .cell {
-    line-height: 1.2;
   }
 }
 </style>
