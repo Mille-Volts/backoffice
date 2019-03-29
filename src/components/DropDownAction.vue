@@ -4,12 +4,7 @@
     class="mv-dropdownAction"
     :class="`mv-dropdownAction--${computedType}`"
   >
-    <mv-button
-      class="mv-dropdownAction-button"
-      text
-      v-bind="$attrs"
-      v-on="$listeners"
-    >
+    <mv-button class="mv-dropdownAction_button" text v-bind="$attrs" v-on="$listeners">
       <slot></slot>
     </mv-button>
   </el-dropdown-item>
