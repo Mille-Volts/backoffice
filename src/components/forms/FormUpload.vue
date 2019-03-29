@@ -19,9 +19,14 @@
     </template>
     <slot>
       <span @click="preventUpload">
-        <mv-button :disabled="!canUpload" size="mini" icon="upload" secondary
-          >Sélectionner un fichier...</mv-button
-        >
+        <i v-if="attrs['list-type'] === 'picture-card'" class="ti-upload avatar-uploader-icon"></i>
+        <mv-button
+          v-else
+          :disabled="!canUpload"
+          size="mini"
+          icon="upload"
+          secondary
+        >Sélectionner un fichier...</mv-button>
       </span>
     </slot>
   </el-upload>
@@ -107,7 +112,7 @@ export default {
 
 .mv-formUpload {
   &--cannot-upload {
-    .el-upload__input {
+    .el-upload {
       display: none;
     }
   }
