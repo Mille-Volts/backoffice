@@ -5,10 +5,14 @@
     :multiple="multiple"
     :limit="multiple ? limit : 1"
     :disabled="disabled"
+    :listType="listType"
     v-bind="attrs"
     v-on="listeners"
     class="mv-formUpload"
-    :class="{ 'mv-formUpload--cannot-upload': !canUpload }"
+    :class="{
+      'mv-formUpload--cannot-upload': !canUpload,
+      [`mv-formUpload--${listType || 'text'}`]: 1
+    }"
   >
     <template v-if="$slots.trigger" v-slot:trigger>
       <slot name="trigger"></slot>
@@ -18,9 +22,17 @@
       <slot name="tip"></slot>
     </template>
     <slot>
-      <span @click="preventUpload">
-        <mv-button :disabled="!canUpload" size="mini" icon="upload" secondary
-          >Sélectionner un fichier...</mv-button
+      <span @click="preventUpload" class="mv-formUpload-defaultButton">
+        <span v-if="listType === 'picture-card'">
+          <mv-icon name="upload"></mv-icon>Sélectionner un fichier&hellip;
+        </span>
+        <mv-button
+          v-else
+          :disabled="!canUpload"
+          size="mini"
+          icon="upload"
+          secondary
+          >Sélectionner un fichier&hellip;</mv-button
         >
       </span>
     </slot>
@@ -30,6 +42,7 @@
 <script>
 import { Upload as ElUpload } from "element-ui";
 import MvButton from "../Button.vue";
+import MvIcon from "../Icon.vue";
 
 export default {
   name: "FormUpload",
@@ -38,6 +51,7 @@ export default {
     folder: String,
     thumbnailMode: Boolean,
     data: Object,
+    listType: String,
     fileList: {
       type: Array,
       default() {
@@ -53,7 +67,8 @@ export default {
   },
   components: {
     ElUpload,
-    MvButton
+    MvButton,
+    MvIcon
   },
   computed: {
     canUpload() {
@@ -108,7 +123,41 @@ export default {
 .mv-formUpload {
   &--cannot-upload {
     .el-upload__input {
+      // Prevent uploading by hiding the input file
       display: none;
+    }
+    .el-upload {
+      // Hides the button
+      display: none;
+    }
+    &.mv-formUpload--picture-card .el-upload {
+      cursor: not-allowed;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+  &-defaultButton {
+    display: inline-block;
+  }
+  &--picture-card {
+    .el-upload-list--picture-card .el-upload-list__item-thumbnail {
+      margin-left: 50%;
+      max-width: none;
+      transform: translateX(-50%);
+      width: auto;
+    }
+    .mv-formUpload-defaultButton {
+      align-items: center;
+      display: flex;
+      font-size: 12px;
+      justify-content: center;
+      height: 100%;
+      line-height: 100%;
+      text-align: center;
+      i {
+        display: block;
+        margin-bottom: 5px;
+      }
     }
   }
 }

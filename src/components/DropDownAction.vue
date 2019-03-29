@@ -52,8 +52,10 @@ export default {
 @import "../theme/_variables.scss";
 
 .mv-dropdownAction {
-  &_button {
+  & &-button {
     color: $--color-text-primary;
+    display: block;
+    font: font-default-bold(1em, 1);
     .mv-dropdownAction--success & {
       color: $--color-success;
     }
@@ -63,12 +65,12 @@ export default {
     .mv-dropdownAction--danger & {
       color: $--color-danger;
     }
-    .button-icon--left {
+    .mv-button-icon--left {
       float: left;
       margin-left: 0;
       margin-right: 8px;
     }
-    .button-icon--right {
+    .mv-button-icon--right {
       float: right;
       margin-left: 8px;
       margin-right: 0;

@@ -85,7 +85,6 @@ export default {
 .mv-button {
   &.el-button {
     font: font-default-bold(1em, 1);
-    overflow: hidden;
   }
   &--has-text {
     .mv-button-icon--left {

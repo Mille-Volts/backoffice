@@ -19,7 +19,7 @@
       >
         <slot></slot>
       </mv-button>
-      <el-dropdown-menu slot="dropdown">
+      <el-dropdown-menu class="mv-tableAction-dropdownMenu" slot="dropdown">
         <slot name="menu"></slot>
       </el-dropdown-menu>
     </el-dropdown>
@@ -41,3 +41,16 @@ export default {
   methods: {}
 };
 </script>
+
+<style lang="scss">
+@import "../../theme/_variables.scss";
+
+.mv-tableAction {
+  &-dropdownMenu {
+    .popper__arrow {
+      // Generates a scrollbar :(
+      display: none;
+    }
+  }
+}
+</style>

@@ -16,6 +16,8 @@ import MvAuthenticationProvider from "./components/authentication/Authentication
 import MvApplication from "./components/Application.vue";
 import MvButton from "./components/Button.vue";
 import MvDropDownAction from "./components/DropDownAction.vue";
+import MvBlock from "./components/Block.vue";
+import MvInlineBlock from "./components/InlineBlock.vue";
 import MvIcon from "./components/Icon.vue";
 import MvMainMenu from "./components/MainMenu.vue";
 import MvPanel from "./components/Panel.vue";
@@ -63,7 +65,9 @@ export default {
     Vue.component("MvAuthenticationProvider", MvAuthenticationProvider);
     Vue.component("MvButton", MvButton);
     Vue.component("MvDropDownAction", MvDropDownAction);
+    Vue.component("MvBlock", MvBlock);
     Vue.component("MvIcon", MvIcon);
+    Vue.component("MvInlineBlock", MvInlineBlock);
     Vue.component("MvMainMenu", MvMainMenu);
     Vue.component("MvPanel", MvPanel);
     Vue.component("MvQuickAction", MvQuickAction);
