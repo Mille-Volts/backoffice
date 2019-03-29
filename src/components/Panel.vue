@@ -49,9 +49,11 @@ export default {
   border: 1px solid $--card-border-color;
   background-color: $--color-white;
   &-header {
-    border-bottom: 1px solid $--border-color-base;
-    margin: 0 $--card-padding;
-    padding: $--card-padding/2 0;
+    &.el-header {
+      border-bottom: 1px solid $--border-color-base;
+      margin: 0 $--card-padding;
+      padding: $--card-padding/2 0;
+    }
   }
   &-title {
     float: left;
@@ -61,9 +63,12 @@ export default {
   &-actions {
     float: right;
     margin: 0;
+    margin-bottom: -15px;
   }
   &-main {
-    padding: $--card-padding;
+    &.el-main {
+      padding: $--card-padding;
+    }
     .mv-panel-header ~ & {
       padding: $--margin ($--margin * 2);
     }

@@ -228,7 +228,7 @@ export default {
     window.removeEventListener("scroll", this.onScroll);
   },
   methods: {
-    onScroll(evt) {
+    onScroll() {
       if (!this.form) return;
       // last group after the scroll + 2/3 of the screen
       const yScroll = window.scrollY + (2 * window.innerHeight) / 3;
@@ -251,7 +251,7 @@ export default {
     },
     addGroup(group) {
       this.groups.push(group);
-      
+
       if (
         !this.tabScroll &&
         !!this.hasTabs &&

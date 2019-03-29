@@ -7,14 +7,14 @@
   >
     <template v-for="(item, i) in routes">
       <el-submenu
-        v-if="item.children && item.children.length"
+        v-if="getDisplayedChildren(item).length"
         :key="`${item.path}-${i}`"
         :index="item.path"
         :show-timeout="0"
       >
         <template v-slot:title>{{ getName(item) }}</template>
         <el-menu-item
-          v-for="(subItem, si) in item.children"
+          v-for="(subItem, si) in getDisplayedChildren(item)"
           :key="`${subItem.path}-${si}`"
           :index="`${item.path}/${subItem.path}`"
           :disabled="subItem.disabled"
@@ -71,6 +71,11 @@ export default {
   methods: {
     getName({ meta, name, path }) {
       return (meta && meta.label) || name || path;
+    },
+    getDisplayedChildren({ children }) {
+      return children
+        ? children.filter(({ meta }) => !meta || meta.menu !== false)
+        : [];
     }
   }
 };

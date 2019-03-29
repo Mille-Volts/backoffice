@@ -22,6 +22,9 @@
       class="mv-table-content"
       :data="data"
       @selection-change="onSelectionChange"
+      :sortable="sortableComputed"
+      :default-sort="sort"
+      @sort-change="onSortChange"
       v-bind="$attrs"
       v-on="$listeners"
     >
@@ -30,11 +33,7 @@
           <slot name="expand" :row="row"></slot>
         </template>
       </mv-table-column>
-      <mv-table-column
-        v-if="selection || $listeners.updateSelection"
-        type="selection"
-        width="55"
-      ></mv-table-column>
+      <mv-table-column v-if="selection || $listeners.updateSelection" type="selection" width="55"></mv-table-column>
       <slot></slot>
     </el-table>
     <div v-if="!noFooter" class="mv-table-footer">
@@ -54,6 +53,15 @@
               /
               <span v-text="`${total} au total`"></span>
             </span>
+            <span v-else>
+              <strong
+                v-text="
+                  `Résultats de ${limit * (page - 1) + 1} à ${limit *
+                    (page - 1) +
+                    Math.min(limit, data.length)}`
+                "
+              ></strong>
+            </span>
           </slot>
         </div>
         <div class="mv-table-pagination">
@@ -67,12 +75,22 @@
                 :total="results"
               ></el-pagination>
             </div>
+            <div v-else>
+              <el-pagination
+                layout="prev, next"
+                :page-size="limit"
+                :current-page="page"
+                @update:currentPage="$emit('update:page', $event)"
+                next-text="Suivant ›"
+                prev-text="‹ Précédent"
+                :total="(page + (hasNext ? 1 : 0)) * limit"
+              ></el-pagination>
+            </div>
           </slot>
         </div>
         <div class="mv-table-limit">
           <slot name="limit">
-            <label
-              >Afficher :
+            <label>Afficher :
               <mv-form-select
                 class="mv-table-limit_select"
                 size="mini"
@@ -122,12 +140,29 @@ export default {
     total: Number,
     noFooter: Boolean,
     page: { type: Number, default: 1 },
+    hasNext: Boolean,
     limit: { type: Number, default: 10 },
-    limits: { type: Array, default: () => [10, 25, 50, 100] }
+    limits: { type: Array, default: () => [10, 25, 50, 100] },
+    sort: Object,
+    sortable: { type: [Boolean, String], default: null }
+  },
+  watch: {
+    sort(newSort) {
+      if (newSort === this._lastSort) return;
+      this._lastSort = newSort;
+      //TODO this.$refs.table.sort(newSort.prop, newSort.order);
+      //--> creates a loop
+    }
   },
   computed: {
     currentlySelected() {
       return this.selected || (this.selection && this.selection.length);
+    },
+    sortableComputed() {
+      if (this.sortable !== null) return this.sortable;
+      if (!this.sort) return false;
+      if (this.$listeners["update:sort"]) return "custom";
+      return true;
     }
   },
   updated() {
@@ -149,6 +184,10 @@ export default {
       // comes from a change of data, so we do not update the array (sets to empty array)
       if (this._selection !== this.selection) return;
       return this.$emit("update:selection", selection);
+    },
+    onSortChange(sort) {
+      this._lastSort = sort;
+      return this.$emit("update:sort", sort);
     }
   }
 };
@@ -164,15 +203,20 @@ export default {
     }
   }
   &-content {
-    th {
-      background: $--color-background;
-      .el-input {
-        display: block;
-        padding: 0;
+    &.el-table {
+      th {
+        background: $--color-background;
+        .el-input {
+          display: block;
+          padding: 0;
+        }
+      }
+      .panel & {
+        border-top: $--table-border;
       }
     }
-    .panel & {
-      border-top: $--table-border;
+    .cell {
+      line-height: 1.2;
     }
   }
   &-footer {
@@ -198,9 +242,6 @@ export default {
     &-select {
       width: 120px;
     }
-  }
-  .cell {
-    line-height: 1.2;
   }
 }
 </style>
