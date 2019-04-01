@@ -3,6 +3,7 @@
     class="mv-button"
     :class="{
       [`mv-button--${computedType || 'standard'}`]: 1,
+      [`mv-button--${computedTheme || 'standard'}`]: 1,
       'mv-button--has-text': !!$slots.default,
       'mv-button--has-icon': !!icon || !!iconLeft || !!iconRight
     }"
@@ -19,11 +20,7 @@
       :name="icon || iconLeft"
     />
     <slot></slot>
-    <mv-icon
-      v-if="iconRight"
-      class="mv-button-icon mv-button-icon--right"
-      :name="iconRight"
-    />
+    <mv-icon v-if="iconRight" class="mv-button-icon mv-button-icon--right" :name="iconRight"/>
   </el-button>
 </template>
 
@@ -46,6 +43,7 @@ export default {
     ghost: Boolean,
     text: Boolean,
     success: Boolean,
+    info: Boolean,
     warning: Boolean,
     danger: Boolean,
     type: String,
@@ -57,20 +55,29 @@ export default {
     },
     computedType() {
       switch (true) {
-        case this.primary:
-          return "primary";
-        case this.secondary:
-          return "primary";
-        case this.ghost:
-          return "";
-        case this.text:
-          return "text";
+        case this.info:
+          return "info";
         case this.success:
           return "success";
         case this.warning:
           return "warning";
         case this.danger:
           return "danger";
+        case this.primary:
+        case this.secondary:
+          return "primary";
+        default:
+          return "";
+      }
+    },
+    computedTheme() {
+      switch (true) {
+        case this.primary:
+          return "primary";
+        case this.secondary:
+          return "secondary";
+        case this.ghost:
+          return "ghost";
         default:
           return "";
       }

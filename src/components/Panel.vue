@@ -63,10 +63,10 @@ export default {
   &-actions {
     float: right;
     margin: 0;
-    margin-bottom: -15px;
   }
   &-main {
     &.el-main {
+      clear: both;
       padding: $--card-padding;
     }
     .mv-panel-header ~ & {

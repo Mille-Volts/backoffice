@@ -4,6 +4,7 @@
       <mv-button ghost icon="arrow-left" @click="$router.back()">Annuler</mv-button>
       <mv-button success icon-right="check" type="submit">Enregistrer</mv-button>
     </template>
+
     <mv-form-group title="Groupe de champs">
       <template v-slot:description>
         <p>Ma description</p>
@@ -52,6 +53,10 @@
         <el-switch v-model="form.published" active-text="Publié"/>
       </template>
       <mv-panel>
+        <template v-slot:actions>
+          <mv-button size="mini" ghost>Facultatif</mv-button>
+          <mv-button size="mini" secondary danger>Secondaire</mv-button>
+        </template>
         <mv-form-row>
           <mv-form-column>
             <mv-form-item label="Slider" required>
@@ -77,10 +82,10 @@
             </column>
           </row>
         </mv-form-item>
-        <mv-button primary>Primaire</mv-button>
-        <mv-button secondary>Secondaire</mv-button>
-        <mv-button>Facultatif</mv-button>
       </mv-panel>
+      <mv-block>
+        <mv-button icon="add" primary>Ajouter un élément</mv-button>
+      </mv-block>
     </mv-form-group>
   </mv-content-layout>
 </template>
