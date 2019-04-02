@@ -21,6 +21,9 @@
       >
         <div class="mv-contentLayout-content">
           <slot name="header">
+            <div v-if="$slots.headerTop">
+              <slot name="headerTop"></slot>
+            </div>
             <div v-if="breadcrumb.length" class="mv-contentLayout-breadcrumb">
               <slot name="breadcrumb">
                 <el-breadcrumb separator="/">
@@ -67,6 +70,12 @@
                   ></el-tab-pane>
                 </el-tabs>
               </slot>
+            </div>
+            <div
+              v-if="$slots.headerBottom"
+              class="mv-contentLayout-header-bottom"
+            >
+              <slot name="headerBottom"></slot>
             </div>
           </slot>
         </div>
@@ -297,6 +306,9 @@ export default {
   &-header-actions {
     float: right;
     margin: 15px 0;
+  }
+  &-header-bottom {
+    clear: both;
   }
   &-tabs {
     clear: both;

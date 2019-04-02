@@ -69,8 +69,10 @@ export default {
     }
   }
   &-main {
-    overflow: hidden;
-    padding: 0 0 0 ($--margin * 2);
+    &.el-main {
+      overflow: hidden;
+      padding: 0 0 0 ($--margin * 2);
+    }
   }
 }
 </style>

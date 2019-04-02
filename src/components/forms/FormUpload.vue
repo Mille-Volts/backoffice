@@ -140,6 +140,9 @@ export default {
     display: inline-block;
   }
   &--picture-card {
+    .el-upload-list--picture-card .el-upload-list__item {
+      transition: none;
+    }
     .el-upload-list--picture-card .el-upload-list__item-thumbnail {
       margin-left: 50%;
       max-width: none;

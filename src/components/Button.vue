@@ -20,7 +20,11 @@
       :name="icon || iconLeft"
     />
     <slot></slot>
-    <mv-icon v-if="iconRight" class="mv-button-icon mv-button-icon--right" :name="iconRight"/>
+    <mv-icon
+      v-if="iconRight"
+      class="mv-button-icon mv-button-icon--right"
+      :name="iconRight"
+    />
   </el-button>
 </template>
 
@@ -55,6 +59,8 @@ export default {
     },
     computedType() {
       switch (true) {
+        case this.text:
+          return "text";
         case this.info:
           return "info";
         case this.success:
@@ -92,6 +98,7 @@ export default {
 .mv-button {
   &.el-button {
     font: font-default-bold(1em, 1);
+    vertical-align: middle;
   }
   &--has-text {
     .mv-button-icon--left {
