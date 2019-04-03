@@ -133,7 +133,9 @@ export default {
     background-size: 100% 100%;
     height: 76px;
     margin: auto;
-    width: 240px;
+    .mv-page--horizontal & {
+      width: 240px;
+    }
     .mv-page--vertical & {
       margin: 22px auto;
       min-height: 76px;
@@ -141,7 +143,9 @@ export default {
   }
   &-user {
     text-overflow: ellipsis;
-    width: 240px;
+    .mv-page--horizontal & {
+      width: 240px;
+    }
     .mv-page--vertical & {
     }
   }
