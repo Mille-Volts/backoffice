@@ -76,7 +76,7 @@
                 :page-size="limit"
                 :current-page="page"
                 @update:currentPage="$emit('update:page', $event)"
-                :total="results"
+                :total="total"
               ></el-pagination>
             </div>
             <div v-else>
