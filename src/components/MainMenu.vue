@@ -12,7 +12,10 @@
         :index="item.path"
         :show-timeout="0"
       >
-        <template v-slot:title>{{ getName(item) }}</template>
+        <template v-slot:title>
+          <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon"/>
+          <span>{{ getName(item) }}</span>
+        </template>
         <el-menu-item
           v-for="(subItem, si) in getDisplayedChildren(item)"
           :key="`${subItem.path}-${si}`"
@@ -21,13 +24,12 @@
           v-text="getName(subItem)"
         ></el-menu-item>
       </el-submenu>
-      <el-menu-item
-        v-else
-        :key="`${item.path}-${i}`"
-        :index="item.path"
-        :disabled="item.disabled"
-        v-text="getName(item)"
-      ></el-menu-item>
+      <el-menu-item v-else :key="`${item.path}-${i}`" :index="item.path" :disabled="item.disabled">
+        <template v-slot:title>
+          <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon"/>
+          <span>{{ getName(item) }}</span>
+        </template>
+      </el-menu-item>
     </template>
   </el-menu>
 </template>
@@ -108,6 +110,14 @@ export default {
     &.is-active {
       background-color: $--color-secondary-darker;
       color: $--color-white;
+    }
+    .mv-icon {
+      margin-right: 5px;
+      width: 24px;
+      text-align: center;
+      font-size: 18px;
+      vertical-align: middle;
+      color: currentColor;
     }
   }
   .el-submenu:focus .el-submenu__title {
