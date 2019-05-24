@@ -13,7 +13,7 @@
         :show-timeout="0"
       >
         <template v-slot:title>
-          <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon"/>
+          <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon" />
           <span>{{ getName(item) }}</span>
         </template>
         <el-menu-item
@@ -24,9 +24,14 @@
           v-text="getName(subItem)"
         ></el-menu-item>
       </el-submenu>
-      <el-menu-item v-else :key="`${item.path}-${i}`" :index="item.path" :disabled="item.disabled">
+      <el-menu-item
+        v-else
+        :key="`${item.path}-${i}`"
+        :index="item.path"
+        :disabled="item.disabled"
+      >
         <template v-slot:title>
-          <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon"/>
+          <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon" />
           <span>{{ getName(item) }}</span>
         </template>
       </el-menu-item>

@@ -1,5 +1,5 @@
 <template>
-  <i :class="`mv-icon ti-${name}`"/>
+  <i :class="`mv-icon ti-${name}`" />
 </template>
 
 <script>

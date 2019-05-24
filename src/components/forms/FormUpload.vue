@@ -83,20 +83,27 @@ export default {
         onRemove,
         onSuccess,
         onChange,
+        httpRequest,
         ...otherUploadAttrs
       } = this.upload.attrs;
       return {
         data: { folder: this.folder, ...this.data },
+        ...((!!httpRequest || !!self.httpRequest) && {
+          httpRequest() {
+            httpRequest && httpRequest.call(this, ...arguments);
+            self.httpRequest && self.httpRequest(...arguments);
+          }
+        }),
         onRemove() {
-          onRemove && onRemove(...arguments);
+          onRemove && onRemove.call(this, ...arguments);
           self.onRemove && self.onRemove(...arguments);
         },
         onSuccess() {
-          onSuccess && onSuccess(...arguments);
+          onSuccess && onSuccess.call(this, ...arguments);
           self.onSuccess && self.onSuccess(...arguments);
         },
         onChange() {
-          onChange && onChange(...arguments);
+          onChange && onChange.call(this, ...arguments);
           self.onChange && self.onChange(...arguments);
         },
         ...otherUploadAttrs,
