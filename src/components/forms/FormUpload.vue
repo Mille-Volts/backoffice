@@ -22,6 +22,7 @@
       <slot name="tip"></slot>
     </template>
     <slot>
+      <input :required="required" class="mv-formUpload-validationInput" v-if="!fileList.length">
       <span @click="preventUpload" class="mv-formUpload-defaultButton">
         <span v-if="listType === 'picture-card'">
           <mv-icon name="upload"></mv-icon>Sélectionner un fichier&hellip;
@@ -32,12 +33,34 @@
           size="mini"
           icon="upload"
           secondary
-          >Sélectionner un fichier&hellip;</mv-button
-        >
+        >Sélectionner un fichier&hellip;</mv-button>
       </span>
     </slot>
   </el-upload>
 </template>
+
+<style lang="scss">
+.mv-formUpload {
+  .el-upload--picture-card {
+    position: relative;
+  }
+
+  .mv-formUpload-validationInput {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+</style>
 
 <script>
 import { Upload as ElUpload } from "element-ui";
@@ -63,6 +86,7 @@ export default {
     onChange: Function,
     multiple: Boolean,
     disabled: Boolean,
+    required: Boolean,
     limit: Number
   },
   components: {
