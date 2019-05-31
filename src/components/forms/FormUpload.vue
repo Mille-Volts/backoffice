@@ -180,11 +180,15 @@ export default {
   &-validationInput {
     background: transparent;
     border: 0;
+    bottom: 0;
+    left: 0;
     margin: 0;
     opacity: 0;
     padding: 0;
     pointer-events: none;
     position: absolute;
+    right: 0;
+    top: 0;
     width: 100%;
   }
 }
