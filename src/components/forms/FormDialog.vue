@@ -49,6 +49,7 @@
 .mv-formDialog {
   .el-dialog {
     background: #f1f4f6;
+    max-width: 1400px;
     &__body {
       padding-top: 0;
     }
