@@ -33,6 +33,7 @@ import MvFormInput from "./components/forms/FormInput.vue";
 import MvFormSelect from "./components/forms/FormSelect.vue";
 import MvFormUpload from "./components/forms/FormUpload.vue";
 import MvUploadProvider from "./components/forms/UploadProvider.vue";
+import MvFormDialog from "./components/forms/FormDialog.vue";
 
 import MvTable from "./components/tables/Table.vue";
 import MvTableAction from "./components/tables/TableAction.vue";
@@ -82,6 +83,7 @@ export default {
     Vue.component("MvFormSelect", MvFormSelect);
     Vue.component("MvFormUpload", MvFormUpload);
     Vue.component("MvUploadProvider", MvUploadProvider);
+    Vue.component("MvFormDialog", MvFormDialog);
 
     Vue.component("MvTable", MvTable);
     Vue.component("MvTableAction", MvTableAction);
