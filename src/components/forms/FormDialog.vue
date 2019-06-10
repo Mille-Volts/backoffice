@@ -13,11 +13,17 @@
                   <h1 v-text="title"></h1>
                 </slot>
               </div>
-              <div v-if="$slots.actions || $slots.topActions" class="mv-formDialog-header-actions">
+              <div
+                v-if="$slots.actions || $slots.topActions"
+                class="mv-formDialog-header-actions"
+              >
                 <slot name="topActions"></slot>
                 <slot name="actions"></slot>
               </div>
-              <div v-if="$slots.headerBottom" class="mv-formDialog-header-bottom">
+              <div
+                v-if="$slots.headerBottom"
+                class="mv-formDialog-header-bottom"
+              >
                 <slot name="headerBottom"></slot>
               </div>
             </slot>
@@ -32,7 +38,10 @@
         </el-main>
         <el-footer class="mv-formDialog-footer">
           <div class="mv-formDialog-content">
-            <div v-if="$slots.actions || $slots.bottomActions" class="mv-formDialog-footer-actions">
+            <div
+              v-if="$slots.actions || $slots.bottomActions"
+              class="mv-formDialog-footer-actions"
+            >
               <slot name="actions"></slot>
               <slot name="bottomActions"></slot>
             </div>
@@ -102,7 +111,6 @@
   margin-bottom: 0;
 }
 </style>
-
 
 <script>
 import { Dialog as ElDialog } from "element-ui";
