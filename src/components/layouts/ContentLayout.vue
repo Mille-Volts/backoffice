@@ -160,7 +160,9 @@ export default {
     },
     breadcrumb() {
       return (
-        this.$route.matched.filter(({ meta }) => !meta || !meta.root) || []
+        this.$route.matched
+          .filter(({ meta }) => !meta || !meta.root)
+          .slice(0, -1) || []
       );
     },
     pageTitle() {
