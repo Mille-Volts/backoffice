@@ -1,41 +1,21 @@
-# millevolts-backoffice
+# Backoffice theme for Mille Volts applications
 
 ## Project setup
 
-```
-npm install
-```
+`npm install`
 
 ### Compiles and hot-reloads for development
 
-```
-npm run dev
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Run your tests
-
-```
-npm run test
-```
+`npm run dev`
 
 ### Lints and fixes files
 
-```
-npm run lint
-```
+`npm run lint`
+
+### Link on your project to live test
+
+`npm link path/to/backoffice/folder`
 
 ### Publish on npm & firebase
 
-```
-npm version patch|minor|major --git-tag-version && npm publish && npm run deploy
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+`npm version patch|minor|major --git-tag-version && npm publish && npm run deploy`
