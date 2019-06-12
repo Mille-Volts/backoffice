@@ -61,6 +61,7 @@
     max-width: 1400px;
     &__body {
       padding-top: 0;
+      word-break: initial;
     }
   }
 
