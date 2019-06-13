@@ -57,12 +57,12 @@ export default {
     },
     onSubmit(event) {
       if (!this.rules) {
-        return this.$emit("submit-valid", event);
+        this.$emit("submit-valid", event);
         return this.$emit("submit", event);
       }
       this.$refs.form.validate((valid, errors) => {
         if (!valid) return this.$emit("submit-error", errors);
-        return this.$emit("submit-valid", event);
+        this.$emit("submit-valid", event);
         return this.$emit("submit", event);
       });
     }
