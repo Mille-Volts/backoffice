@@ -4,11 +4,7 @@
     :direction="application.layout === 'horizontal' ? 'vertical' : 'horizontal'"
     sticky-container
   >
-    <el-header
-      v-if="application.layout === 'horizontal'"
-      class="mv-page-header"
-      height="120px"
-    >
+    <el-header v-if="application.layout === 'horizontal'" class="mv-page-header" height="120px">
       <div class="mv-page-top">
         <mv-logo></mv-logo>
         <div class="mv-page-title">
@@ -22,12 +18,7 @@
           </slot>
         </div>
       </div>
-      <div
-        v-sticky
-        class="mv-page-menu"
-        :sticky-z-index="2001"
-        :sticky-offset="0"
-      >
+      <div v-sticky class="mv-page-menu" :sticky-z-index="2001" :sticky-offset="0">
         <slot name="menu">
           <mv-main-menu :routes="routes"></mv-main-menu>
         </slot>
@@ -52,21 +43,17 @@
       </div>
       <div class="mv-page-author">
         <slot name="author">
-          <mv-authorship />
+          <mv-authorship/>
         </slot>
       </div>
     </el-aside>
     <el-main class="mv-page-main">
       <slot></slot>
     </el-main>
-    <el-footer
-      v-if="application.layout === 'horizontal'"
-      class="mv-page-footer"
-      height="auto"
-    >
+    <el-footer v-if="application.layout === 'horizontal'" class="mv-page-footer" height="auto">
       <div class="mv-page-author">
         <slot name="author">
-          <mv-authorship />
+          <mv-authorship/>
         </slot>
       </div>
     </el-footer>
