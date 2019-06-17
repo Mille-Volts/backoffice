@@ -8,6 +8,7 @@
     hide-required-asterisk
     v-bind="$attrs"
     v-on="$listeners"
+    ref="form"
     @submit.native.prevent="onSubmit"
   >
     <slot></slot>
