@@ -14,7 +14,7 @@
 import { Row as ElRow } from "element-ui";
 
 export default {
-  name: "Row",
+  name: "MvRow",
   components: {
     ElRow
   },

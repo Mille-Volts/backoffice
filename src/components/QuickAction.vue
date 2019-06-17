@@ -20,7 +20,7 @@
 import MvIcon from "./Icon.vue";
 
 export default {
-  name: "QuickAction",
+  name: "MvQuickAction",
   components: {
     MvIcon
   },

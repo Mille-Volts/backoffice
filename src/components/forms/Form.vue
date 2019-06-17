@@ -1,5 +1,6 @@
 <template>
   <el-form
+    ref="form"
     class="mv-form block"
     :label-position="defaultLabelPosition"
     :model="model"
@@ -21,7 +22,7 @@
 import { Form as ElForm } from "element-ui";
 
 export default {
-  name: "Form",
+  name: "MvForm",
   components: {
     ElForm
   },

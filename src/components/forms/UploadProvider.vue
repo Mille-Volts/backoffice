@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "UploadProvider",
+  name: "MvUploadProvider",
   props: {
     httpRequest: Function,
     onChange: Function,

@@ -43,7 +43,7 @@ import { Badge as ElBadge } from "element-ui";
 import MvIcon from "./Icon.vue";
 
 export default {
-  name: "Stat",
+  name: "MvStat",
   components: {
     ElBadge,
     MvIcon

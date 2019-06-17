@@ -88,7 +88,7 @@ import MvMainTitle from "../parts/MainTitle.vue";
 import MvMainMenu from "../MainMenu.vue";
 
 export default {
-  name: "PageLayout",
+  name: "MvPageLayout",
   inject: ["application"],
   prop: ["title"],
   components: {

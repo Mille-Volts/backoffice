@@ -20,7 +20,7 @@ import { DropdownItem as ElDropdownItem } from "element-ui";
 import MvButton from "./Button.vue";
 
 export default {
-  name: "DropDownAction",
+  name: "MvDropDownAction",
   components: {
     ElDropdownItem,
     MvButton

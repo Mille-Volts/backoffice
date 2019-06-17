@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: "Block"
+  name: "MvBlock"
 };
 </script>

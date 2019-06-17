@@ -24,7 +24,7 @@ import { TableColumn as ElTableColumn } from "element-ui";
 import moment from "moment";
 
 export default {
-  name: "TableColumn",
+  name: "MvTableColumn",
   component: {
     ElTableColumn
   },

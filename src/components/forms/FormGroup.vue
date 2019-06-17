@@ -20,7 +20,7 @@ import {
 } from "element-ui";
 
 export default {
-  name: "FormGroup",
+  name: "MvFormGroup",
   inject: ["content"],
   components: {
     ElContainer,

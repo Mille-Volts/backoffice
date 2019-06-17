@@ -13,7 +13,7 @@ import MvButton from "../Button.vue";
 import MvForm from "../forms/Form.vue";
 
 export default {
-  name: "GuestLogin",
+  name: "MvGuestLogin",
   inject: ["authentication"],
   components: {
     MvButton,

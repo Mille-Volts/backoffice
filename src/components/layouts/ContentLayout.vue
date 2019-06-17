@@ -115,7 +115,7 @@ import {
 import MvForm from "../forms/Form.vue";
 
 export default {
-  name: "ContentLayout",
+  name: "MvContentLayout",
   inject: ["application"],
   components: {
     ElContainer,

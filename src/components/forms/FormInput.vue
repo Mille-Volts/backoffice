@@ -25,7 +25,7 @@ import { Input as ElInput } from "element-ui";
 import MvIcon from "../Icon.vue";
 
 export default {
-  name: "FormInput",
+  name: "MvFormInput",
   components: {
     ElInput,
     MvIcon

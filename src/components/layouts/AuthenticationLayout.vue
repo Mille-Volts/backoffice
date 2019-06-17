@@ -42,7 +42,7 @@ import MvPanel from "../Panel.vue";
 import MvGuestLogin from "../authentication/GuestLogin.vue";
 
 export default {
-  name: "AuthenticationLayout",
+  name: "MvAuthenticationLayout",
   inject: ["application"],
   components: {
     ElContainer,

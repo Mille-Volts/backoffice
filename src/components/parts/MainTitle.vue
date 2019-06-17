@@ -5,6 +5,12 @@
   ></div>
 </template>
 
+<script>
+export default {
+  name: "MvMainTitle"
+};
+</script>
+
 <style scoped lang="scss">
 @import "../../theme/_variables.scss";
 

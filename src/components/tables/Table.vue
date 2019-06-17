@@ -94,8 +94,8 @@
         </div>
         <div class="mv-table-limit">
           <slot name="limit">
-            <label
-              >Afficher :
+            <label>
+              Afficher :
               <mv-form-select
                 class="mv-table-limit_select"
                 size="mini"
@@ -128,7 +128,7 @@ import MvFormSelect from "../forms/FormSelect.vue";
 import MvTableColumn from "./TableColumn.vue";
 
 export default {
-  name: "Table",
+  name: "MvTable",
   components: {
     ElAlert,
     ElOption,

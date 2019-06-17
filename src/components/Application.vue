@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "Application",
+  name: "MvApplication",
   inject: ["authentication"],
   props: {
     layout: String,

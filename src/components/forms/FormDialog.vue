@@ -117,7 +117,7 @@
 import { Dialog as ElDialog } from "element-ui";
 
 export default {
-  name: "FormDialog",
+  name: "MvFormDialog",
   props: { title: String, visible: Boolean },
   components: {
     ElDialog

@@ -28,7 +28,7 @@ import {
 } from "element-ui";
 
 export default {
-  name: "Panel",
+  name: "MvPanel",
   components: {
     ElContainer,
     ElHeader,

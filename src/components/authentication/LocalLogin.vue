@@ -35,7 +35,7 @@ import MvForm from "../forms/Form.vue";
 import MvFormItem from "../forms/FormItem.vue";
 
 export default {
-  name: "LocalLogin",
+  name: "MvLocalLogin",
   inject: ["authentication"],
   components: {
     ElInput,

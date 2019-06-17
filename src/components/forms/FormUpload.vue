@@ -50,7 +50,7 @@ import MvButton from "../Button.vue";
 import MvIcon from "../Icon.vue";
 
 export default {
-  name: "FormUpload",
+  name: "MvFormUpload",
   inject: ["upload"],
   props: {
     folder: String,

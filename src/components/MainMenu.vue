@@ -47,7 +47,7 @@ import {
 } from "element-ui";
 
 export default {
-  name: "MainMenu",
+  name: "MvMainMenu",
   inject: ["application"],
   components: {
     ElMenu,

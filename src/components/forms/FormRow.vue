@@ -8,7 +8,7 @@
 import { Row as ElRow } from "element-ui";
 
 export default {
-  name: "FormRow",
+  name: "MvFormRow",
   components: {
     ElRow
   }

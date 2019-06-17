@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "Icon",
+  name: "MvIcon",
   props: {
     name: { type: String, required: true }
   }

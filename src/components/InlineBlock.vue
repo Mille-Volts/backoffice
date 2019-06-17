@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: "InlineBlock"
+  name: "MvInlineBlock"
 };
 </script>

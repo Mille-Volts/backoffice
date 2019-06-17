@@ -23,7 +23,7 @@
 import { FormItem as ElFormItem } from "element-ui";
 
 export default {
-  name: "FormItem",
+  name: "MvFormItem",
   components: {
     ElFormItem
   }

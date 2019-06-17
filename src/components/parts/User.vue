@@ -19,7 +19,7 @@ import MvButton from "../Button.vue";
 import MvIcon from "../Icon.vue";
 
 export default {
-  name: "User",
+  name: "MvUser",
   inject: ["user", "authentication", "application"],
   components: {
     MvButton,

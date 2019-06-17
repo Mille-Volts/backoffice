@@ -9,7 +9,7 @@ import { getUser, setUser, unsetUser } from "../../util/auth";
 */
 
 export default {
-  name: "AuthenticationProvider",
+  name: "MvAuthenticationProvider",
   props: {
     fetch: Function,
     login: Function,

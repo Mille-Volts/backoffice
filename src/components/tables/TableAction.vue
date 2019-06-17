@@ -31,7 +31,7 @@ import { DropdownMenu as ElDropdownMenu } from "element-ui";
 import MvButton from "../Button.vue";
 
 export default {
-  name: "TableAction",
+  name: "MvTableAction",
   components: {
     ElDropdownMenu,
     MvButton

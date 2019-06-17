@@ -8,7 +8,7 @@
 import { Select as ElSelect } from "element-ui";
 
 export default {
-  name: "FormSelect",
+  name: "MvFormSelect",
   components: {
     ElSelect
   }

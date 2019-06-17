@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: "Logo",
+  name: "MvLogo",
   props: {
     ratio: { type: Number, default: 1 },
     height: { type: Number, default: 76 },

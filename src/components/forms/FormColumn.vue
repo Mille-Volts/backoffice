@@ -8,7 +8,7 @@
 import { Col as ElCol } from "element-ui";
 
 export default {
-  name: "FormColumn",
+  name: "MvFormColumn",
   inject: ["application"],
   components: {
     ElCol

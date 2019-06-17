@@ -33,7 +33,7 @@ import { Button as ElButton } from "element-ui";
 import MvIcon from "./Icon.vue";
 
 export default {
-  name: "Button",
+  name: "MvButton",
   components: {
     ElButton,
     MvIcon

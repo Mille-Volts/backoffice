@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "Authorship",
+  name: "MvAuthorship",
   inject: ["application"]
 };
 </script>
