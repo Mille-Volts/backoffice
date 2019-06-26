@@ -1,5 +1,5 @@
 <template>
-  <form v-bind="$attrs" v-on="$listeners">
+  <mv-form v-bind="$attrs" v-on="$listeners">
     <el-dialog class="mv-formDialog" width="90%" :visible.sync="visible">
       <template slot="title">
         <el-header height="auto" class="mv-formDialog-header">
@@ -49,7 +49,7 @@
         </el-footer>
       </el-container>
     </el-dialog>
-  </form>
+  </mv-form>
 </template>
 
 <style lang="scss">
@@ -115,12 +115,14 @@
 
 <script>
 import { Dialog as ElDialog } from "element-ui";
+import MvForm from "./Form";
 
 export default {
   name: "MvFormDialog",
   props: { title: String, visible: Boolean },
   components: {
-    ElDialog
+    ElDialog,
+    MvForm
   },
 
   watch: {
