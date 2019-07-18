@@ -51,10 +51,10 @@ export default {
     };
   },
   methods: {
-    async tryLocalLogin(data) {
+    async tryLocalLogin() {
       this.isAuthenticating = true;
       try {
-        await this.authentication.login({ type: "local", ...data });
+        await this.authentication.login({ type: "local", ...this.data });
       } catch (err) {
         this.error = err.message;
       } finally {
