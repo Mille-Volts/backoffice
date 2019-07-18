@@ -74,4 +74,9 @@ img {
   @extend .inline-block;
 }
 
+.el-table .cell {
+  // Remove the break-all
+  word-break: initial !important;
+}
+
 @import "./typography.scss";
