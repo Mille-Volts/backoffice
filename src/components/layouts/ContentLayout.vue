@@ -143,7 +143,8 @@ export default {
   data() {
     return {
       groups: [],
-      tabActive: "0"
+      tabActive: "0",
+      updateMenuOnScroll: true
     };
   },
   computed: {
@@ -195,7 +196,13 @@ export default {
             350,
             {
               offset:
-                (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30
+                (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30,
+              onStart: () => {
+                this.updateMenuOnScroll = false;
+              },
+              onDone: () => {
+                this.updateMenuOnScroll = true;
+              }
             }
           );
         }
@@ -216,7 +223,13 @@ export default {
             350,
             {
               offset:
-                (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30
+                (this.noHeader ? 0 : -this.$refs.header.$el.offsetHeight) - 30,
+              onStart: () => {
+                this.updateMenuOnScroll = false;
+              },
+              onDone: () => {
+                this.updateMenuOnScroll = true;
+              }
             }
           );
         }, 50);
@@ -240,14 +253,24 @@ export default {
   },
   methods: {
     onScroll() {
-      if (!this.form) return;
-      // last group after the scroll + 2/3 of the screen
-      const yScroll = window.scrollY + (2 * window.innerHeight) / 3;
+      if (!this.form || !this.updateMenuOnScroll) return;
+      const maxScroll =
+        this.$refs.main.$el.clientHeight +
+        this.$refs.main.$el.offsetTop -
+        window.innerHeight;
+
+      const proportionnalScroll = window.scrollY / maxScroll;
+
       const groupsAndY = this.groups.map((group, index) => ({
         index: "" + index,
-        y: group.$el.offsetTop
+        y:
+          (group.$el.offsetTop - this.$refs.main.$el.offsetTop) /
+          this.$refs.main.$el.clientHeight
       }));
-      const currentGroup = groupsAndY.filter(({ y }) => y < yScroll);
+
+      const currentGroup = groupsAndY.filter(
+        ({ y }) => y <= proportionnalScroll
+      );
       const nextTabActive = currentGroup.length
         ? currentGroup[currentGroup.length - 1].index
         : "0";
