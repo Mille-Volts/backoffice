@@ -94,7 +94,7 @@ export default {
 .el-menu,
 .el-menu.el-menu--horizontal,
 .el-menu--horizontal .el-menu {
-  border: 0;
+  border-right: 0 !important;
   font-weight: $--font-weight-bold;
   .el-submenu .el-menu-item {
     background: lighten($--color-secondary-dark, 3%);
