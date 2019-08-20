@@ -1,6 +1,11 @@
 <template>
   <mv-form v-bind="$attrs" v-on="$listeners">
-    <el-dialog class="mv-formDialog" width="90%" :visible.sync="visible">
+    <el-dialog
+      class="mv-formDialog"
+      width="90%"
+      :visible="visible"
+      @update:visible="visible => $emit('update:visible', visible)"
+    >
       <template slot="title">
         <el-header height="auto" class="mv-formDialog-header">
           <div class="mv-formDialog-content">
@@ -123,12 +128,6 @@ export default {
   components: {
     ElDialog,
     MvForm
-  },
-
-  watch: {
-    visible(visible) {
-      this.$emit("update:visible", visible);
-    }
   }
 };
 </script>
