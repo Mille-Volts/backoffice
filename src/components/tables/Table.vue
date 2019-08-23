@@ -49,7 +49,7 @@
                 v-text="
                   results
                     ? results === 1
-                      ? `Un résultat`
+                      ? `1 résultat`
                       : `${results} résultats`
                     : `Aucun résultat`
                 "
@@ -244,7 +244,7 @@ export default {
   &-limit {
     flex: 1;
     text-align: right;
-    &-select {
+    &_select {
       width: 120px;
     }
   }
