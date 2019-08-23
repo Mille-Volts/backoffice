@@ -1,5 +1,7 @@
 //https://medium.com/justfrontendthings/how-to-create-and-publish-your-own-vuejs-component-library-on-npm-using-vue-cli-28e60943eed3
 //import Vue from "vue";
+export * from "./theme/index.scss";
+
 import Sticky from "vue-sticky-directive";
 import { Col } from "element-ui";
 import Router from "vue-router";
@@ -45,7 +47,6 @@ moment.locale("fr");
 
 export * from "./util/auth";
 export * from "./util/router";
-export * from "./theme/index.scss";
 
 export default {
   install: function(Vue) {
