@@ -1,5 +1,6 @@
 <template>
   <div class="mv-tableAction inline-block">
+    <!-- Button without menu [Button] -->
     <mv-button
       v-if="!$slots.menu"
       size="mini"
@@ -9,6 +10,27 @@
     >
       <slot></slot>
     </mv-button>
+    <!-- Button with menu and content : [Button|v] -->
+    <el-dropdown
+      v-else-if="$slots.default"
+      size="mini"
+      placement="top-end"
+      split-button
+      class="mv-button mv-button--has-text"
+      :class="{ 'mv-button--has-icon': !!$attrs.icon }"
+      v-bind="$attrs"
+      v-on="$listeners"
+    >
+      <mv-icon
+        :name="$attrs.icon"
+        class="mv-button-icon mv-button-icon--left mv-icon ti-pencil"
+      />
+      <slot />
+      <el-dropdown-menu class="mv-tableAction-dropdownMenu" slot="dropdown">
+        <slot name="menu"></slot>
+      </el-dropdown-menu>
+    </el-dropdown>
+    <!-- Button with only menu : [...] -->
     <el-dropdown v-else size="mini" placement="top-end" :show-timeout="0">
       <mv-button
         size="mini"
