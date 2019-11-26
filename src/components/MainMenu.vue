@@ -5,7 +5,7 @@
     :router="true"
     :default-active="currentPathActive"
   >
-    <template v-for="(item, i) in routes">
+    <template v-for="(item, i) in authorizedRoutes">
       <el-submenu
         v-if="getDisplayedChildren(item).length"
         :key="`${item.path}-${i}`"
@@ -45,6 +45,7 @@ import {
   Submenu as ElSubmenu,
   MenuItem as ElMenuItem
 } from "element-ui";
+import { hasUser, getUser } from "../util/auth";
 
 export default {
   name: "MvMainMenu",
@@ -73,16 +74,30 @@ export default {
   computed: {
     currentPathActive() {
       return this.$route.path;
+    },
+    authorizedRoutes() {
+      return this.filterAuthorized(this.routes);
     }
   },
   methods: {
     getName({ meta, name, path }) {
       return (meta && meta.label) || name || path;
     },
+    isAuthorized({ meta }) {
+      if (!meta) return true;
+      if (meta.menu === false) return false;
+      if (meta.auth) {
+        if (meta.checkPermissions) return meta.checkPermissions(getUser());
+        else return hasUser();
+      }
+
+      return true;
+    },
+    filterAuthorized(array) {
+      return array ? array.filter(this.isAuthorized) : [];
+    },
     getDisplayedChildren({ children }) {
-      return children
-        ? children.filter(({ meta }) => !meta || meta.menu !== false)
-        : [];
+      return this.filterAuthorized(children);
     }
   }
 };
