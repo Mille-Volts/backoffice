@@ -38,7 +38,7 @@
         type="selection"
         width="55"
       ></mv-table-column>
-      <slot></slot>
+      <slot v-for="(_, name) in $slots" :name="name" :slot="name" />
     </el-table>
     <div v-if="!noFooter" class="mv-table-footer">
       <slot name="footer">
