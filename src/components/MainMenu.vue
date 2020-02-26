@@ -21,8 +21,10 @@
           :key="`${subItem.path}-${si}`"
           :index="`${item.path}/${subItem.path}`"
           :disabled="subItem.disabled"
-          v-text="getName(subItem)"
-        ></el-menu-item>
+        >
+          <mv-icon v-if="!!subItem.meta.icon" :name="subItem.meta.icon" />
+          <span>{{ getName(subItem) }}</span>
+        </el-menu-item>
       </el-submenu>
       <el-menu-item
         v-else
@@ -73,7 +75,8 @@ export default {
   },
   computed: {
     currentPathActive() {
-      return this.$route.path;
+      const pathsLevels = this.$route.path.split("/");
+      return pathsLevels.slice(0, 3).join("/");
     },
     authorizedRoutes() {
       return this.filterAuthorized(this.routes);
