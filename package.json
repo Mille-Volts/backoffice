@@ -1,6 +1,6 @@
 {
   "name": "@millevolts/backoffice",
-  "version": "0.7.6",
+  "version": "0.7.7",
   "description": "",
   "main": "lib/backoffice.common.js",
   "module": "src/index.js",
