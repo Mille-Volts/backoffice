@@ -17,8 +17,7 @@
     <template v-if="$slots.trigger" v-slot:trigger>
       <slot name="trigger"></slot>
     </template>
-    <template v-if="$slots.tip" v-slot:tip="tipProps">
-      {JSON.stringify(tipProps)}
+    <template v-if="$slots.tip" v-slot:tip>
       <slot name="tip"></slot>
     </template>
     <slot>
@@ -69,7 +68,8 @@ export default {
     multiple: Boolean,
     disabled: Boolean,
     required: Boolean,
-    limit: Number
+    limit: Number,
+    tip: Object
   },
   components: {
     ElUpload,

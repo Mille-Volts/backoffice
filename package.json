@@ -2,19 +2,61 @@
   "name": "@millevolts/backoffice",
   "version": "0.7.7",
   "description": "",
-  "main": "lib/backoffice.common.js",
-  "module": "src/index.js",
+  "author": "Mille Volts - https://www.millevolts.fr",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "serve": "vue-cli-service serve example/main.js",
-    "predeploy": "BUILD_TARGET=app vue-cli-service build --dest dist example/main.js",
-    "deploy": "firebase deploy",
     "build": "BUILD_TARGET=lib vue-cli-service build --dest lib --target lib --formats commonjs --name backoffice src/index.js",
     "lint": "vue-cli-service lint",
+    "deploy": "firebase deploy",
     "dev": "npm run serve",
-    "vue": "vue",
+    "postversion": "git push && git push --tags",
+    "predeploy": "BUILD_TARGET=app vue-cli-service build --dest dist example/main.js",
     "prepublish": "npm run lint && npm run build",
     "preversion": "npm run lint",
-    "postversion": "git push && git push --tags"
+    "vue": "vue"
+  },
+  "main": "lib/backoffice.common.js",
+  "module": "src/index.js",
+  "files": [
+    "lib/*",
+    "src/*",
+    "example/*",
+    "*.json",
+    "*.js"
+  ],
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "element-ui": "^2.13.0",
+    "moment": "^2.24.0",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6",
+    "vue-scrollto": "^2.17.1",
+    "vue-sticky-directive": "0.0.10",
+    "vuex": "^3.1.3"
+  },
+  "devDependencies": {
+    "@vue/cli": "^4.3.1",
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
+    "@vue/cli-service-global": "^4.3.1",
+    "@vue/eslint-config-prettier": "^4.0.1",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.6.4",
+    "eslint": "^6.8.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "fibers": "^4.0.2",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "resolutions": {
+    "minimist": "^1.2.5"
+  },
+  "peerDependencies": {
+    "element-ui": "^2.13.0"
   },
   "eslintConfig": {
     "root": true,
@@ -23,42 +65,5 @@
       "@vue/prettier"
     ]
   },
-  "files": [
-    "lib/*",
-    "src/*",
-    "example/*",
-    "*.json",
-    "*.js"
-  ],
-  "author": "Mille Volts - https://www.millevolts.fr",
-  "license": "ISC",
-  "peerDependencies": {
-    "element-ui": "^2.9.1"
-  },
-  "dependencies": {
-    "element-ui": "^2.13.0",
-    "moment": "^2.24.0",
-    "vue": "^2.6.11",
-    "vue-router": "^3.1.5",
-    "vue-scrollto": "^2.17.1",
-    "vue-sticky-directive": "0.0.8",
-    "vuex": "^3.1.2"
-  },
-  "devDependencies": {
-    "@vue/cli": "^3.12.1",
-    "@vue/cli-plugin-babel": "^3.12.1",
-    "@vue/cli-plugin-eslint": "^4.3.1",
-    "@vue/cli-service": "^4.3.1",
-    "@vue/cli-service-global": "^4.3.1",
-    "@vue/eslint-config-prettier": "^4.0.1",
-    "babel-eslint": "^10.1.0",
-    "core-js": "^3.6.4",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.2.3",
-    "fibers": "^4.0.2",
-    "sass": "^1.26.3",
-    "sass-loader": "^7.3.1",
-    "vue-template-compiler": "^2.6.11",
-    "webpack-node-externals": "^1.7.2"
-  }
+  "license": "ISC"
 }
