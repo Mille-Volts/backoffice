@@ -57,7 +57,6 @@ export default {
     async doLogin({ type, ...data }) {
       const fnLogin = this.login || this.loginDefault;
       await fnLogin({ type, ...data });
-      this.doSetUser(data, type);
     },
     loginDefault({ type, ...data }) {
       switch (type) {
