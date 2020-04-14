@@ -15,29 +15,14 @@
       </slot>
     </el-header>
     <el-main class="mv-panel-main">
-      <slot v-if="!$slots.aside"></slot>
-      <mv-row v-else class="mv-panel-aside-container">
-        <el-col
-          class="mv-panel-aside"
-          :span="8"
-          :xs="24"
-          :sm="24"
-          :md="8"
-          :lg="8"
-        >
-          <slot name="aside"></slot>
-        </el-col>
-        <el-col
-          :span="16"
-          :xs="24"
-          :sm="24"
-          :md="16"
-          :lg="16"
-          class="mv-panel-content"
-        >
+      <el-container>
+        <el-col>
           <slot></slot>
         </el-col>
-      </mv-row>
+        <el-aside v-if="$slots.aside" class="mv-panel-aside" width="33.3333%">
+          <slot name="aside"></slot>
+        </el-aside>
+      </el-container>
     </el-main>
   </el-container>
 </template>
@@ -46,7 +31,8 @@
 import {
   Container as ElContainer,
   Header as ElHeader,
-  Main as ElMain
+  Main as ElMain,
+  Aside as ElAside
 } from "element-ui";
 
 export default {
@@ -54,7 +40,8 @@ export default {
   components: {
     ElContainer,
     ElHeader,
-    ElMain
+    ElMain,
+    ElAside
   },
   props: {
     title: String,
@@ -99,36 +86,9 @@ export default {
     }
   }
 
-  &-aside-container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  &-content {
-    padding-top: 20px;
-  }
-
   &-aside {
-    border-bottom: 1px solid #dcdfe6;
-    padding-bottom: 20px;
-  }
-
-  @media only screen and (min-width: 992px) {
-    &-aside-container {
-      flex-direction: row-reverse;
-    }
-
-    &-content {
-      padding-right: 20px;
-      padding-top: 0;
-    }
-
-    &-aside {
-      border-left: 1px solid #dcdfe6;
-      padding-left: 20px;
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
+    border-left: 1px solid #dcdfe6;
+    padding-left: 20px;
   }
 }
 </style>
