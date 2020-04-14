@@ -15,7 +15,29 @@
       </slot>
     </el-header>
     <el-main class="mv-panel-main">
-      <slot></slot>
+      <slot v-if="!$slots.aside"></slot>
+      <mv-row v-else class="mv-panel-aside-container">
+        <el-col
+          class="mv-panel-aside"
+          :span="8"
+          :xs="24"
+          :sm="24"
+          :md="8"
+          :lg="8"
+        >
+          <slot name="aside"></slot>
+        </el-col>
+        <el-col
+          :span="16"
+          :xs="24"
+          :sm="24"
+          :md="16"
+          :lg="16"
+          class="mv-panel-content"
+        >
+          <slot></slot>
+        </el-col>
+      </mv-row>
     </el-main>
   </el-container>
 </template>
@@ -74,6 +96,38 @@ export default {
     }
     hr {
       margin: $--margin 0;
+    }
+  }
+
+  &-aside-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-content {
+    padding-top: 20px;
+  }
+
+  &-aside {
+    border-bottom: 1px solid #dcdfe6;
+    padding-bottom: 20px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    &-aside-container {
+      flex-direction: row-reverse;
+    }
+
+    &-content {
+      padding-right: 20px;
+      padding-top: 0;
+    }
+
+    &-aside {
+      border-left: 1px solid #dcdfe6;
+      padding-left: 20px;
+      border-bottom: 0;
+      padding-bottom: 0;
     }
   }
 }

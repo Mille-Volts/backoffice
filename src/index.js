@@ -42,6 +42,8 @@ import MvTableAction from "./components/tables/TableAction.vue";
 import MvTableColumn from "./components/tables/TableColumn.vue";
 
 import Row from "./components/Row.vue";
+import Column from "./components/Column.vue";
+import Item from "./components/Item.vue";
 
 moment.locale("fr");
 
@@ -49,12 +51,16 @@ export * from "./util/auth";
 export * from "./util/router";
 
 export default {
-  install: function(Vue) {
+  install: function (Vue) {
     Vue.use(Router);
     Vue.use(Sticky);
 
     Vue.component("row", Row);
     Vue.component("column", Col);
+
+    Vue.component("MvRow", Row);
+    Vue.component("MvColumn", Column);
+    Vue.component("MvItem", Item);
 
     Vue.component("MvAuthenticationLayout", MvAuthenticationLayout);
     Vue.component("MvContentLayout", MvContentLayout);
