@@ -1,5 +1,6 @@
 <template>
   <component
+    ref="form"
     :is="parentComponent"
     class="mv-contentLayout"
     :class="{
@@ -148,6 +149,13 @@ export default {
     };
   },
   computed: {
+    formComponent() {
+      if (!this.form)
+        throw Error(
+          "Content layout is not a form. Please provide the form prop."
+        );
+      return this.$refs.form;
+    },
     parentComponent() {
       if (this.form) return "mv-form";
       return "div";
