@@ -83,7 +83,6 @@ export default {
       return this.filterAuthorized(this.routes);
     },
     defaultOpeneds() {
-      console.log({ r: this.routes });
       return this.routes
         .filter(({ meta }) => meta.opened)
         .map(({ path }) => path);
