@@ -14,7 +14,7 @@
       ></slot>
     </template>
     <template v-if="$scopedSlots.default" v-slot:default="slotProps">
-      <slot :row="slotProps.row" :column="slotProps.column"></slot>
+      <slot v-bind="slotProps"></slot>
     </template>
   </el-table-column>
 </template>
