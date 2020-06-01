@@ -16,9 +16,9 @@
     </el-header>
     <el-main class="mv-panel-main">
       <el-container>
-        <el-col>
+        <div style="flex:1">
           <slot></slot>
-        </el-col>
+        </div>
         <el-aside v-if="$slots.aside" class="mv-panel-aside" width="33.3333%">
           <slot name="aside"></slot>
         </el-aside>
