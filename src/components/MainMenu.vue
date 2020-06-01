@@ -4,6 +4,7 @@
     :mode="application.layout"
     :router="true"
     :default-active="currentPathActive"
+    :default-openeds="defaultOpeneds"
   >
     <template v-for="(item, i) in authorizedRoutes">
       <el-submenu
@@ -45,7 +46,7 @@
 import {
   Menu as ElMenu,
   Submenu as ElSubmenu,
-  MenuItem as ElMenuItem
+  MenuItem as ElMenuItem,
 } from "element-ui";
 import { hasUser, getUser } from "../util/auth";
 
@@ -55,10 +56,10 @@ export default {
   components: {
     ElMenu,
     ElSubmenu,
-    ElMenuItem
+    ElMenuItem,
   },
   props: {
-    routes: Array
+    routes: Array,
     /*
     {
       path: "/path-to-url",
@@ -80,7 +81,13 @@ export default {
     },
     authorizedRoutes() {
       return this.filterAuthorized(this.routes);
-    }
+    },
+    defaultOpeneds() {
+      console.log({ r: this.routes });
+      return this.routes
+        .filter(({ meta }) => meta.opened)
+        .map(({ path }) => path);
+    },
   },
   methods: {
     getName({ meta, name, path }) {
@@ -101,8 +108,8 @@ export default {
     },
     getDisplayedChildren({ children }) {
       return this.filterAuthorized(children);
-    }
-  }
+    },
+  },
 };
 </script>
 
