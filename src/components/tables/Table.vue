@@ -44,7 +44,7 @@
       <slot name="footer">
         <div class="mv-table-results">
           <slot name="results">
-            <span v-if="total">
+            <span v-if="total !== undefined">
               <strong
                 v-text="
                   results
@@ -54,17 +54,18 @@
                     : `Aucun résultat`
                 "
               ></strong>
-              /
-              <span v-text="`${total} au total`"></span>
+              <span v-text="total ? ` / ${total} au total` : ``"></span>
             </span>
             <span v-else>
               <strong
+                v-if="data.length > 0"
                 v-text="
                   `Résultats de ${limit * (page - 1) + 1} à ${limit *
                     (page - 1) +
                     Math.min(limit, data.length)}`
                 "
-              ></strong>
+              />
+              <strong v-else>Aucun résultat</strong>
             </span>
           </slot>
         </div>
