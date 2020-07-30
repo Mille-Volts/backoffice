@@ -17,27 +17,34 @@
           <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon" />
           <span>{{ getName(item) }}</span>
         </template>
-        <el-menu-item
+        <router-link
           v-for="(subItem, si) in getDisplayedChildren(item)"
           :key="`${subItem.path}-${si}`"
-          :index="`${item.path}/${subItem.path}`"
-          :disabled="subItem.disabled"
+          :to="`${item.path}/${subItem.path}`"
+          class="router-link-menu"
         >
-          <mv-icon v-if="!!subItem.meta.icon" :name="subItem.meta.icon" />
-          <span>{{ getName(subItem) }}</span>
-        </el-menu-item>
+          <el-menu-item
+            :index="`${item.path}/${subItem.path}`"
+            :disabled="subItem.disabled"
+          >
+            <mv-icon v-if="!!subItem.meta.icon" :name="subItem.meta.icon" />
+            <span>{{ getName(subItem) }}</span>
+          </el-menu-item>
+        </router-link>
       </el-submenu>
-      <el-menu-item
+      <router-link
         v-else
         :key="`${item.path}-${i}`"
-        :index="item.path"
-        :disabled="item.disabled"
+        :to="item.path"
+        class="router-link-menu"
       >
-        <template v-slot:title>
-          <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon" />
-          <span>{{ getName(item) }}</span>
-        </template>
-      </el-menu-item>
+        <el-menu-item :index="item.path" :disabled="item.disabled">
+          <template v-slot:title>
+            <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon" />
+            <span>{{ getName(item) }}</span>
+          </template>
+        </el-menu-item>
+      </router-link>
     </template>
   </el-menu>
 </template>
@@ -114,6 +121,13 @@ export default {
 
 <style lang="scss">
 @import "../theme/_variables.scss";
+
+.router-link-menu {
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+}
 
 .el-menu,
 .el-menu.el-menu--horizontal,
