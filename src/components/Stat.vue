@@ -155,7 +155,7 @@ export default {
   }
 
   .el-badge__content.is-fixed {
-    // Otherwise it tends to go outside bounds
+    /* Otherwise it tends to go outside bounds */
     right: -15px;
     transform: translateY(-50%) translateX(0);
   }

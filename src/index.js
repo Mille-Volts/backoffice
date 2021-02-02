@@ -51,7 +51,7 @@ export * from "./util/auth";
 export * from "./util/router";
 
 export default {
-  install: function (Vue) {
+  install: function(Vue) {
     Vue.use(Router);
     Vue.use(Sticky);
 

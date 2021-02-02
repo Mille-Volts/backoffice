@@ -39,17 +39,17 @@ img {
 }
 
 .el-radio {
-  // Makes the radio buttons as high as the other fields
+  /* Makes the radio buttons as high as the other fields */
   line-height: 20px;
   padding: 10px 0;
 }
 
-// Sets the style and margins of the labels
+/* Sets the style and margins of the labels */
 .el-form-item__label {
   color: #5b738c;
   line-height: 120%;
   .el-form--inline & {
-    line-height: 40px; // To stay aligned with form fields
+    line-height: 40px; /* To stay aligned with form fields */
   }
   .el-form-item.is-required & {
     font-weight: 600;
@@ -66,7 +66,7 @@ img {
 }
 
 .el-slider {
-  // Adds a tiny space so that the handle is in the box
+  /* Adds a tiny space so that the handle is in the box */
   margin: 0 10px;
 }
 
@@ -75,7 +75,7 @@ img {
 }
 
 .el-table .cell {
-  // Remove the break-all
+  /* Remove the break-all */
   word-break: initial !important;
 }
 

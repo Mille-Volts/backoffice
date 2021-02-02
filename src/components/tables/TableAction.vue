@@ -70,7 +70,7 @@ export default {
 .mv-tableAction {
   &-dropdownMenu {
     .popper__arrow {
-      // Generates a scrollbar :(
+      /* Generates a scrollbar :( */
       display: none;
     }
   }

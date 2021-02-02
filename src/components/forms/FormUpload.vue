@@ -136,11 +136,11 @@ export default {
 .mv-formUpload {
   &--cannot-upload {
     .el-upload__input {
-      // Prevent uploading by hiding the input file
+      /* Prevent uploading by hiding the input file */
       display: none;
     }
     .el-upload {
-      // Hides the button
+      /* Hides the button */
       display: none;
     }
     &.mv-formUpload--picture-card .el-upload {
