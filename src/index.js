@@ -25,6 +25,7 @@ import MvMainMenu from "./components/MainMenu.vue";
 import MvPanel from "./components/Panel.vue";
 import MvQuickAction from "./components/QuickAction.vue";
 import MvStat from "./components/Stat.vue";
+import MvSwitch from "./components/Switch.vue";
 
 import MvForm from "./components/forms/Form.vue";
 import MvFormColumn from "./components/forms/FormColumn.vue";
@@ -80,6 +81,7 @@ export default {
     Vue.component("MvPanel", MvPanel);
     Vue.component("MvQuickAction", MvQuickAction);
     Vue.component("MvStat", MvStat);
+    Vue.component("MvSwitch", MvSwitch);
 
     Vue.component("MvForm", MvForm);
     Vue.component("MvFormColumn", MvFormColumn);
@@ -95,5 +97,5 @@ export default {
     Vue.component("MvTable", MvTable);
     Vue.component("MvTableAction", MvTableAction);
     Vue.component("MvTableColumn", MvTableColumn);
-  }
+  },
 };
