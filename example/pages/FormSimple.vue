@@ -1,26 +1,43 @@
 <template>
-  <mv-content-layout :form="form" :with-tabs="false" @submit="submitForm" v-loading="loading">
+  <mv-content-layout
+    :form="form"
+    :with-tabs="false"
+    @submit="submitForm"
+    v-loading="loading"
+  >
     <template v-slot:actions>
-      <mv-button ghost icon="arrow-left" @click="$router.back()">Annuler</mv-button>
-      <mv-button success icon-right="check" type="submit">Enregistrer</mv-button>
+      <mv-button ghost icon="arrow-left" @click="$router.back()"
+        >Annuler</mv-button
+      >
+      <mv-button success icon-right="check" type="submit"
+        >Enregistrer</mv-button
+      >
     </template>
 
     <mv-form-group title="Groupe de champs">
       <template v-slot:description>
         <p>Ma description</p>
-        <hr>
-        <el-switch v-model="form.published" active-text="Publié"/>
+        <hr />
+        <el-switch v-model="form.published" active-text="Publié" />
       </template>
       <mv-panel>
         <mv-form-row>
           <mv-form-column>
             <mv-form-item label="Slider" required>
-              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
+              <el-slider
+                v-model="form.radio"
+                :show-tooltip="false"
+                :max="3"
+              ></el-slider>
             </mv-form-item>
           </mv-form-column>
           <mv-form-column>
             <mv-form-item label="Input number">
-              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
+              <el-input-number
+                v-model="form.radio"
+                :min="0"
+                :max="3"
+              ></el-input-number>
             </mv-form-item>
           </mv-form-column>
         </mv-form-row>
@@ -40,6 +57,15 @@
             </column>
           </row>
         </mv-form-item>
+        <mv-form-item label="Bouton switch">
+          <mv-switch
+            :options="[
+              { value: true, label: 'Oui' },
+              { value: false, label: 'Non' },
+              { value: 'unknown', label: 'Inconnu', icon: 'alert' },
+            ]"
+          />
+        </mv-form-item>
         <mv-button icon="wand" primary>Primaire</mv-button>
         <mv-button icon-right="desktop" secondary>Secondaire</mv-button>
         <mv-button icon-left="lock" icon-right="save">Facultatif</mv-button>
@@ -49,8 +75,8 @@
     <mv-form-group v-if="form.radio < 2" title="Mon groupe de champs 3">
       <template v-slot:description>
         <p>Ma description</p>
-        <hr>
-        <el-switch v-model="form.published" active-text="Publié"/>
+        <hr />
+        <el-switch v-model="form.published" active-text="Publié" />
       </template>
       <mv-panel>
         <template v-slot:actions>
@@ -60,12 +86,20 @@
         <mv-form-row>
           <mv-form-column>
             <mv-form-item label="Slider" required>
-              <el-slider v-model="form.radio" :show-tooltip="false" :max="3"></el-slider>
+              <el-slider
+                v-model="form.radio"
+                :show-tooltip="false"
+                :max="3"
+              ></el-slider>
             </mv-form-item>
           </mv-form-column>
           <mv-form-column>
             <mv-form-item label="Input number">
-              <el-input-number v-model="form.radio" :min="0" :max="3"></el-input-number>
+              <el-input-number
+                v-model="form.radio"
+                :min="0"
+                :max="3"
+              ></el-input-number>
             </mv-form-item>
           </mv-form-column>
         </mv-form-row>
@@ -97,8 +131,8 @@ export default {
       loading: false,
       form: {
         published: false,
-        radio: 0
-      }
+        radio: 0,
+      },
     };
   },
   methods: {
@@ -111,10 +145,10 @@ export default {
           title: "Formulaire validé",
           message: `Le formulaire a été validé, merci (${JSON.stringify(
             data
-          )}).`
+          )}).`,
         });
       }, 1500);
-    }
-  }
+    },
+  },
 };
 </script>
