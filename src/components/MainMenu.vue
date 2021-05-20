@@ -15,7 +15,13 @@
       >
         <template v-slot:title>
           <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon" />
-          <span>{{ getName(item) }}</span>
+          <component
+            :is="item.meta.labelComponent"
+            v-if="item.meta.labelComponent"
+            :defaultLabel="getName(item)"
+            :item="item"
+          />
+          <span v-else>{{ getName(item) }}</span>
         </template>
         <el-menu-item
           v-for="(subItem, si) in getDisplayedChildren(item)"
@@ -24,7 +30,13 @@
           :disabled="subItem.disabled"
         >
           <mv-icon v-if="!!subItem.meta.icon" :name="subItem.meta.icon" />
-          <span>{{ getName(subItem) }}</span>
+          <component
+            :is="subItem.meta.labelComponent"
+            v-if="subItem.meta.labelComponent"
+            :defaultLabel="getName(subItem)"
+            :item="subItem"
+          />
+          <span v-else>{{ getName(subItem) }}</span>
         </el-menu-item>
       </el-submenu>
       <el-menu-item
@@ -35,7 +47,13 @@
       >
         <template v-slot:title>
           <mv-icon v-if="!!item.meta.icon" :name="item.meta.icon" />
-          <span>{{ getName(item) }}</span>
+          <component
+            :is="item.meta.labelComponent"
+            v-if="item.meta.labelComponent"
+            :defaultLabel="getName(item)"
+            :item="item"
+          />
+          <span v-else>{{ getName(item) }}</span>
         </template>
       </el-menu-item>
     </template>
@@ -46,7 +64,7 @@
 import {
   Menu as ElMenu,
   Submenu as ElSubmenu,
-  MenuItem as ElMenuItem
+  MenuItem as ElMenuItem,
 } from "element-ui";
 import { hasUser, getUser } from "../util/auth";
 
@@ -56,10 +74,10 @@ export default {
   components: {
     ElMenu,
     ElSubmenu,
-    ElMenuItem
+    ElMenuItem,
   },
   props: {
-    routes: Array
+    routes: Array,
     /*
     {
       path: "/path-to-url",
@@ -86,7 +104,7 @@ export default {
       return this.routes
         .filter(({ meta }) => meta.opened)
         .map(({ path }) => path);
-    }
+    },
   },
   methods: {
     getName({ meta, name, path }) {
@@ -107,8 +125,8 @@ export default {
     },
     getDisplayedChildren({ children }) {
       return this.filterAuthorized(children);
-    }
-  }
+    },
+  },
 };
 </script>
 
