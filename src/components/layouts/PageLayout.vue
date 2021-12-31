@@ -45,11 +45,13 @@
           <mv-user></mv-user>
         </slot>
       </div>
+      <slot name="above-menu" />
       <div class="mv-page-menu">
         <slot name="menu">
           <mv-main-menu :routes="routes"></mv-main-menu>
         </slot>
       </div>
+      <slot name="below-menu" />
       <div class="mv-page-author">
         <slot name="author">
           <mv-authorship />
@@ -79,7 +81,7 @@ import {
   Header as ElHeader,
   Aside as ElAside,
   Main as ElMain,
-  Footer as ElFooter
+  Footer as ElFooter,
 } from "element-ui";
 import MvAuthorship from "../parts/Authorship.vue";
 import MvLogo from "../parts/Logo.vue";
@@ -101,12 +103,12 @@ export default {
     MvLogo,
     MvUser,
     MvMainTitle,
-    MvMainMenu
+    MvMainMenu,
   },
   computed: {
     routes() {
       return this.findRoot(this.application.routes) || this.application.routes;
-    }
+    },
   },
   methods: {
     findRoot(routes) {
@@ -119,8 +121,8 @@ export default {
       );
       if (!childRoutes.length) return null;
       return this.findRoot(childRoutes);
-    }
-  }
+    },
+  },
 };
 </script>
 
