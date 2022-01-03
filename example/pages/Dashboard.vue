@@ -120,7 +120,7 @@
             </strong>
             description de la statistique
           </mv-stat>
-          <hr />
+          <hr class="extended" />
           <mv-stat icon="flag-alt-2" primary>
             <strong>1 423,00 €</strong>
             sur le dernier mois
@@ -155,7 +155,7 @@
               </mv-stat>
             </column>
           </row>
-          <hr />
+          <hr class="extended" />
           <p>Paragraphe de texte</p>
         </mv-panel>
       </column>

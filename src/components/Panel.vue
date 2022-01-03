@@ -32,7 +32,7 @@ import {
   Container as ElContainer,
   Header as ElHeader,
   Main as ElMain,
-  Aside as ElAside
+  Aside as ElAside,
 } from "element-ui";
 
 export default {
@@ -41,12 +41,12 @@ export default {
     ElContainer,
     ElHeader,
     ElMain,
-    ElAside
+    ElAside,
   },
   props: {
     title: String,
-    noPadding: Boolean
-  }
+    noPadding: Boolean,
+  },
 };
 </script>
 
@@ -60,8 +60,7 @@ export default {
   &-header {
     &.el-header {
       border-bottom: 1px solid $--border-color-base;
-      margin: 0 $--card-padding;
-      padding: $--card-padding/2 0;
+      padding: $--card-padding/2 $--card-padding;
     }
   }
   &-title {
